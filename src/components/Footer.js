@@ -8,7 +8,6 @@ const styles = {
   },
 };
 
-//BUG: when you click on a navbar item and then a footer item, they render on the page together. need to have one or the other render on the page.
 function Footer({ currentPage, handlePageChange }) {
   return (
     <footer>
