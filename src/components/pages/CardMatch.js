@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import Card from "./Card";
-import cardsArray from "../../components/cardsArray";
+import cardsArray from "../cardsArray";
 
 const styles = {
   img: {
@@ -10,7 +10,11 @@ const styles = {
   },
 };
 
-export function CardMatch({ cardArray }) {
+export function CardMatch() {
+  // useState to set choiceOne
+  // useState to set choiceTwo
+  // useState to set
+
   // const consoleClick = () => {
   //   console.log({eachCard.type});
   // };
@@ -28,7 +32,7 @@ export function CardMatch({ cardArray }) {
       <h1>this is the cardmatch game</h1>
       {cardsArray.map((eachCard) => (
         <div className="col-3">
-          <a onClick={() => console.log(eachCard.type)} href="#">
+          <a onClick={() => console.log(eachCard.type)} href="#value">
             <img
               style={styles.img}
               src={eachCard.image}
