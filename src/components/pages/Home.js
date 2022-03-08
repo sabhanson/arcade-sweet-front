@@ -7,9 +7,6 @@ export function Home() {
   const [currentPage, setCurrentPage] = useState("Home");
 
   const renderPage = () => {
-    // if (currentPage === "Home") {
-    //   return <Home />;
-    // }
     if (currentPage === "CardMatch") {
       return <CardMatch />;
     }

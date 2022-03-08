@@ -11,33 +11,41 @@ const styles = {
 };
 
 export function CardMatch({ cardArray }) {
+  // const consoleClick = () => {
+  //   console.log({eachCard.type});
+  // };
+
+  // run a function to allow for 2 clicks, and read the type on eachCard for both clicks. compare the types for a match or !match
+  // const timeout = useRef(null);
+
+  // timer for card flip
+  // timeout.current = setTimeout(() => {
+  //   setOpenCards([]);
+  // }, 500);
+
   return (
     <div className="d-flex row">
       <h1>this is the cardmatch game</h1>
       {cardsArray.map((eachCard) => (
         <div className="col-3">
-          <img
-            style={styles.img}
-            src={eachCard.image}
-            alt="pic of la croix can"
-          ></img>
+          <a onClick={() => console.log(eachCard.type)} href="#">
+            <img
+              style={styles.img}
+              src={eachCard.image}
+              alt="pic of la croix can"
+            ></img>
+          </a>
         </div>
       ))}
     </div>
   );
 }
 
-// need to get all of our card images
-
 // need a background image
+
 // need to have a timer running once the game start button is clicked
 // function to compare if card 1 and card 2 are the same or different
 // settimeout for flipping the cards, give the user long enough to see the cards
-
-// timer for card flip
-// timeout.current = setTimeout(() => {
-//   setOpenCards([]);
-// }, 500);
 
 // if the cards match, have the cards fade into the background
 // if the cards don't match, flip back over after x seconds
