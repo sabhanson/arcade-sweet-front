@@ -1,12 +1,21 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const styles = {
+  nav: {
+    background: "#2E294E",
+  },
+  h1: {
+    color: "white",
+  },
+};
+
 function Navigation({ currentPage, handlePageChange }) {
   return (
-    <nav>
-      <h1>this is the navigation</h1>
+    <nav style={styles.nav}>
+      <h1 style={styles.h1}>arcade sweet</h1>
       <ul className="row navbar nav nav-tabs">
-        <li className="nav-item col-sm-12 col-md-3">
+        <li className="nav-item col-sm-12 col-md-2">
           <a
             href="#home"
             onClick={() => handlePageChange("Home")}
@@ -15,7 +24,7 @@ function Navigation({ currentPage, handlePageChange }) {
             HOME
           </a>
         </li>
-        <li className="nav-item col-sm-12 col-md-3">
+        <li className="nav-item col-sm-12 col-md-2">
           <a
             href="#reviews"
             onClick={() => handlePageChange("Reviews")}
@@ -26,7 +35,7 @@ function Navigation({ currentPage, handlePageChange }) {
             REVIEWS
           </a>
         </li>
-        <li className="nav-item col-sm-12 col-md-3">
+        <li className="nav-item col-sm-12 col-md-2">
           <a
             href="#featured-game"
             onClick={() => handlePageChange("Featured")}
@@ -37,7 +46,7 @@ function Navigation({ currentPage, handlePageChange }) {
             FEATURED
           </a>
         </li>
-        <li className="nav-item col-sm-12 col-md-3">
+        <li className="nav-item col-sm-12 col-md-2">
           <a
             href="#game-guides"
             onClick={() => handlePageChange("Game Guides")}
@@ -48,7 +57,7 @@ function Navigation({ currentPage, handlePageChange }) {
             GAME GUIDES
           </a>
         </li>
-        <li className="nav-item col-sm-12 col-md-3">
+        <li className="nav-item col-sm-12 col-md-2">
           <a
             href="#highscores"
             onClick={() => handlePageChange("Highscores")}
