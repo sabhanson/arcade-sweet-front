@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import logo from "../images/logo.png";
 
 const styles = {
   nav: {
@@ -8,12 +9,46 @@ const styles = {
   h1: {
     color: "white",
   },
+  imgDiv: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  img: {
+    borderRadius: "50%",
+    marginTop: "30px",
+    width: "50px",
+  },
+  logo: {
+    width: "100px",
+    height: "auto",
+  },
 };
 
 function Navigation({ currentPage, handlePageChange }) {
   return (
     <nav style={styles.nav}>
-      <h1 style={styles.h1}>arcade sweet</h1>
+      <div style={styles.imgDiv}>
+        <a
+          src="#"
+          href="#home"
+          alt="alt tag"
+          onClick={() => handlePageChange("Home")}
+        >
+          <img src={logo} style={styles.logo} alt="logo" />
+        </a>
+        <a
+          src="#"
+          href="#profile"
+          alt="alt tag"
+          onClick={() => handlePageChange("Profile")}
+        >
+          <img
+            style={styles.img}
+            alt="profile pic"
+            src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
+          ></img>
+        </a>
+      </div>
       <ul className="row navbar nav nav-tabs">
         <li className="nav-item col-sm-12 col-md-2">
           <a
