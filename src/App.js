@@ -10,6 +10,7 @@ import Reviews from "./components/pages/Reviews";
 import FeaturedGame from "./components/pages/FeaturedGame";
 import GameGuide from "./components/pages/GameGuide";
 import Highscores from "./components/pages/Highscores";
+import Profile from "./components/pages/Profile";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -38,6 +39,9 @@ function App() {
     }
     if (currentPage === "Highscores") {
       return <Highscores />;
+    }
+    if (currentPage === "Profile") {
+      return <Profile />;
     }
   };
 
