@@ -1,5 +1,6 @@
 import React from "react";
-import Pure from "../../images/Pure.jpeg"
+import logo from "../../images/logo.png"
+import "./Card.css"
 
 const styles = {
   img: {
@@ -9,17 +10,19 @@ const styles = {
 };
 
 
-export function Card({ eachCard, handleChoice}) {
+export function Card({ eachCard, handleChoice, flipped, disabled}) {
 
   const handleClick = () => {
-    handleChoice(eachCard)
+    if (!disabled) {
+      handleChoice(eachCard)
+    }
   }
 
   return (
-    <div className="card col-4">
-            <div>
+    <div className="card col-2">
+            <div className={flipped ? "flipped" : ""}>
               <img className="front" src={eachCard.image} alt="card front" style={styles.img} />
-              <img className="back" src={Pure} alt="card back" style={styles.img} onClick={handleClick} />
+              <img className="back" src={logo} alt="card back" style={styles.img} onClick={handleClick} />
             </div>
           </div>
   )

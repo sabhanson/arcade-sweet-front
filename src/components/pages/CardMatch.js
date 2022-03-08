@@ -7,8 +7,9 @@ export function CardMatch() {
 
   const [cards, setCards] = useState([])
 
-const [choiceOne, setChoiceOne] = useState(null)
-const [choiceTwo, setChoiceTwo] = useState(null)
+  const [choiceOne, setChoiceOne] = useState(null)
+  const [choiceTwo, setChoiceTwo] = useState(null)
+  const [disabled, setDisabled] = useState(false)
 
 
   // function to shuffle and duplicate cards
@@ -16,7 +17,8 @@ const [choiceTwo, setChoiceTwo] = useState(null)
     const shuffledCards = [...cardsArray, ...cardsArray]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }))
-
+    setChoiceOne(null)
+    setChoiceTwo(null)
     setCards(shuffledCards)
   }
 
@@ -36,41 +38,56 @@ const [choiceTwo, setChoiceTwo] = useState(null)
   //   setOpenCards([]);
   // }, 500);
 
-const handleChoice = (card) => {
-  choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
-}
-
-useEffect(() => {
-  if (choiceOne && choiceTwo) {
-    if (choiceOne.type === choiceTwo.type) {
-      console.log("its a match!")
-      resetTurn();
-    } else {
-      console.log("try again!")
-      resetTurn();
-    }
+  const handleChoice = (card) => {
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
   }
-}, [choiceOne, choiceTwo])
 
-const resetTurn = () => {
-  setChoiceOne(null)
-  setChoiceTwo(null)
-}
-//then need to compare both choices
+  useEffect(() => {
+
+    if (choiceOne && choiceTwo) {
+      setDisabled(true)
+      if (choiceOne.type === choiceTwo.type) {
+        setCards(prevCards => {
+          return prevCards.map(card => {
+            if (card.type === choiceOne.type) {
+              return { ...card, matched: true }
+            } else {
+              return card
+            }
+          })
+        })
+        resetTurn();
+      } else {
+        setTimeout(() => resetTurn(), 1000)
+      }
+    }
+  }, [choiceOne, choiceTwo])
+
+  console.log(cards)
+
+  const resetTurn = () => {
+    setChoiceOne(null)
+    setChoiceTwo(null)
+    setDisabled(false)
+  }
+  //then need to compare both choices
 
 
   return (
     <div className="card-grid">
-      <h1>this is the cardmatch game</h1>
+      <h1>Match! That! LaCroix!</h1>
       <button onClick={shuffleCards}>Start</button>
       <div className="row d-flex">
         {cards.map((eachCard) => (
-          <Card key={eachCard.id} eachCard={eachCard} handleChoice={handleChoice}/>
+          <Card key={eachCard.id} eachCard={eachCard} handleChoice={handleChoice}
+            flipped={eachCard === choiceOne || eachCard === choiceTwo || eachCard.matched}
+            disabled={disabled} />
         ))}
       </div>
     </div>
   );
 }
+
 
 // need a background image
 
