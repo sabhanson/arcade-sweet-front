@@ -1,26 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Pure from "../../images/Pure.jpeg"
-// import Card from "./Card";
+import Card from "./Card";
 import cardsArray from "../cardsArray";
-
-const styles = {
-  img: {
-    width: "200px",
-    height: "auto",
-  },
-};
-
-
-
-
 
 export function CardMatch() {
 
   const [cards, setCards] = useState([])
 
+const [choiceOne, setChoiceOne] = useState(null)
+const [choiceTwo, setChoiceTwo] = useState(null)
 
-  // funct6ion to shuffle and duplicate cards
+
+  // function to shuffle and duplicate cards
   const shuffleCards = () => {
     const shuffledCards = [...cardsArray, ...cardsArray]
       .sort(() => Math.random() - 0.5)
@@ -45,18 +36,36 @@ export function CardMatch() {
   //   setOpenCards([]);
   // }, 500);
 
+const handleChoice = (card) => {
+  choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+}
+
+useEffect(() => {
+  if (choiceOne && choiceTwo) {
+    if (choiceOne.type === choiceTwo.type) {
+      console.log("its a match!")
+      resetTurn();
+    } else {
+      console.log("try again!")
+      resetTurn();
+    }
+  }
+}, [choiceOne, choiceTwo])
+
+const resetTurn = () => {
+  setChoiceOne(null)
+  setChoiceTwo(null)
+}
+//then need to compare both choices
+
+
   return (
     <div className="card-grid">
       <h1>this is the cardmatch game</h1>
       <button onClick={shuffleCards}>Start</button>
       <div className="row d-flex">
         {cards.map((eachCard) => (
-          <div className="card col-4" key={eachCard.id}>
-            <div>
-              <img className="front" src={eachCard.image} alt="card front" style={styles.img} />
-              <img className="back" src={Pure} alt="card back" style={styles.img} />
-            </div>
-          </div>
+          <Card key={eachCard.id} eachCard={eachCard} handleChoice={handleChoice}/>
         ))}
       </div>
     </div>
