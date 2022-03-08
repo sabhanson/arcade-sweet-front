@@ -22,7 +22,7 @@ const cardsArray = [
   {
     type: "Guava",
     image: require("../images/Guava.jpeg"),
-  }
+  },
 ];
 
 export default cardsArray;
