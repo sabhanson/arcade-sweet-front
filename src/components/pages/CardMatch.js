@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Pure from "../../images/Pure.jpeg"
 // import Card from "./Card";
 import cardsArray from "../cardsArray";
 
@@ -10,7 +11,24 @@ const styles = {
   },
 };
 
+
+
+
+
 export function CardMatch() {
+
+  const [cards, setCards] = useState([])
+
+
+  // funct6ion to shuffle and duplicate cards
+  const shuffleCards = () => {
+    const shuffledCards = [...cardsArray, ...cardsArray]
+      .sort(() => Math.random() - 0.5)
+      .map((card) => ({ ...card, id: Math.random() }))
+
+    setCards(shuffledCards)
+  }
+
   // useState to set choiceOne
   // useState to set choiceTwo
   // useState to set
@@ -28,19 +46,19 @@ export function CardMatch() {
   // }, 500);
 
   return (
-    <div className="d-flex row">
+    <div className="card-grid">
       <h1>this is the cardmatch game</h1>
-      {cardsArray.map((eachCard) => (
-        <div className="col-3">
-          <a onClick={() => console.log(eachCard.type)} href="#value">
-            <img
-              style={styles.img}
-              src={eachCard.image}
-              alt="pic of la croix can"
-            ></img>
-          </a>
-        </div>
-      ))}
+      <button onClick={shuffleCards}>Start</button>
+      <div className="row d-flex">
+        {cards.map((eachCard) => (
+          <div className="card col-4" key={eachCard.id}>
+            <div>
+              <img className="front" src={eachCard.image} alt="card front" style={styles.img} />
+              <img className="back" src={Pure} alt="card back" style={styles.img} />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
