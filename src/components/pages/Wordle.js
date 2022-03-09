@@ -103,9 +103,37 @@ const Wordle = () => {
     if (matchCount === 5) {
       status = "WIN";
       handleMessage("You Won!");
+      const token = localStorage.getItem("token")
+      const postScore = () => {fetch('http://localhost:3001/api/scores', {
+        mode: "cors",
+        method: "POST",
+        body: JSON.stringify({
+          score: 1,
+          gamevalue: 2,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          authorization : token
+      }
+      })}
+      postScore()
     } else if (rowIndex + 1 === 6) {
       status = "LOST";
       handleMessage(`You lost, the word was: ${boardData.solution}`);
+      const token = localStorage.getItem("token")
+      const postScore = () => {fetch('http://localhost:3001/api/scores', {
+        mode: "cors",
+        method: "POST",
+        body: JSON.stringify({
+          score: 0,
+          gamevalue: 2,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          authorization : token
+      }
+      })}
+      postScore()
     }
     boardRowStatus.push(rowStatus);
     boardWords[rowIndex] = word;
