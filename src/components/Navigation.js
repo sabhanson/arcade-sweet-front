@@ -24,11 +24,11 @@ const styles = {
   },
 };
 
-const logMeOut = ()=>{
+const logMeOut = () => {
   localStorage.removeItem("token");
-}
+};
 
-function Navigation({ currentPage,  handlePageChange }) {
+function Navigation({ currentPage, handlePageChange }) {
   return (
     <nav style={styles.nav}>
       <div style={styles.imgDiv}>
@@ -57,13 +57,14 @@ function Navigation({ currentPage,  handlePageChange }) {
           href="#login"
           alt="alt tag"
           onClick={() => handlePageChange("Login")}
-        > Login </a>
-         <a
-          src="#"
-          href="#"
-          alt="alt tag"
-          onClick={() => logMeOut()}
-        > Logout </a>
+        >
+          {" "}
+          Login{" "}
+        </a>
+        <a src="#" href="#logout" alt="alt tag" onClick={() => logMeOut()}>
+          {" "}
+          Logout{" "}
+        </a>
       </div>
       <ul className="row navbar nav nav-tabs">
         <li className="nav-item col-sm-12 col-md-2">
