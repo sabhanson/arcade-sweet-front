@@ -11,6 +11,8 @@ import FeaturedGame from "./components/pages/FeaturedGame";
 import GameGuide from "./components/pages/GameGuide";
 import Highscores from "./components/pages/Highscores";
 import Profile from "./components/pages/Profile";
+import Login from "./components/pages/Login";
+import Logout from "./components/pages/Logout";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -42,6 +44,12 @@ function App() {
     }
     if (currentPage === "Profile") {
       return <Profile />;
+    }
+    if (currentPage === "Login") {
+      return <Login />;
+    }
+    if (currentPage === "Logout") {
+      return <Logout />;
     }
   };
 
