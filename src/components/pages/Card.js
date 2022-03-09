@@ -1,31 +1,34 @@
 import React from "react";
-import logo from "../../images/logo.png"
-import "./Card.css"
+import logo from "../../images/logo-card.png";
+import "./Card.css";
 
 const styles = {
-  img: {
-    width: "200px",
-    height: "auto",
+  div: {
+    background: "#1B998B",
+    border: "5px solid #1B998B",
   },
 };
 
-
-export function Card({ eachCard, handleChoice, flipped, disabled}) {
-
+export function Card({ eachCard, handleChoice, flipped, disabled }) {
   const handleClick = () => {
     if (!disabled) {
-      handleChoice(eachCard)
+      handleChoice(eachCard);
     }
-  }
+  };
 
   return (
-    <div className="card col-2">
-            <div className={flipped ? "flipped" : ""}>
-              <img className="front" src={eachCard.image} alt="card front" style={styles.img} />
-              <img className="back" src={logo} alt="card back" style={styles.img} onClick={handleClick} />
-            </div>
-          </div>
-  )
+    <div style={styles.div} className="card col-3">
+      <div className={flipped ? "flipped" : ""}>
+        <img className="front card-img" src={eachCard.image} alt="card front" />
+        <img
+          className="back card-img"
+          src={logo}
+          alt="card back"
+          onClick={handleClick}
+        />
+      </div>
+    </div>
+  );
 }
 
 export default Card;

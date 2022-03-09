@@ -2,92 +2,124 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "./Card";
 import cardsArray from "../cardsArray";
+import "./CardMatch.css";
+
+const styles = {
+  cardsDiv: {
+    width: "80vw",
+    overflow: "hidden",
+    background: "#1B998B",
+    border: "5px double white",
+    padding: "10px",
+    boxShadow: "0px 0px 20px black",
+    borderRadius: "15px",
+  },
+  button: {
+    padding: "3px",
+    // fontFamily: "cursive",
+    background: "#F46036",
+    color: "white",
+    borderRadius: "7px",
+    margin: "10px",
+  },
+};
 
 export function CardMatch() {
+  const [cards, setCards] = useState([]);
 
-  const [cards, setCards] = useState([])
-
-  const [choiceOne, setChoiceOne] = useState(null)
-  const [choiceTwo, setChoiceTwo] = useState(null)
-  const [disabled, setDisabled] = useState(false)
-
+  const [choiceOne, setChoiceOne] = useState(null);
+  const [choiceTwo, setChoiceTwo] = useState(null);
+  const [disabled, setDisabled] = useState(false);
+  const [display, setDisplay] = useState(false);
 
   // function to shuffle and duplicate cards
   const shuffleCards = () => {
+    //set the container to display
+    // stopwatch should start here
     const shuffledCards = [...cardsArray, ...cardsArray]
       .sort(() => Math.random() - 0.5)
-      .map((card) => ({ ...card, id: Math.random() }))
-    setChoiceOne(null)
-    setChoiceTwo(null)
-    setCards(shuffledCards)
-  }
+      .map((card) => ({ ...card, id: Math.random() }));
+    setDisplay(true);
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setCards(shuffledCards);
+  };
 
-  // useState to set choiceOne
-  // useState to set choiceTwo
-  // useState to set
+  // BUG: user can double click on one card and flip the other paired card
 
-  // const consoleClick = () => {
-  //   console.log({eachCard.type});
-  // };
-
-  // run a function to allow for 2 clicks, and read the type on eachCard for both clicks. compare the types for a match or !match
-  // const timeout = useRef(null);
-
-  // timer for card flip
-  // timeout.current = setTimeout(() => {
-  //   setOpenCards([]);
-  // }, 500);
+  // TODO: set up stopwatch
+  // when the user starts the game, start the stopwatch
+  // once all elements of the array are matched: true, stop the stopwatch
 
   const handleChoice = (card) => {
-    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
-  }
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+  };
 
   useEffect(() => {
-
     if (choiceOne && choiceTwo) {
-      setDisabled(true)
+      setDisabled(true);
       if (choiceOne.type === choiceTwo.type) {
-        setCards(prevCards => {
-          return prevCards.map(card => {
+        setCards((prevCards) => {
+          return prevCards.map((card) => {
             if (card.type === choiceOne.type) {
-              return { ...card, matched: true }
+              return { ...card, matched: true };
             } else {
-              return card
+              return card;
             }
-          })
-        })
+          });
+        });
         resetTurn();
       } else {
-        setTimeout(() => resetTurn(), 1000)
+        setTimeout(() => resetTurn(), 1000);
       }
     }
-  }, [choiceOne, choiceTwo])
+  }, [choiceOne, choiceTwo]);
 
-  console.log(cards)
+  // TODO: write a function that evaluates if the array elements are all "matched: true", if so then stop the stopwatch and keep a record of the time (score)
+
+  console.log(cards);
 
   const resetTurn = () => {
-    setChoiceOne(null)
-    setChoiceTwo(null)
-    setDisabled(false)
-  }
-  //then need to compare both choices
-
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setDisabled(false);
+  };
 
   return (
-    <div className="card-grid">
+    <div className="row d-flex justify-content-center">
       <h1>Match! That! LaCroix!</h1>
-      <button onClick={shuffleCards}>Start</button>
-      <div className="row d-flex">
-        {cards.map((eachCard) => (
-          <Card key={eachCard.id} eachCard={eachCard} handleChoice={handleChoice}
-            flipped={eachCard === choiceOne || eachCard === choiceTwo || eachCard.matched}
-            disabled={disabled} />
-        ))}
+      <div>
+        <button style={styles.button} onClick={shuffleCards}>
+          New Game
+        </button>
+        <button style={styles.button} onClick={shuffleCards}>
+          Play Again
+        </button>
+      </div>
+      <div
+        className={
+          display ? "card-grid d-flex col-12 justify-content-center" : "hidden"
+        }
+      >
+        <div className="row d-flex" style={styles.cardsDiv}>
+          {cards.map((eachCard) => (
+            <Card
+              key={eachCard.id}
+              eachCard={eachCard}
+              handleChoice={handleChoice}
+              flipped={
+                eachCard === choiceOne ||
+                eachCard === choiceTwo ||
+                eachCard.matched
+              }
+              disabled={disabled}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
 }
-
 
 // need a background image
 
