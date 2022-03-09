@@ -24,7 +24,11 @@ const styles = {
   },
 };
 
-function Navigation({ currentPage, handlePageChange }) {
+const logMeOut = ()=>{
+  localStorage.removeItem("token");
+}
+
+function Navigation({ currentPage,  handlePageChange }) {
   return (
     <nav style={styles.nav}>
       <div style={styles.imgDiv}>
@@ -48,6 +52,18 @@ function Navigation({ currentPage, handlePageChange }) {
             src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
           ></img>
         </a>
+        <a
+          src="#"
+          href="#login"
+          alt="alt tag"
+          onClick={() => handlePageChange("Login")}
+        > Login </a>
+         <a
+          src="#"
+          href="#"
+          alt="alt tag"
+          onClick={() => logMeOut()}
+        > Logout </a>
       </div>
       <ul className="row navbar nav nav-tabs">
         <li className="nav-item col-sm-12 col-md-2">
