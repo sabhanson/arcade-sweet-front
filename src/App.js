@@ -49,8 +49,8 @@ function App() {
   return (
     <div className="App">
       <Header currentPage={currentPage} handlePageChange={handlePageChange} />
-      <Footer currentPage={currentPage} handlePageChange={handlePageChange} />
       {renderPage()}
+      <Footer currentPage={currentPage} handlePageChange={handlePageChange} />
     </div>
   );
 }
