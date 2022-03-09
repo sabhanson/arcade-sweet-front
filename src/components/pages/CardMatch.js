@@ -58,10 +58,12 @@ export function CardMatch() {
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       setDisabled(true);
+      // function to compare if card 1 and card 2 are the same or different
       if (choiceOne.type === choiceTwo.type) {
         setCards((prevCards) => {
           return prevCards.map((card) => {
             if (card.type === choiceOne.type) {
+              // if the cards match, have the cards stay flipped over
               return { ...card, matched: true };
             } else {
               return card;
@@ -70,6 +72,7 @@ export function CardMatch() {
         });
         resetTurn();
       } else {
+        // settimeout for flipping the cards, give the user long enough to see the cards
         setTimeout(() => resetTurn(), 1000);
       }
     }
@@ -77,8 +80,7 @@ export function CardMatch() {
 
   // TODO: write a function that evaluates if the array elements are all "matched: true", if so then stop the stopwatch and keep a record of the time (score)
 
-  console.log(cards);
-
+  // resets choice one and two to null again, disabled false so that the cards are able to be clicked again
   const resetTurn = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
@@ -98,7 +100,9 @@ export function CardMatch() {
       </div>
       <div
         className={
-          display ? "card-grid d-flex col-12 justify-content-center" : "hidden"
+          display
+            ? "card-grid d-flex col-10 col-md-8 col-lg-6 justify-content-center"
+            : "hidden"
         }
       >
         <div className="row d-flex" style={styles.cardsDiv}>
@@ -121,19 +125,12 @@ export function CardMatch() {
   );
 }
 
-// need a background image
-
 // need to have a timer running once the game start button is clicked
-// function to compare if card 1 and card 2 are the same or different
-// settimeout for flipping the cards, give the user long enough to see the cards
 
-// if the cards match, have the cards fade into the background
-// if the cards don't match, flip back over after x seconds
 // timer stops once all cards are matched
 // button to initiate new game
 // create HTML element for each card
 // change state for card being flipped or unflipped
 // change state for card being matched and taken out of the playable cards
-//
 
 export default CardMatch;

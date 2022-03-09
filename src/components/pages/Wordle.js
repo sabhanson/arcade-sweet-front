@@ -86,10 +86,7 @@ const Wordle = () => {
         if (!correctCharArray.includes(word.charAt(i)))
           correctCharArray.push(word.charAt(i));
         if (presentCharArray.indexOf(word.charAt(i)) !== -1)
-          presentCharArray.splice(
-            presentCharArray.indexOf(word.charAt(i)),
-            1
-          );
+          presentCharArray.splice(presentCharArray.indexOf(word.charAt(i)), 1);
       } else if (solution.includes(word.charAt(i))) {
         rowStatus.push("present");
         if (
@@ -108,7 +105,7 @@ const Wordle = () => {
       handleMessage("You Won!");
     } else if (rowIndex + 1 === 6) {
       status = "LOST";
-      handleMessage("You lost, click the redo button to try again");
+      handleMessage(`You lost, the word was: ${boardData.solution}`);
     }
     boardRowStatus.push(rowStatus);
     boardWords[rowIndex] = word;
@@ -162,7 +159,7 @@ const Wordle = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container col-8">
       <div className="top">
         <div className="title">Wordle</div>
         <button className="reset-board letter-button" onClick={resetBoard}>
