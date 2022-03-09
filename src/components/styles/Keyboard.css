@@ -1,0 +1,37 @@
+.keyboard-rows{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-top: 30px;
+}
+.key-row{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.letter-button{
+    border-radius: 5px;
+    font-weight: bold;
+    background: #d3d6da;
+    padding: 22px 18px;
+    border: none;
+    text-transform: uppercase;
+}
+.key-correct{
+    background: #6aaa64;
+    color: #fff;
+}
+
+.key-present{
+    background: #c9b458;
+    color: #fff;
+}
+
+.key-absent{
+    background: #787c7e;
+    color: #fff;
+}
