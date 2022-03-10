@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "./Card";
+// import Home from "./Home";
 import cardsArray from "../cardsArray";
 import "./CardMatch.css";
-import { Box, Button, Typography, Modal } from '@mui/material';
+import { Box, Typography, Modal } from '@mui/material';
+// import CloseIcon from '@mui/icons-material/Close';
 
 
 const styles = {
@@ -38,10 +40,8 @@ const styles = {
   }
 };
 
-
 export function CardMatch() {
   const [cards, setCards] = useState([]);
-
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
@@ -51,11 +51,21 @@ export function CardMatch() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  // const [currentPage, setCurrentPage] = useState("CardMatch");
+
+  // const renderPage = () => {
+  //   if (currentPage === "CardMatch") {
+  //     return <CardMatch />
+  //   } 
+  //   if (currentPage === "Home") {
+  //     return <Home/>
+  //   }
+  // }
+
+// const handlePageChange = (page) => setCurrentPage(page)
 
   // function to shuffle and duplicate cards
   const shuffleCards = () => {
-    //set the container to display
-    // stopwatch should start here
     const shuffledCards = [...cardsArray, ...cardsArray]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
@@ -89,8 +99,7 @@ export function CardMatch() {
             }
           });
         });
-        // TODO: write a function that , if match = 6 then capture moves count for score then trigger endgame
-        console.log(match)
+        // function so when match = 6 then capture moves count for score then trigger endgame
         if (match === 5) {
           const token = localStorage.getItem("token");
           const postScore = () => {
@@ -113,7 +122,7 @@ export function CardMatch() {
         }
         resetTurn();
       } else {
-        // settimeout for flipping the cards, give the user long enough to see the cards
+        // setTimeout for flipping the cards, give the user long enough to see the cards
         setTimeout(() => resetTurn(), 1000);
       }
     }
@@ -138,6 +147,9 @@ export function CardMatch() {
   return (
     <div className="row d-flex justify-content-center">
       <h1>Match! That! LaCroix!</h1>
+      {/* <button>
+        <CloseIcon />
+      </button> */}
       <div>
         <button style={styles.button} onClick={shuffleCards}>
           New Game

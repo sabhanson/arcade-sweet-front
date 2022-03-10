@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Keyboard from "../Keyboard";
 import { wordList } from "../../constants/wordList";
 import "./styles/Wordle.css";
+import CloseIcon from '@mui/icons-material/Close';
 
 const Wordle = () => {
   const [boardData, setBoardData] = useState(
