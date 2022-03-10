@@ -1,34 +1,33 @@
 import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-// import Tabs from '@mui/material/Tabs';
-// import Tab from '@mui/material/Tab';
-// import Box from '@mui/material/Box';
+import { useState } from "react";
+// import Table from "@mui/material/Table";
+// import TableBody from "@mui/material/TableBody";
+// import TableCell from "@mui/material/TableCell";
+// import TableContainer from "@mui/material/TableContainer";
+// import TableHead from "@mui/material/TableHead";
+// import TableRow from "@mui/material/TableRow";
+import {getScoreData} from '../../utils/API'
 
-const styles = {
-  tableContainer: {
-    background: "#1B998B",
-    // maxWidth: "80vw",
-    border: "5px double white",
-    padding: "10px",
-    boxShadow: "0px 0px 20px black",
-    borderRadius: "15px",
-    color: "white",
-    marginTop: "50px",
-  },
-  title: {
-    fontSize: "50px",
-    textAlign: "left",
-    color: "white",
-    textShadow: "2px 2px 3px #f46036",
-    padding: "10px",
-  },
-  tableHeader: { color: "#F46036", fontSize: "20px" },
-};
+// const styles = {
+//   tableContainer: {
+//     background: "#1B998B",
+//     maxWidth: "80vw",
+//     border: "5px double white",
+//     padding: "10px",
+//     boxShadow: "0px 0px 20px black",
+//     borderRadius: "15px",
+//     color: "white",
+//     marginTop: "50px",
+//   },
+//   title: {
+//     fontSize: "50px",
+//     textAlign: "left",
+//     color: "white",
+//     textShadow: "2px 2px 3px #f46036",
+//     padding: "10px",
+//   },
+//   tableHeader: { color: "#F46036", fontSize: "20px" },
+// };
 
 // const [value, setValue] = React.useState('one');
 
@@ -52,28 +51,35 @@ const styles = {
 // );
 
 export function Highscores() {
-  const rows = [
-    createData("username", 100),
-    createData("username", 90),
-    createData("username", 80),
-    createData("username", 70),
-    createData("username", 60),
-  ];
+  const [scoreData, setscoreData] = useState()
+  // const [gameValue, setgameValue] = useState()
 
-  function createData(name, score) {
-    return { name, score };
+  async function gd () {
+    let sd = await getScoreData();
+    // for (let i = 0; i <= sd.length; i++) {
+    //   const singleUser = sd[i];
+    //   const userScoreArray = singleUser;
+    //   setscoreData(userScoreArray)
+    // }
+    return sd
   }
-
+  gd () 
+  console.log(scoreData)
   return (
+<<<<<<< HEAD
+    <div>
+      {/* <div className="d-flex justify-content-center">
+=======
     <div className="d-flex justify-content-center row">
       <div className="col-5">
+>>>>>>> dev
         <TableContainer style={styles.tableContainer}>
           <Table aria-label="simple table">
             <TableHead>
               <p style={styles.title}>Card Matching</p>
               <TableRow>
                 <TableCell style={styles.tableHeader}>
-                  <strong>Username</strong>{" "}
+                  <strong>Username</strong>
                 </TableCell>
                 <TableCell align="center" style={styles.tableHeader}>
                   <strong>High Score</strong>
@@ -95,6 +101,9 @@ export function Highscores() {
             </TableBody>
           </Table>
         </TableContainer>
+<<<<<<< HEAD
+      </div> */}
+=======
       </div>
       <div className="col-5">
         <TableContainer  style={styles.tableContainer}>
@@ -156,6 +165,7 @@ export function Highscores() {
           </Table>
         </TableContainer> */}
       {/* </div> */}
+>>>>>>> dev
     </div>
   );
 }
