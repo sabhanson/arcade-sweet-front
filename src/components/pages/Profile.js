@@ -4,6 +4,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import CloudinaryUploadWidget from "../../utils/CloudinaryUploadWidget";
+import { getProfileData } from "../../utils/API";
 
 const styles = {
   modal: {
@@ -47,6 +48,8 @@ const styles = {
 
 export function Profile() {
   const [show, setShow] = useState(false);
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -66,8 +69,18 @@ export function Profile() {
         authorization: token,
       }
     })
-  handleClose()
+    handleClose()
   }
+
+  async function getData() {
+    let pd = await getProfileData();
+    console.log(pd);
+    setUsername(pd.username);
+    setEmail(pd.email);
+    return pd;
+  } 
+  getData();
+
   return (
     <>
       <div className="d-flex justify-content-end">
@@ -114,9 +127,16 @@ export function Profile() {
       </div>
       <div className="d-flex justify-content-center">
         <div style={styles.div} className="card col-8">
-          <h1 style={styles.h1}>My Highscores</h1>
-          <div></div>
+          <h1 style={styles.h1}>Profile Info</h1>
+          Username : {username}<br />
+          EMAIL : {email}
         </div>
+       
+        
+        {/* <div style={styles.div} className="card col-8">
+          <h1 style={styles.h1}>My Highscores</h1>
+        </div> */}
+        
       </div>
     </>
   );
