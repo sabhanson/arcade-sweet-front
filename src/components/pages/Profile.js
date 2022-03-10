@@ -69,7 +69,7 @@ export function Profile() {
         authorization: token,
       }
     })
-  handleClose()
+    handleClose()
   }
 
   async function getData() {
