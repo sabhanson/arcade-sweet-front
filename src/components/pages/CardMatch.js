@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "./Card";
 import cardsArray from "../cardsArray";
 import "./CardMatch.css";
+import { Box, Button, Typography, Modal } from '@mui/material';
+
 
 const styles = {
   cardsDiv: {
@@ -22,7 +24,20 @@ const styles = {
     borderRadius: "7px",
     margin: "10px",
   },
+  modal: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 200,
+    bgcolor: 'background.black',
+    contrast: "0%",
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  }
 };
+
 
 export function CardMatch() {
   const [cards, setCards] = useState([]);
@@ -31,6 +46,11 @@ export function CardMatch() {
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const [display, setDisplay] = useState(false);
+  const [moves, setMoves] = useState(0);
+  const [match, setMatches] = useState(0)
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   // function to shuffle and duplicate cards
   const shuffleCards = () => {
@@ -43,13 +63,10 @@ export function CardMatch() {
     setChoiceOne(null);
     setChoiceTwo(null);
     setCards(shuffledCards);
+    resetGame();
   };
 
-  // BUG: user can double click on one card and flip the other paired card
-
-  // TODO: set up stopwatch
-  // when the user starts the game, start the stopwatch
-  // once all elements of the array are matched: true, stop the stopwatch
+  // BUG: user can double click on one card and flip the other paired card :)
 
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
@@ -58,8 +75,10 @@ export function CardMatch() {
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       setDisabled(true);
+      setMoves(moves => moves + 1);
       // function to compare if card 1 and card 2 are the same or different
       if (choiceOne.type === choiceTwo.type) {
+        setMatches(match => match + 1);
         setCards((prevCards) => {
           return prevCards.map((card) => {
             if (card.type === choiceOne.type) {
@@ -70,6 +89,13 @@ export function CardMatch() {
             }
           });
         });
+        // TODO: write a function that , if match = 6 then capture moves count for score then trigger endgame
+        console.log(match)
+        if (match === 5) {
+          console.log(match)
+          handleOpen();
+          // this is where we want to hook into high scores!!! -Muhammad
+        }
         resetTurn();
       } else {
         // settimeout for flipping the cards, give the user long enough to see the cards
@@ -78,13 +104,19 @@ export function CardMatch() {
     }
   }, [choiceOne, choiceTwo]);
 
-  // TODO: write a function that evaluates if the array elements are all "matched: true", if so then stop the stopwatch and keep a record of the time (score)
 
   // resets choice one and two to null again, disabled false so that the cards are able to be clicked again
   const resetTurn = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
     setDisabled(false);
+  };
+
+  const resetGame = () => {
+    setMoves(0);
+    setMatches(0);
+    setDisplay(false);
+    shuffleCards();
   };
 
   return (
@@ -94,10 +126,23 @@ export function CardMatch() {
         <button style={styles.button} onClick={shuffleCards}>
           New Game
         </button>
-        <button style={styles.button} onClick={shuffleCards}>
-          Play Again
-        </button>
+        <p>Moves: {moves}</p>
       </div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="unstyled-modal-title"
+        aria-describedby="unstyled-modal-description"
+      >
+        <Box style={styles.modal}>
+          <Typography id="unstyled-modal-title" variant="h6" component="h2">
+            You won in {moves} moves!
+            <button style={styles.button} onClick={resetGame}>
+              Play Again
+            </button>
+          </Typography>
+        </Box>
+      </Modal>
       <div
         className={
           display
@@ -124,13 +169,5 @@ export function CardMatch() {
     </div>
   );
 }
-
-// need to have a timer running once the game start button is clicked
-
-// timer stops once all cards are matched
-// button to initiate new game
-// create HTML element for each card
-// change state for card being flipped or unflipped
-// change state for card being matched and taken out of the playable cards
 
 export default CardMatch;
