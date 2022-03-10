@@ -66,7 +66,7 @@ export function Profile() {
         authorization: token,
       }
     })
-  handleClose()
+    handleClose()
   }
   return (
     <>

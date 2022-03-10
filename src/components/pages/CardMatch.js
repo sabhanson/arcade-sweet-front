@@ -92,7 +92,22 @@ export function CardMatch() {
         // TODO: write a function that , if match = 6 then capture moves count for score then trigger endgame
         console.log(match)
         if (match === 5) {
-          console.log(match)
+          const token = localStorage.getItem("token");
+          const postScore = () => {
+            fetch("http://localhost:3001/api/scores", {
+              mode: "cors",
+              method: "POST",
+              body: JSON.stringify({
+                score: moves + 1,
+                gamevalue: 1,
+              }),
+              headers: {
+                "Content-Type": "application/json",
+                authorization: token,
+              },
+            });
+          };
+          postScore();
           handleOpen();
           // this is where we want to hook into high scores!!! -Muhammad
         }
@@ -113,6 +128,7 @@ export function CardMatch() {
   };
 
   const resetGame = () => {
+    handleClose();
     setMoves(0);
     setMatches(0);
     setDisplay(false);
