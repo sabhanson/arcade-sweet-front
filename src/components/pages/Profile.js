@@ -49,6 +49,24 @@ export function Profile() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleProfileChange = () => {
+    const token = localStorage.getItem("token")
+    const newUsername = document.getElementById("newUsername").value
+    const newEmail = document.getElementById("newEmail").value
+    fetch("http://localhost:3001/api/userProfile" , {
+      mode: "cors",
+      method: "PUT",
+      body: JSON.stringify({
+        username: newUsername,
+        email: newEmail
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        authorization: token,
+      }
+    })
+  handleClose()
+  }
   return (
     <>
       <div className="d-flex justify-content-end">
@@ -68,11 +86,13 @@ export function Profile() {
                   style={styles.input}
                   className="col-12"
                   placeholder="new username..."
+                  id = "newUsername"
                 ></input>
                 <input
                   style={styles.input}
                   className="col-12"
                   placeholder="new email..."
+                  id = "newEmail"
                 ></input>
                 <input
                   style={styles.input}
@@ -83,7 +103,7 @@ export function Profile() {
             </Modal.Body>
             <Modal.Footer>
               {/* need to add an onclick for the save changes button that submits a put request to change the user data */}
-              <Button variant="primary" onClick={handleClose}>
+              <Button variant="primary" onClick={handleProfileChange}>
                 Save Changes
               </Button>
             </Modal.Footer>
