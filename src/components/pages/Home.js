@@ -1,48 +1,26 @@
 import React, { useState } from "react";
-import CardMatch from "./CardMatch";
-import Guides from "./GameGuide";
-import Wordle from "./Wordle";
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import "./styles/Home.css"
-import CloseIcon from '@mui/icons-material/Close';
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import "./styles/Home.css";
+import MatchGame from "../../images/matchgame.png";
+import WordleGame from "../../images/wordlegame.png";
 
-export function Home() {
-  const [currentPage, setCurrentPage] = useState("Home");
+export function Home({ handlePageChange }) {
   const [display, setDisplay] = useState(true);
 
-  const renderPage = () => {
-    if (currentPage === "CardMatch") {
-      return <CardMatch />;
-    }
-    if (currentPage === "GameGuide") {
-      return <Guides />;
-    }
-    if (currentPage === "Wordle") {
-      return <Wordle />;
-    }
-  };
-
-  const handlePageChange = (page) => setCurrentPage(page);
-
   return (
-    <div>
+    <div className="row justify-content-around">
       <h1>Welcome to Arcade Sweet! Choose a game below to get started :)</h1>
-      {renderPage()}
-
-      <Card className={
-          display
-            ? ""
-            : "hidden"
-        }>
+      <Card className={display ? "col-5" : "col-5 hidden"}>
         <CardMedia
           component="img"
           height="140"
-          image="public/matchgame.png"
+          image={MatchGame}
+          className="img-fluid"
           alt="card matching screenshot"
         />
         <CardContent>
@@ -54,22 +32,26 @@ export function Home() {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={() => {
-            handlePageChange("CardMatch"); 
-            setDisplay(false);
-          }}>Play Now!</Button>
-          <Button size="small" onClick={() => handlePageChange("GameGuide")}>How to Play</Button>
+          <Button
+            size="small"
+            onClick={() => {
+              handlePageChange("CardMatch");
+              setDisplay(false);
+            }}
+          >
+            Play Now!
+          </Button>
+          <Button size="small" onClick={() => handlePageChange("GameGuide")}>
+            How to Play
+          </Button>
         </CardActions>
       </Card>
-      <Card className={
-          display
-            ? ""
-            : "hidden"
-        }>
+      <Card className={display ? "col-5" : "col-5 hidden"}>
         <CardMedia
           component="img"
           height="140"
-          image="public/wordlegame.png"
+          image={WordleGame}
+          className="img-fluid"
           alt="wordle screenshot"
         />
         <CardContent>
@@ -81,11 +63,18 @@ export function Home() {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={() => {
-            handlePageChange("Wordle"); 
-            setDisplay(false);
-          }}>Play now!</Button>
-          <Button size="small" onClick={() => handlePageChange("GameGuide")}>How to Play</Button>
+          <Button
+            size="small"
+            onClick={() => {
+              handlePageChange("Wordle");
+              setDisplay(false);
+            }}
+          >
+            Play now!
+          </Button>
+          <Button size="small" onClick={() => handlePageChange("GameGuide")}>
+            How to Play
+          </Button>
         </CardActions>
       </Card>
     </div>
