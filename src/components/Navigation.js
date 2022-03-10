@@ -28,6 +28,7 @@ const styles = {
 
 const logMeOut = () => {
   localStorage.removeItem("token");
+
 };
 
 
@@ -62,6 +63,16 @@ function Navigation({ currentPage, handlePageChange }) {
         >
           {" "}
           Login{" "}
+        </a>
+        <a
+          src="#"
+          href="#"
+          alt="alt tag"
+          onClick={() => logMeOut()}
+          style={{ display : isToken() ? "block" : "none"  }}
+        >
+          {" "}
+          Logout{" "}
         </a>
         <a
           src="#"
