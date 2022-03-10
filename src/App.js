@@ -29,7 +29,7 @@ function App() {
       return <Contact />;
     }
     if (currentPage === "Home") {
-      return <Home />;
+      return <Home handlePageChange={handlePageChange} />;
     }
     if (currentPage === "Reviews") {
       return <Reviews />;

@@ -29,6 +29,27 @@ import {getScoreData} from '../../utils/API'
 //   tableHeader: { color: "#F46036", fontSize: "20px" },
 // };
 
+// const [value, setValue] = React.useState('one');
+
+// const handleChange = (event, newValue) => {
+//   setValue(newValue);
+// };
+
+// return (
+//   <Box sx={{ width: '100%' }}>
+//     <Tabs
+//       value={value}
+//       onChange={handleChange}
+//       textColor="secondary"
+//       indicatorColor="secondary"
+//       aria-label="secondary tabs example"
+//     >
+//       <Tab value="one" label="Card Matching" />
+//       <Tab value="two" label="Wordle" />
+//     </Tabs>
+//   </Box>
+// );
+
 export function Highscores() {
   const [scoreData, setscoreData] = useState()
   // const [gameValue, setgameValue] = useState()
@@ -45,10 +66,15 @@ export function Highscores() {
   gd () 
   console.log(scoreData)
   return (
+<<<<<<< HEAD
     <div>
       {/* <div className="d-flex justify-content-center">
+=======
+    <div className="d-flex justify-content-center row">
+      <div className="col-5">
+>>>>>>> dev
         <TableContainer style={styles.tableContainer}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table aria-label="simple table">
             <TableHead>
               <p style={styles.title}>Card Matching</p>
               <TableRow>
@@ -75,7 +101,71 @@ export function Highscores() {
             </TableBody>
           </Table>
         </TableContainer>
+<<<<<<< HEAD
       </div> */}
+=======
+      </div>
+      <div className="col-5">
+        <TableContainer  style={styles.tableContainer}>
+          <Table aria-label="simple table">
+            <TableHead>
+              <p style={styles.title}>Wordle</p>
+              <TableRow>
+                <TableCell style={styles.tableHeader}>
+                  <strong>Username</strong>{" "}
+                </TableCell>
+                <TableCell align="center" style={styles.tableHeader}>
+                  <strong>High Score</strong>
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="center">{row.score}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
+      {/* <div className="d-flex justify-content-center"> */}
+        {/* <TableContainer style={styles.tableContainer}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <p style={styles.title}>TBD</p>
+              <TableRow>
+                <TableCell style={styles.tableHeader}>
+                  <strong>Username</strong>{" "}
+                </TableCell>
+                <TableCell align="center" style={styles.tableHeader}>
+                  <strong>High Score</strong>
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="center">{row.score}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer> */}
+      {/* </div> */}
+>>>>>>> dev
     </div>
   );
 }
