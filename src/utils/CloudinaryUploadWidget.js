@@ -49,7 +49,18 @@ class CloudinaryUploadWidget extends Component {
       },
       (error, result) => {
         if (!error && result && result.event === "success") {
-          console.log("Done! Here is the image info: ", result.info);
+          const newAvatar = {
+            file_name: result.info.url
+          }
+          const token = localStorage.getItem("token")
+          fetch('http://localhost:3001/api/userProfile/avatarUpdate', {
+            method: "PUT",
+            body: JSON.stringify(newAvatar),
+            headers: {
+              "Content-Type": "application/json",
+              authorization: token,
+            }
+          })
         }
       }
     );

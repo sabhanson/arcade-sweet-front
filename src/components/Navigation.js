@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../images/logo.png";
 import { fabClasses } from "@mui/material";
 import { isToken } from "../utils/API";
+import { getProfileData } from "../utils/API";
 
 const styles = {
   nav: {
@@ -32,7 +33,15 @@ const logMeOut = () => {
 };
 
 
+
 function Navigation({ currentPage, handlePageChange }) {
+  const [avatar, setAvatar] = useState();
+  async function getData() {
+    let pd = await getProfileData();
+    setAvatar(pd.file_name)
+    return pd;
+  } 
+  getData();
   return (
     <nav style={styles.nav}>
       <div style={styles.imgDiv}>
@@ -84,7 +93,7 @@ function Navigation({ currentPage, handlePageChange }) {
           <img
             style={styles.img}
             alt="profile pic"
-            src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
+            src={avatar}
           ></img>
         </a>
       </div>
