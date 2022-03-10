@@ -44,12 +44,18 @@ const styles = {
     textShadow: "2px 2px 3px #f46036",
     padding: "10px",
   },
+  avatarStyle: {
+    borderRadius: "50%",
+    height: "100px",
+    width: "100px"
+  }
 };
 
 export function Profile() {
   const [show, setShow] = useState(false);
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
+  const [avatar, setAvatar] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -57,26 +63,40 @@ export function Profile() {
     const token = localStorage.getItem("token")
     const newUsername = document.getElementById("newUsername").value
     const newEmail = document.getElementById("newEmail").value
-    fetch("http://localhost:3001/api/userProfile" , {
-      mode: "cors",
-      method: "PUT",
-      body: JSON.stringify({
-        username: newUsername,
-        email: newEmail
-      }),
-      headers: {
-        "Content-Type": "application/json",
-        authorization: token,
-      }
-    })
-    handleClose()
+    const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+    const found = newEmail.match(regex)
+    console.log(newEmail)
+    if (newUsername === ""){
+      alert("You must enter something for your username")
+      return
+    } else if (newEmail === ""){
+      alert("you must enter something for your email")
+      return
+    } else if (!found){
+      alert("you must use valid email formatting")
+      return
+    } else {
+      fetch("http://localhost:3001/api/userProfile" , {
+        mode: "cors",
+        method: "PUT",
+        body: JSON.stringify({
+          username: newUsername,
+          email: newEmail
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          authorization: token,
+        }
+      })
+    }
+    handleClose();
   }
 
   async function getData() {
     let pd = await getProfileData();
-    console.log(pd);
     setUsername(pd.username);
     setEmail(pd.email);
+    setAvatar(pd.file_name)
     return pd;
   } 
   getData();
@@ -127,6 +147,7 @@ export function Profile() {
       </div>
       <div className="d-flex justify-content-center">
         <div style={styles.div} className="card col-8">
+          <img style={styles.avatarStyle} src = {avatar}/>
           <h1 style={styles.h1}>Profile Info</h1>
           Username : {username}<br />
           EMAIL : {email}

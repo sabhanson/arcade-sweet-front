@@ -1,6 +1,3 @@
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
-
-
 export const isToken = () => {
     const token = localStorage.getItem("token");
     if(token)
@@ -28,4 +25,23 @@ export const getProfileData = async () => {
    
 }
 
-export default {isToken, getProfileData};
+export const getScoreData = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:3001/api/userProfile/allProfiles/",
+        {
+          mode: "cors",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const scoreData = await response.json();
+      return scoreData;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+export default {isToken, getProfileData, getScoreData};
