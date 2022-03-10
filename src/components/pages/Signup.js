@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import './Login.css';
+import './Signup.css';
 
-async function loginUser(credentials) {
-    return await fetch('http://localhost:3001/api/users/login', {
+async function signUp(credentials) {
+    return await fetch('http://localhost:3001/api/users/signup', {
       mode: "cors",
       method: 'POST',
       headers: {
@@ -14,34 +14,37 @@ async function loginUser(credentials) {
       .then(data => data.json())
    }
 
-export default function Login({ handlePageChange }) {
+export default function Signup({ handlePageChange }) {
     const [username, setUserName] = useState();
+    const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    // const [currentPage, setCurrentPage] = useState("Login");
+    let navigate = useNavigate(); 
   
     const handleSubmit = async e => {
       e.preventDefault();
-      const token = await loginUser({
+      const token = await signUp({
         username,
+        email,
         password
       });
       if(token.token !== undefined) {
         localStorage.setItem("token", token.token);
-        handlePageChange("Home");
+        // setCurrentPage("Home")
       }
-      else {
-        alert("Enter correct Username/Password");
-      }
+      
     }
 
-  // const handlePageChange = (page) => setCurrentPage(page);
   return (
-    <div className="login-wrapper">
-      <h1>Please Log In</h1>
+    <div className="signup-wrapper">
+      <h1>Please Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <label>
           <p>Username</p>
           <input type="text" onChange={e => setUserName(e.target.value)} />
+        </label>
+        <label>
+          <p>Email</p>
+          <input type="text" onChange={e => setEmail(e.target.value)} />
         </label>
         <label>
           <p>Password</p>

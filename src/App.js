@@ -11,6 +11,7 @@ import FeaturedGame from "./components/pages/FeaturedGame";
 import GameGuide from "./components/pages/GameGuide";
 import Highscores from "./components/pages/Highscores";
 import Profile from "./components/pages/Profile";
+import Signup from "./components/pages/Signup";
 import Login from "./components/pages/Login";
 import Logout from "./components/pages/Logout";
 
@@ -45,8 +46,11 @@ function App() {
     if (currentPage === "Profile") {
       return <Profile />;
     }
+    if (currentPage === "Signup") {
+      return <Signup handlePageChange={handlePageChange} />;
+    }
     if (currentPage === "Login") {
-      return <Login />;
+      return <Login handlePageChange={handlePageChange} />;
     }
     if (currentPage === "Logout") {
       return <Logout />;
