@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import './Login.css';
 
 async function loginUser(credentials) {
@@ -13,9 +14,10 @@ async function loginUser(credentials) {
       .then(data => data.json())
    }
 
-export default function Login() {
+export default function Login({ handlePageChange }) {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
+    // const [currentPage, setCurrentPage] = useState("Login");
   
     const handleSubmit = async e => {
       e.preventDefault();
@@ -23,9 +25,16 @@ export default function Login() {
         username,
         password
       });
-      localStorage.setItem("token", token.token);
+      if(token.token !== undefined) {
+        localStorage.setItem("token", token.token);
+        handlePageChange("Home");
+      }
+      else {
+        alert("Enter correct Username/Password");
+      }
     }
 
+  // const handlePageChange = (page) => setCurrentPage(page);
   return (
     <div className="login-wrapper">
       <h1>Please Log In</h1>

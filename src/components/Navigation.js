@@ -1,6 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../images/logo.png";
+import { fabClasses } from "@mui/material";
+import { isToken } from "../utils/API";
 
 const styles = {
   nav: {
@@ -28,6 +30,7 @@ const logMeOut = () => {
   localStorage.removeItem("token");
 };
 
+
 function Navigation({ currentPage, handlePageChange }) {
   return (
     <nav style={styles.nav}>
@@ -40,30 +43,38 @@ function Navigation({ currentPage, handlePageChange }) {
         >
           <img src={logo} style={styles.logo} alt="logo" />
         </a>
+
+        {/* <a
+          src="#"
+          href="#signup"
+          alt="alt tag"
+          onClick={() => handlePageChange("Signup")}
+          style={{ visibility : getToken() ? "hidden" : "visible" }}
+        >
+          Signup
+        </a> */}
+        <a
+          src="#"
+          href="#login"
+          alt="alt tag"
+          onClick={() => handlePageChange("Login")}
+          style={{ display : isToken() ? "none" : "block" }}
+        >
+          {" "}
+          Login{" "}
+        </a>
         <a
           src="#"
           href="#profile"
           alt="alt tag"
           onClick={() => handlePageChange("Profile")}
+          style={{ display : isToken() ? "block" : "none" }}
         >
           <img
             style={styles.img}
             alt="profile pic"
             src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
           ></img>
-        </a>
-        <a
-          src="#"
-          href="#login"
-          alt="alt tag"
-          onClick={() => handlePageChange("Login")}
-        >
-          {" "}
-          Login{" "}
-        </a>
-        <a src="#" href="#logout" alt="alt tag" onClick={() => logMeOut()}>
-          {" "}
-          Logout{" "}
         </a>
       </div>
       <ul className="row navbar nav nav-tabs">

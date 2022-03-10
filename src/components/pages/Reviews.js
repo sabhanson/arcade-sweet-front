@@ -56,6 +56,7 @@ export function Reviews() {
           <div style={styles.reviewDiv}>
             <div className="col-3">
               <img
+                alt="alt tag"
                 style={styles.img}
                 src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
               ></img>
@@ -68,6 +69,7 @@ export function Reviews() {
           <div style={styles.reviewDiv}>
             <div className="col-3">
               <img
+                alt="alt tag"
                 style={styles.img}
                 src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
               ></img>
@@ -94,6 +96,7 @@ export function Reviews() {
           <div style={styles.reviewDiv}>
             <div className="col-3">
               <img
+                alt="alt tag"
                 style={styles.img}
                 src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
               ></img>
@@ -106,6 +109,7 @@ export function Reviews() {
           <div style={styles.reviewDiv}>
             <div className="col-3">
               <img
+                alt="alt tag"
                 style={styles.img}
                 src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
               ></img>
@@ -132,6 +136,7 @@ export function Reviews() {
           <div style={styles.reviewDiv}>
             <div className="col-3">
               <img
+                alt="alt tag"
                 style={styles.img}
                 src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
               ></img>
