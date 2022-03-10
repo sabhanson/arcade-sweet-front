@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import CloudinaryUploadWidget from "../../utils/CloudinaryUploadWidget";
 
 const styles = {
   modal: {
@@ -94,11 +95,12 @@ export function Profile() {
                   placeholder="new email..."
                   id = "newEmail"
                 ></input>
-                <input
+                <CloudinaryUploadWidget />
+                {/* <input
                   style={styles.input}
                   className="col-12"
                   type={"file"}
-                ></input>
+                ></input> */}
               </form>
             </Modal.Body>
             <Modal.Footer>
