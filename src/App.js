@@ -14,6 +14,9 @@ import Profile from "./components/pages/Profile";
 import Signup from "./components/pages/Signup";
 import Login from "./components/pages/Login";
 import Logout from "./components/pages/Logout";
+import CardMatch from "./components/pages/CardMatch";
+import Guides from "./components/pages/GameGuide";
+import Wordle from "./components/pages/Wordle";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -54,6 +57,15 @@ function App() {
     }
     if (currentPage === "Logout") {
       return <Logout />;
+    }
+    if (currentPage === "CardMatch") {
+      return <CardMatch handlePageChange={handlePageChange} />;
+    }
+    if (currentPage === "GameGuide") {
+      return <Guides />;
+    }
+    if (currentPage === "Wordle") {
+      return <Wordle handlePageChange={handlePageChange} />;
     }
   };
 

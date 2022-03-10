@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Keyboard from "../Keyboard";
 import { wordList } from "../../constants/wordList";
 import "./styles/Wordle.css";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
-const Wordle = () => {
+const Wordle = ({ handlePageChange }) => {
   const [boardData, setBoardData] = useState(
     JSON.parse(localStorage.getItem("board-data"))
   );
@@ -194,6 +194,9 @@ const Wordle = () => {
   return (
     <div className="container col-8">
       <div className="top">
+        <button onClick={() => handlePageChange("Home")}>
+          <CloseIcon />
+        </button>
         <div className="title">Wordle</div>
         <button className="reset-board letter-button" onClick={resetBoard}>
           {"\u27f3"}

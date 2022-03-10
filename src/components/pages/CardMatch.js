@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "./Card";
-// import Home from "./Home";
 import cardsArray from "../cardsArray";
 import "./CardMatch.css";
-import { Box, Typography, Modal } from '@mui/material';
-// import CloseIcon from '@mui/icons-material/Close';
-
+import { Box, Typography, Modal } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 const styles = {
   cardsDiv: {
@@ -27,42 +25,30 @@ const styles = {
     margin: "10px",
   },
   modal: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: 200,
-    bgcolor: 'background.black',
+    bgcolor: "background.black",
     contrast: "0%",
-    border: '2px solid #000',
+    border: "2px solid #000",
     boxShadow: 24,
     p: 4,
-  }
+  },
 };
 
-export function CardMatch() {
+export function CardMatch({ handlePageChange }) {
   const [cards, setCards] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const [display, setDisplay] = useState(false);
   const [moves, setMoves] = useState(0);
-  const [match, setMatches] = useState(0)
+  const [match, setMatches] = useState(0);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  // const [currentPage, setCurrentPage] = useState("CardMatch");
-
-  // const renderPage = () => {
-  //   if (currentPage === "CardMatch") {
-  //     return <CardMatch />
-  //   } 
-  //   if (currentPage === "Home") {
-  //     return <Home/>
-  //   }
-  // }
-
-// const handlePageChange = (page) => setCurrentPage(page)
 
   // function to shuffle and duplicate cards
   const shuffleCards = () => {
@@ -85,10 +71,10 @@ export function CardMatch() {
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       setDisabled(true);
-      setMoves(moves => moves + 1);
+      setMoves((moves) => moves + 1);
       // function to compare if card 1 and card 2 are the same or different
       if (choiceOne.type === choiceTwo.type) {
-        setMatches(match => match + 1);
+        setMatches((match) => match + 1);
         setCards((prevCards) => {
           return prevCards.map((card) => {
             if (card.type === choiceOne.type) {
@@ -128,7 +114,6 @@ export function CardMatch() {
     }
   }, [choiceOne, choiceTwo]);
 
-
   // resets choice one and two to null again, disabled false so that the cards are able to be clicked again
   const resetTurn = () => {
     setChoiceOne(null);
@@ -147,9 +132,7 @@ export function CardMatch() {
   return (
     <div className="row d-flex justify-content-center">
       <h1>Match! That! LaCroix!</h1>
-      {/* <button>
-        <CloseIcon />
-      </button> */}
+
       <div>
         <button style={styles.button} onClick={shuffleCards}>
           New Game
@@ -179,6 +162,9 @@ export function CardMatch() {
         }
       >
         <div className="row d-flex" style={styles.cardsDiv}>
+          <button onClick={() => handlePageChange("Home")}>
+            <CloseIcon />
+          </button>
           {cards.map((eachCard) => (
             <Card
               key={eachCard.id}
