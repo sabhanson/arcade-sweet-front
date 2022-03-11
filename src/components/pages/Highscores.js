@@ -7,6 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { getScores } from "../../utils/API";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const styles = {
   tableContainer: {
@@ -72,7 +73,7 @@ export function Highscores() {
   return (
     <div>
       <div className="d-flex justify-content-center">
-        <TableContainer style={styles.tableContainer}>
+        <TableContainer className="col-6" style={styles.tableContainer}>
           <Table aria-label="simple table">
             <TableHead>
               <p style={styles.title}>Card Matching</p>

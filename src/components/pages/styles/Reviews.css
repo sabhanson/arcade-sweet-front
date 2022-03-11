@@ -10,8 +10,30 @@
     -webkit-transition: all 150ms ease-in-out;
     transition: all 150ms ease-in-out;
     margin: 10px;
-   max-height: 40px
   }
   .third:hover {
     box-shadow: 0 0 10px 0 #f46036 inset, 0 0 10px 4px #f46036;
+  }
+
+  .profileImg {
+    border-radius: 50%;
+    width: 75px;
+    margin: 5px;
+  }
+
+  .reviewTxt {
+    font-size: 15px;
+    text-align: start;
+    align-self: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    margin: 3px;
+    padding: 5px;
+  }
+
+  .reviewBox {
+      margin: 5px;
+      border-radius: 10px;
+      padding: 10px;
   }
