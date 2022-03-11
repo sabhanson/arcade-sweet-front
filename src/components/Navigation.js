@@ -4,6 +4,7 @@ import logo from "../images/logo.png";
 import { fabClasses } from "@mui/material";
 import { isToken } from "../utils/API";
 import { getProfileData } from "../utils/API";
+import { Dropdown, NavItem, NavLink } from 'react-bootstrap';
 
 const styles = {
   nav: {
@@ -39,7 +40,12 @@ function Navigation({ currentPage, handlePageChange }) {
   const logMeOut = () => {
     console.log(handlePageChange)
     localStorage.removeItem("token");
-    handlePageChange("Home");
+    console.log(currentPage);
+    if(currentPage === "Home") {
+        window.location.reload(false);
+    } else {
+      handlePageChange("Home");
+    }
   };
 
 
@@ -63,28 +69,39 @@ function Navigation({ currentPage, handlePageChange }) {
           onClick={() => handlePageChange("Login")}
           style={{ display: isToken() ? "none" : "block" }}
         >
-          {" "}
-          Login{" "}
+          Login
         </a>
-        <a
-          src="#"
-          href="#"
-          alt="alt tag"
-          onClick={() => logMeOut()}
-          style={{ display: isToken() ? "block" : "none" }}
-        >
-          {" "}
-          Logout{" "}
-        </a>
-        <a
-          src="#"
-          href="#profile"
-          alt="alt tag"
-          onClick={() => handlePageChange("Profile")}
-          style={{ display: isToken() ? "block" : "none" }}
-        >
-          <img style={styles.img} alt="profile pic" src={avatar}></img>
-        </a>
+        <Dropdown as={NavItem} style={{ display : isToken() ? "block" : "none"  }}>
+          <Dropdown.Toggle as={NavLink}>
+            <img
+              style={styles.img}
+              alt="profile pic"
+              src={avatar}
+            ></img>
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item>
+              <a
+                src="#"
+                href="#"
+                alt="alt tag"
+                onClick={() => handlePageChange("Profile")}
+              >
+                Profile
+              </a>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <a
+                src="#"
+                href="#"
+                alt="alt tag"
+                onClick={() => logMeOut()}
+              >
+                Logout
+              </a>
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
       <ul className="row navbar nav nav-tabs">
         <li className="nav-item col-sm-12 col-md-2">
