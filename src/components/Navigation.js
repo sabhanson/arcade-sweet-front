@@ -26,13 +26,14 @@ const styles = {
     height: "auto",
   },
 };
-  
+
 function Navigation({ currentPage, handlePageChange }) {
   const [avatar, setAvatar] = useState();
   async function getData() {
     let pd = await getProfileData();
-    setAvatar(pd.file_name)
+    setAvatar(pd.file_name);
     return pd;
+
   } 
 
   const logMeOut = () => {
@@ -40,6 +41,7 @@ function Navigation({ currentPage, handlePageChange }) {
     localStorage.removeItem("token");
     handlePageChange("Home");
   };
+
 
   getData();
 
@@ -59,7 +61,7 @@ function Navigation({ currentPage, handlePageChange }) {
           href="#login"
           alt="alt tag"
           onClick={() => handlePageChange("Login")}
-          style={{ display : isToken() ? "none" : "block" }}
+          style={{ display: isToken() ? "none" : "block" }}
         >
           {" "}
           Login{" "}
@@ -69,7 +71,7 @@ function Navigation({ currentPage, handlePageChange }) {
           href="#"
           alt="alt tag"
           onClick={() => logMeOut()}
-          style={{ display : isToken() ? "block" : "none"  }}
+          style={{ display: isToken() ? "block" : "none" }}
         >
           {" "}
           Logout{" "}
@@ -79,13 +81,9 @@ function Navigation({ currentPage, handlePageChange }) {
           href="#profile"
           alt="alt tag"
           onClick={() => handlePageChange("Profile")}
-          style={{ display : isToken() ? "block" : "none" }}
+          style={{ display: isToken() ? "block" : "none" }}
         >
-          <img
-            style={styles.img}
-            alt="profile pic"
-            src={avatar}
-          ></img>
+          <img style={styles.img} alt="profile pic" src={avatar}></img>
         </a>
       </div>
       <ul className="row navbar nav nav-tabs">
@@ -114,7 +112,9 @@ function Navigation({ currentPage, handlePageChange }) {
             href="#featured-game"
             onClick={() => handlePageChange("Featured")}
             className={
-              currentPage === "Featured" ? "nav-link active" : "nav-link"
+              currentPage === "Featured"
+                ? "nav-link disabled"
+                : "nav-link disabled"
             }
           >
             FEATURED

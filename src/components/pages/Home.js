@@ -3,7 +3,6 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import "./styles/Home.css";
 import MatchGame from "../../images/matchgame.png";
@@ -31,8 +30,9 @@ export function Home({ handlePageChange }) {
             Match your favorite La Croix flavors in the fewest moves!
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button
+        <CardActions className="d-flex justify-content-center">
+          <button
+            className="button"
             size="small"
             onClick={() => {
               handlePageChange("CardMatch");
@@ -40,10 +40,13 @@ export function Home({ handlePageChange }) {
             }}
           >
             Play Now!
-          </Button>
-          <Button size="small" onClick={() => handlePageChange("GameGuide")}>
+          </button>
+          <button
+            className="button"
+            onClick={() => handlePageChange("GameGuide")}
+          >
             How to Play
-          </Button>
+          </button>
         </CardActions>
       </Card>
       <Card className={display ? "col-5" : "col-5 hidden"}>
@@ -62,23 +65,26 @@ export function Home({ handlePageChange }) {
             Guess the word in less than 6 tries!
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button
+        <CardActions className="d-flex justify-content-center">
+          <button
+            className="button"
             size="small"
             onClick={() => {
               handlePageChange("Wordle");
               setDisplay(false);
             }}
           >
-            Play now!
-          </Button>
-          <Button size="small" onClick={() => handlePageChange("GameGuide")}>
+            Play Now!
+          </button>
+          <button
+            className="button"
+            onClick={() => handlePageChange("GameGuide")}
+          >
             How to Play
-          </Button>
+          </button>
         </CardActions>
       </Card>
     </div>
   );
 }
-
 export default Home;

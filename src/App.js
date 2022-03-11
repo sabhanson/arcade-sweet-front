@@ -41,7 +41,12 @@ function App() {
       return <FeaturedGame />;
     }
     if (currentPage === "Game Guides") {
-      return <GameGuide handlePageChange={handlePageChange} />;
+      return (
+        <GameGuide
+          currentPage={currentPage}
+          handlePageChange={handlePageChange}
+        />
+      );
     }
     if (currentPage === "Highscores") {
       return <Highscores />;

@@ -2,28 +2,11 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "./Card";
 import cardsArray from "../cardsArray";
-import "./CardMatch.css";
+import "./styles/CardMatch.css";
 import { Box, Typography, Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 const styles = {
-  cardsDiv: {
-    width: "80vw",
-    overflow: "hidden",
-    background: "#1B998B",
-    border: "5px double white",
-    padding: "10px",
-    boxShadow: "0px 0px 20px black",
-    borderRadius: "15px",
-  },
-  button: {
-    padding: "3px",
-    // fontFamily: "cursive",
-    background: "#F46036",
-    color: "white",
-    borderRadius: "7px",
-    margin: "10px",
-  },
   modal: {
     position: "absolute",
     top: "50%",
@@ -59,7 +42,7 @@ export function CardMatch({ handlePageChange }) {
     setChoiceOne(null);
     setChoiceTwo(null);
     setCards(shuffledCards);
-    resetGame();
+    // resetGame();
   };
 
   // BUG: user can double click on one card and flip the other paired card :)
@@ -130,54 +113,59 @@ export function CardMatch({ handlePageChange }) {
   };
 
   return (
-    <div className="row d-flex justify-content-center">
-      <h1>Match! That! LaCroix!</h1>
-
-      <div>
-        <button style={styles.button} onClick={shuffleCards}>
-          New Game
-        </button>
-        <p>Moves: {moves}</p>
-      </div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="unstyled-modal-title"
-        aria-describedby="unstyled-modal-description"
-      >
-        <Box style={styles.modal}>
-          <Typography id="unstyled-modal-title" variant="h6" component="h2">
-            You won in {moves} moves!
-            <button style={styles.button} onClick={resetGame}>
-              Play Again
-            </button>
-          </Typography>
-        </Box>
-      </Modal>
-      <div
-        className={
-          display
-            ? "card-grid d-flex col-10 col-md-8 col-lg-6 justify-content-center"
-            : "hidden"
-        }
-      >
-        <div className="row d-flex" style={styles.cardsDiv}>
-          <button onClick={() => handlePageChange("Home")}>
+    <div className="d-flex justify-content-center">
+      <div className="row d-flex justify-content-center game-card col-9 col-md-7">
+        <div className="d-flex justify-content-start">
+          <button className="x-button" onClick={() => handlePageChange("Home")}>
             <CloseIcon />
           </button>
-          {cards.map((eachCard) => (
-            <Card
-              key={eachCard.id}
-              eachCard={eachCard}
-              handleChoice={handleChoice}
-              flipped={
-                eachCard === choiceOne ||
-                eachCard === choiceTwo ||
-                eachCard.matched
-              }
-              disabled={disabled}
-            />
-          ))}
+        </div>
+        <div>
+          <h1 className="game-title col-12">Match! That! LaCroix!</h1>
+          <div className="row align-content-center justify-content-center">
+            <button className="button col-3" onClick={resetGame}>
+              New Game
+            </button>
+          </div>
+        </div>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="unstyled-modal-title"
+          aria-describedby="unstyled-modal-description"
+        >
+          <Box style={styles.modal}>
+            <Typography id="unstyled-modal-title" variant="h6" component="h2">
+              You won in {moves} moves!
+              <button className="button" onClick={resetGame}>
+                Play Again
+              </button>
+            </Typography>
+          </Box>
+        </Modal>
+        <div
+          className={
+            display
+              ? "card-grid d-flex col-10 col-md-8 col-lg-6 justify-content-center"
+              : "hidden"
+          }
+        >
+          <div className="row d-flex justify-content-center my-3">
+            {cards.map((eachCard) => (
+              <Card
+                key={eachCard.id}
+                eachCard={eachCard}
+                handleChoice={handleChoice}
+                flipped={
+                  eachCard === choiceOne ||
+                  eachCard === choiceTwo ||
+                  eachCard.matched
+                }
+                disabled={disabled}
+              />
+            ))}
+            <div className="moves col-3">Moves: {moves}</div>
+          </div>
         </div>
       </div>
     </div>
