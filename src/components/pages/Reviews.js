@@ -1,5 +1,7 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { postReviews, getReviews } from "../../utils/API";
 
 const styles = {
   div: {
@@ -31,7 +33,7 @@ const styles = {
   },
   img: {
     borderRadius: "50%",
-    width: "100px",
+    width: "45px",
   },
   input: {
     borderRadius: "7px",
@@ -48,43 +50,60 @@ const styles = {
 };
 
 export function Reviews() {
+  const [reviewDataCM, setReviewDataCM] = useState([]);
+  const [reviewDataWordle, setReviewDataWordle] = useState([]);
+  useEffect(() => {
+    callGetReviews();
+  }, []);
+
+  const callGetReviews = async () => {
+    let rCM = await getReviews(1);
+    let rW = await getReviews(2);
+    setReviewDataCM(rCM);
+    setReviewDataWordle(rW);
+  }
+
+  const postReview = async (inputId) => {
+    console.log(inputId)
+    let review = document.getElementById(inputId).value;
+    document.getElementById(inputId).value = "";
+    if(inputId === "card-match")
+      await postReviews(review, 1);
+    else if(inputId === "wordle")
+      await postReviews(review, 2);
+    callGetReviews();
+  }
+
   return (
     <>
       <div className="d-flex justify-content-center">
         <div style={styles.div} className="card col-8">
           <h1 style={styles.h1}>Card Matching</h1>
-          <div style={styles.reviewDiv}>
+          {reviewDataCM.map((row) => (
+            <div style={styles.reviewDiv}>
             <div className="col-3">
               <img
                 alt="alt tag"
                 style={styles.img}
-                src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
+                src={row.imgSrc}
               ></img>
             </div>
             <p className="col-9" style={styles.p}>
-              wow i love this game! so much fun and better than anything I've
-              ever made! -tommybahama
+              {row.review} - {row.username}
             </p>
           </div>
-          <div style={styles.reviewDiv}>
-            <div className="col-3">
-              <img
-                alt="alt tag"
-                style={styles.img}
-                src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
-              ></img>
-            </div>
-            <p className="col-9" style={styles.p}>
-              i hate this game a lot!! -hatergamer
-            </p>
-          </div>
+          ))}
           <div className="d-flex justify-content-center">
             <input
               placeholder="add a review..."
               style={styles.input}
               className="col-10"
+              id="card-match"
             ></input>
-            <button className="col-2" style={styles.button}>
+            <button className="col-2" 
+              style={styles.button}
+              onClick={() => postReview("card-match")}
+            >
               Submit
             </button>
           </div>
@@ -93,66 +112,30 @@ export function Reviews() {
       <div className="d-flex justify-content-center">
         <div style={styles.div} className="card col-8">
           <h1 style={styles.h1}>Wordle</h1>
-          <div style={styles.reviewDiv}>
+          {reviewDataWordle.map((row) => (
+            <div style={styles.reviewDiv}>
             <div className="col-3">
               <img
                 alt="alt tag"
                 style={styles.img}
-                src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
+                src={row.imgSrc}
               ></img>
             </div>
             <p className="col-9" style={styles.p}>
-              I love that this wordle doesn't have repeating characters!
-              -wordywyatt
+              {row.review} - {row.username}
             </p>
           </div>
-          <div style={styles.reviewDiv}>
-            <div className="col-3">
-              <img
-                alt="alt tag"
-                style={styles.img}
-                src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
-              ></img>
-            </div>
-            <p className="col-9" style={styles.p}>
-              i am indifferent!! -newuser
-            </p>
-          </div>
+          ))}
           <div className="d-flex justify-content-center">
             <input
               placeholder="add a review..."
               style={styles.input}
               className="col-10"
+              id="wordle"
             ></input>
-            <button className="col-2" style={styles.button}>
-              Submit
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="d-flex justify-content-center">
-        <div style={styles.div} className="card col-8">
-          <h1 style={styles.h1}>TBD Game</h1>
-          <div style={styles.reviewDiv}>
-            <div className="col-3">
-              <img
-                alt="alt tag"
-                style={styles.img}
-                src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
-              ></img>
-            </div>
-            <p className="col-9" style={styles.p}>
-              this game will probably be really cool once it's made
-              -wishfulgamer
-            </p>
-          </div>
-          <div className="d-flex justify-content-center">
-            <input
-              placeholder="add a review..."
-              style={styles.input}
-              className="col-10"
-            ></input>
-            <button className="col-2" style={styles.button}>
+            <button className="col-2" 
+            style={styles.button}
+            onClick={() => postReview("wordle")}>
               Submit
             </button>
           </div>
