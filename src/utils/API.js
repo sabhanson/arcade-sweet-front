@@ -47,6 +47,54 @@ export const getScores = async (gamevalue) => {
     }
     return null;
   };
+
+  export const getReviews = async (gamevalue) => {
+    try {
+      const response = await fetch(
+        'http://localhost:3001/api/reviews/latest/',
+        {
+          mode: "cors",
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            gamevalue: gamevalue,
+          }),
+        }
+      );
+      const reviewsData = await response.json();
+      return reviewsData;
+    } catch (e) {
+      console.log(e);
+    }
+    return null;
   };
 
-export default {isToken, getProfileData, getScoreData};
+  export const postReviews = async (review, gamevalue) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch(
+        'http://localhost:3001/api/reviews/',
+        {
+          mode: "cors",
+          method: "POST",
+          body: JSON.stringify({
+            review: review,
+            gamevalue: gamevalue,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+            authorization: token,
+          },
+        }
+      );
+      const reviewData = await response.json();
+      return reviewData;
+    } catch (e) {
+      console.log(e);
+    }
+    return null;
+  };
+
+export default {isToken, getProfileData, getScores, postReviews, getReviews};
