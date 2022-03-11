@@ -1,3 +1,9 @@
+.img {
+  height: auto;
+  width: 500px !important;
+  justify-content: center;
+}
+
 .hidden {
   display: none;
 }

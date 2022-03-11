@@ -19,7 +19,7 @@ export function Home({ handlePageChange }) {
           component="img"
           height="140"
           image={MatchGame}
-          className="img-fluid"
+          className="img"
           alt="card matching screenshot"
         />
         <CardContent>
@@ -54,7 +54,7 @@ export function Home({ handlePageChange }) {
           component="img"
           height="140"
           image={WordleGame}
-          className="img-fluid"
+          className="img"
           alt="wordle screenshot"
         />
         <CardContent>

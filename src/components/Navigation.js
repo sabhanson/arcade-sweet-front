@@ -7,6 +7,7 @@ import { getProfileData } from "../utils/API";
 import { Dropdown, NavItem, NavLink } from 'react-bootstrap';
 import "./pages/styles/Nav.css";
 
+
 const styles = {
   nav: {
     background: "#2E294E",
@@ -62,6 +63,7 @@ function Navigation({ currentPage, handlePageChange }) {
           <img src={logo} style={styles.logo} alt="logo" />
         </a>
         <a
+          className="btn third"
           src="#"
           href="#login"
           alt="alt tag"
