@@ -25,16 +25,19 @@ export const getProfileData = async () => {
    
 }
 
-export const getScoreData = async () => {
+export const getScores = async (gamevalue) => {
     try {
       const response = await fetch(
-        "http://localhost:3001/api/userProfile/allProfiles/",
+        'http://localhost:3001/api/scores/top/',
         {
           mode: "cors",
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            gamevalue: gamevalue,
+          }),
         }
       );
       const scoreData = await response.json();
@@ -42,6 +45,8 @@ export const getScoreData = async () => {
     } catch (e) {
       console.log(e);
     }
+    return null;
+  };
   };
 
 export default {isToken, getProfileData, getScoreData};
