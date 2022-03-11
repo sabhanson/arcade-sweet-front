@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/GameGuide.css";
 
-export function GameGuide({ handlePageChange, renderPage }) {
+export function GameGuide({ handlePageChange }) {
   return (
     <div className="my-5 row d-flex justify-content-center">
       <div id="card" className="col-10 col-md-7 col-lg-4 guide-card">

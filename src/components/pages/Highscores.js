@@ -52,8 +52,9 @@ const styles = {
 
 export function Highscores() {
   const [scoreDataCM, setscoreDataCM] = useState([]);
+  console.log(scoreDataCM);
   const [scoreDataWordle, setscoreDataWordle] = useState([]);
-  const rows=[];
+  const rows = [];
   // const [gameValue, setgameValue] = useState()
 
   useEffect(() => {
@@ -65,7 +66,7 @@ export function Highscores() {
     let sdW = await getScores(2);
     setscoreDataCM(sdCM);
     setscoreDataWordle(sdW);
-  }
+  };
 
   // console.log({scoreDataCM});
   return (

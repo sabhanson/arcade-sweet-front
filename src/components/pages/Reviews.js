@@ -61,18 +61,16 @@ export function Reviews() {
     let rW = await getReviews(2);
     setReviewDataCM(rCM);
     setReviewDataWordle(rW);
-  }
+  };
 
   const postReview = async (inputId) => {
-    console.log(inputId)
+    console.log(inputId);
     let review = document.getElementById(inputId).value;
     document.getElementById(inputId).value = "";
-    if(inputId === "card-match")
-      await postReviews(review, 1);
-    else if(inputId === "wordle")
-      await postReviews(review, 2);
+    if (inputId === "card-match") await postReviews(review, 1);
+    else if (inputId === "wordle") await postReviews(review, 2);
     callGetReviews();
-  }
+  };
 
   return (
     <>
@@ -81,17 +79,13 @@ export function Reviews() {
           <h1 style={styles.h1}>Card Matching</h1>
           {reviewDataCM.map((row) => (
             <div style={styles.reviewDiv}>
-            <div className="col-3">
-              <img
-                alt="alt tag"
-                style={styles.img}
-                src={row.imgSrc}
-              ></img>
+              <div className="col-3">
+                <img alt="alt tag" style={styles.img} src={row.imgSrc}></img>
+              </div>
+              <p className="col-9" style={styles.p}>
+                {row.review} - {row.username}
+              </p>
             </div>
-            <p className="col-9" style={styles.p}>
-              {row.review} - {row.username}
-            </p>
-          </div>
           ))}
           <div className="d-flex justify-content-center">
             <input
@@ -100,7 +94,8 @@ export function Reviews() {
               className="col-10"
               id="card-match"
             ></input>
-            <button className="col-2" 
+            <button
+              className="col-2"
               style={styles.button}
               onClick={() => postReview("card-match")}
             >
@@ -114,17 +109,13 @@ export function Reviews() {
           <h1 style={styles.h1}>Wordle</h1>
           {reviewDataWordle.map((row) => (
             <div style={styles.reviewDiv}>
-            <div className="col-3">
-              <img
-                alt="alt tag"
-                style={styles.img}
-                src={row.imgSrc}
-              ></img>
+              <div className="col-3">
+                <img alt="alt tag" style={styles.img} src={row.imgSrc}></img>
+              </div>
+              <p className="col-9" style={styles.p}>
+                {row.review} - {row.username}
+              </p>
             </div>
-            <p className="col-9" style={styles.p}>
-              {row.review} - {row.username}
-            </p>
-          </div>
           ))}
           <div className="d-flex justify-content-center">
             <input
@@ -133,9 +124,11 @@ export function Reviews() {
               className="col-10"
               id="wordle"
             ></input>
-            <button className="col-2" 
-            style={styles.button}
-            onClick={() => postReview("wordle")}>
+            <button
+              className="col-2"
+              style={styles.button}
+              onClick={() => postReview("wordle")}
+            >
               Submit
             </button>
           </div>
