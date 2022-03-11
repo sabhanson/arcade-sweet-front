@@ -10,7 +10,8 @@
   margin: 10px;
 }
 
-.btn:hover, .btn:focus {
+.btn:hover,
+.btn:focus {
   color: #000;
   outline: 0;
 }
@@ -28,12 +29,10 @@
 }
 
 .gameCard {
-  border-radius: 20px ;
-  box-shadow: 0px 0px 20px black;
+  border-radius: 20px !important;
+  box-shadow: 0px 0px 20px black !important;
 }
 
 .gameImg {
-  border-radius: 20px ;
+  border-radius: 20px;
 }
-
-

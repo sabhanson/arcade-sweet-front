@@ -1,39 +1,38 @@
-.btn:hover, .btn:focus {
-    color: #000;
-    outline: 0;
-  }
-  
-  .third {
-    border-color: #f46036;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #f46036 inset, 0 0 0 0 #f46036;
-    -webkit-transition: all 150ms ease-in-out;
-    transition: all 150ms ease-in-out;
-    margin: 10px;
-  }
-  .third:hover {
-    box-shadow: 0 0 10px 0 #f46036 inset, 0 0 10px 4px #f46036;
-  }
+.btn:hover,
+.btn:focus {
+  color: #000;
+  outline: 0;
+}
 
-  .profileImg {
-    border-radius: 50%;
-    width: 75px;
-    margin: 5px;
-  }
+.third {
+  border-color: #f46036;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #f46036 inset, 0 0 0 0 #f46036;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  margin: 10px;
+}
+.third:hover {
+  box-shadow: 0 0 10px 0 #f46036 inset, 0 0 10px 4px #f46036;
+}
 
-  .reviewTxt {
-    font-size: 15px;
-    text-align: start;
-    align-self: center;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: white;
-    margin: 3px;
-    padding: 5px;
-  }
+.profileImg {
+  margin: 5px;
+}
 
-  .reviewBox {
-      margin: 5px;
-      border-radius: 10px;
-      padding: 10px;
-  }
+.reviewTxt {
+  font-size: 15px;
+  text-align: start;
+  align-self: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: white;
+  margin: 3px;
+  padding: 5px;
+}
+
+.reviewBox {
+  margin: 5px;
+  border-radius: 10px;
+  padding: 10px;
+}

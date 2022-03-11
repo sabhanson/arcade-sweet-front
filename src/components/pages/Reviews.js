@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles/Reviews.css"
+import "./styles/Reviews.css";
+import { Avatar } from "@mui/material";
 import { postReviews, getReviews } from "../../utils/API";
 
 const styles = {
@@ -68,7 +69,12 @@ export function Reviews() {
           {reviewDataCM.map((row) => (
             <div className="row justify-content-center">
               <div className="d-flex justify-content-end col-2">
-                <img className="profileImg" alt="alt tag" src={row.imgSrc}></img>
+                <Avatar
+                  sx={{ width: 56, height: 56 }}
+                  className="profileImg"
+                  alt="alt tag"
+                  src={row.imgSrc}
+                />
               </div>
               <p className=" reviewTxt col-9">
                 {row.review} - {row.username}
@@ -96,13 +102,18 @@ export function Reviews() {
           <h1 style={styles.h1}>Wordle</h1>
           {reviewDataWordle.map((row) => (
             <div className="row justify-content-center">
-            <div className="d-flex justify-content-end col-2">
-              <img className="profileImg" alt="alt tag" src={row.imgSrc}></img>
+              <div className="d-flex justify-content-end col-2">
+                <Avatar
+                  sx={{ width: 56, height: 56 }}
+                  className="profileImg"
+                  alt="alt tag"
+                  src={row.imgSrc}
+                />
+              </div>
+              <p className=" reviewTxt col-9">
+                {row.review} - {row.username}
+              </p>
             </div>
-            <p className=" reviewTxt col-9">
-              {row.review} - {row.username}
-            </p>
-          </div>
           ))}
           <div className="d-flex justify-content-center">
             <input
