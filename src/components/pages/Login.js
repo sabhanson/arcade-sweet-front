@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 // import { useNavigate } from "react-router-dom";
 import './Login.css';
+import Signup from "./Signup";
+// import getToken 
 
 async function loginUser(credentials) {
     return await fetch('http://localhost:3001/api/users/login', {
@@ -49,6 +51,12 @@ export default function Login({ handlePageChange }) {
         </label>
         <div>
           <button type="submit">Submit</button>
+          
+         <p>Not Registered? <a src="Signup"
+          href="#signup"
+          alt="alt tag"
+          onClick={() => handlePageChange("Signup")}>Signup</a></p> 
+         
         </div>
       </form>
     </div>
