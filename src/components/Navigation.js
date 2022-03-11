@@ -26,14 +26,7 @@ const styles = {
     height: "auto",
   },
 };
-
-const logMeOut = () => {
-  localStorage.removeItem("token");
-
-};
-
-
-
+  
 function Navigation({ currentPage, handlePageChange }) {
   const [avatar, setAvatar] = useState();
   async function getData() {
@@ -41,7 +34,15 @@ function Navigation({ currentPage, handlePageChange }) {
     setAvatar(pd.file_name)
     return pd;
   } 
+
+  const logMeOut = () => {
+    console.log(handlePageChange)
+    localStorage.removeItem("token");
+    handlePageChange("Home");
+  };
+
   getData();
+
   return (
     <nav style={styles.nav}>
       <div style={styles.imgDiv}>
@@ -53,16 +54,6 @@ function Navigation({ currentPage, handlePageChange }) {
         >
           <img src={logo} style={styles.logo} alt="logo" />
         </a>
-
-        {/* <a
-          src="#"
-          href="#signup"
-          alt="alt tag"
-          onClick={() => handlePageChange("Signup")}
-          style={{ visibility : getToken() ? "hidden" : "visible" }}
-        >
-          Signup
-        </a> */}
         <a
           src="#"
           href="#login"

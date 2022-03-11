@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import './Signup.css';
+import './Form.css';
 
 async function signUp(credentials) {
     return await fetch('http://localhost:3001/api/users/signup', {
@@ -18,7 +18,6 @@ export default function Signup({ handlePageChange }) {
     const [username, setUserName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    let navigate = useNavigate(); 
   
     const handleSubmit = async e => {
       e.preventDefault();
@@ -29,31 +28,37 @@ export default function Signup({ handlePageChange }) {
       });
       if(token.token !== undefined) {
         localStorage.setItem("token", token.token);
-        // setCurrentPage("Home")
+        handlePageChange("Home");
       }
       
     }
 
   return (
-    <div className="signup-wrapper">
-      <h1>Please Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input type="text" onChange={e => setUserName(e.target.value)} />
-        </label>
-        <label>
-          <p>Email</p>
-          <input type="text" onChange={e => setEmail(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
-        </label>
-        <div>
-          <button type="submit">Submit</button>
+    <div className="auth-wrapper">
+        <div className="auth-inner">
+          <form onSubmit={handleSubmit}>
+              <h3>Sign Up</h3>
+              <div className="form-group">
+                  <label>Username</label>
+                  <input type="text" className="form-control" placeholder="Username" onChange={e => setUserName(e.target.value)} />
+              </div>
+              <div className="form-group">
+                  <label>Email address</label>
+                  <input type="email" className="form-control" placeholder="Enter email" onChange={e => setEmail(e.target.value)} />
+              </div>
+              <div className="form-group">
+                  <label>Password</label>
+                  <input type="password" className="form-control" placeholder="Enter password" onChange={e => setPassword(e.target.value)} />
+              </div>
+              <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+              <p className="forgot-password text-right">
+                  Already registered ? <a src="Login"
+                href="#login"
+                alt="alt tag"
+                onClick={() => handlePageChange("Login")}>Login</a>
+              </p>
+          </form>
         </div>
-      </form>
     </div>
   );
-}
+};
