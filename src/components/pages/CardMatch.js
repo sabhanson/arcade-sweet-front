@@ -123,7 +123,7 @@ export function CardMatch({ handlePageChange }) {
         <div>
           <h1 className="game-title col-12">Match! That! LaCroix!</h1>
           <div className="row align-content-center justify-content-center">
-            <button className="button col-3" onClick={resetGame}>
+            <button className="btn third col-3" onClick={resetGame}>
               New Game
             </button>
           </div>
