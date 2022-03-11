@@ -35,20 +35,18 @@ function Navigation({ currentPage, handlePageChange }) {
     let pd = await getProfileData();
     setAvatar(pd.file_name);
     return pd;
-
-  } 
+  }
 
   const logMeOut = () => {
-    console.log(handlePageChange)
+    console.log(handlePageChange);
     localStorage.removeItem("token");
     console.log(currentPage);
-    if(currentPage === "Home") {
-        window.location.reload(false);
+    if (currentPage === "Home") {
+      window.location.reload(false);
     } else {
       handlePageChange("Home");
     }
   };
-
 
   getData();
 
@@ -72,13 +70,12 @@ function Navigation({ currentPage, handlePageChange }) {
         >
           Login
         </a>
-        <Dropdown as={NavItem} style={{ display : isToken() ? "block" : "none"  }}>
+        <Dropdown
+          as={NavItem}
+          style={{ display: isToken() ? "block" : "none" }}
+        >
           <Dropdown.Toggle as={NavLink}>
-            <img
-              style={styles.img}
-              alt="profile pic"
-              src={avatar}
-            ></img>
+            <img style={styles.img} alt="profile pic" src={avatar}></img>
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item>
@@ -92,12 +89,7 @@ function Navigation({ currentPage, handlePageChange }) {
               </a>
             </Dropdown.Item>
             <Dropdown.Item>
-              <a
-                src="#"
-                href="#"
-                alt="alt tag"
-                onClick={() => logMeOut()}
-              >
+              <a src="#" href="#" alt="alt tag" onClick={() => logMeOut()}>
                 Logout
               </a>
             </Dropdown.Item>
@@ -141,7 +133,7 @@ function Navigation({ currentPage, handlePageChange }) {
         <li className="nav-item col-sm-12 col-md-2">
           <a
             href="#game-guides"
-            onClick={() => handlePageChange("Game Guides")}
+            onClick={() => handlePageChange("GameGuide")}
             className={
               currentPage === "Game Guides" ? "nav-link active" : "nav-link"
             }
