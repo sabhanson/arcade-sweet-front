@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import "./styles/Home.css";
 import MatchGame from "../../images/matchgame.png";
 import WordleGame from "../../images/wordlegame.png";
@@ -61,7 +63,8 @@ export function Home({ handlePageChange }) {
             Wordle
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Guess as many words as you'd like and don't worry about repeating letters!
+            Guess as many words as you'd like and don't worry about repeating
+            letters!
           </Typography>
         </CardContent>
         <CardActions className="d-flex justify-content-center">
