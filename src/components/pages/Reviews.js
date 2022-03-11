@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/Reviews.css";
+import { Avatar } from "@mui/material";
 import { postReviews, getReviews } from "../../utils/API";
 
 const styles = {
@@ -17,19 +19,6 @@ const styles = {
     color: "white",
     textShadow: "2px 2px 3px #f46036",
     padding: "10px",
-  },
-  reviewDiv: {
-    display: "flex",
-    justifyContent: "space-between",
-    border: "2px solid black",
-    borderRadius: "10px",
-    background: "white",
-    margin: "3px",
-  },
-  p: {
-    fontSize: "20px",
-    textAlign: "center",
-    alignSelf: "center",
   },
   img: {
     borderRadius: "50%",
@@ -75,14 +64,19 @@ export function Reviews() {
   return (
     <>
       <div className="d-flex justify-content-center">
-        <div style={styles.div} className="card col-8">
+        <div style={styles.div} className="card col-6">
           <h1 style={styles.h1}>Card Matching</h1>
           {reviewDataCM.map((row) => (
-            <div style={styles.reviewDiv}>
-              <div className="col-3">
-                <img alt="alt tag" style={styles.img} src={row.imgSrc}></img>
+            <div className="row justify-content-center">
+              <div className="d-flex justify-content-end col-2">
+                <Avatar
+                  sx={{ width: 56, height: 56 }}
+                  className="profileImg"
+                  alt="alt tag"
+                  src={row.imgSrc}
+                />
               </div>
-              <p className="col-9" style={styles.p}>
+              <p className=" reviewTxt col-9">
                 {row.review} - {row.username}
               </p>
             </div>
@@ -90,12 +84,11 @@ export function Reviews() {
           <div className="d-flex justify-content-center">
             <input
               placeholder="add a review..."
-              style={styles.input}
-              className="col-10"
+              className="reviewBox col-8"
               id="card-match"
             ></input>
             <button
-              className="col-2"
+              className="btn third col-2"
               style={styles.button}
               onClick={() => postReview("card-match")}
             >
@@ -105,14 +98,19 @@ export function Reviews() {
         </div>
       </div>
       <div className="d-flex justify-content-center">
-        <div style={styles.div} className="card col-8">
+        <div style={styles.div} className="card col-6">
           <h1 style={styles.h1}>Wordle</h1>
           {reviewDataWordle.map((row) => (
-            <div style={styles.reviewDiv}>
-              <div className="col-3">
-                <img alt="alt tag" style={styles.img} src={row.imgSrc}></img>
+            <div className="row justify-content-center">
+              <div className="d-flex justify-content-end col-2">
+                <Avatar
+                  sx={{ width: 56, height: 56 }}
+                  className="profileImg"
+                  alt="alt tag"
+                  src={row.imgSrc}
+                />
               </div>
-              <p className="col-9" style={styles.p}>
+              <p className=" reviewTxt col-9">
                 {row.review} - {row.username}
               </p>
             </div>
@@ -120,12 +118,11 @@ export function Reviews() {
           <div className="d-flex justify-content-center">
             <input
               placeholder="add a review..."
-              style={styles.input}
-              className="col-10"
+              className="reviewBox col-8"
               id="wordle"
             ></input>
             <button
-              className="col-2"
+              className="btn third col-2"
               style={styles.button}
               onClick={() => postReview("wordle")}
             >

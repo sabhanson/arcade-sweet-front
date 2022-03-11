@@ -1,15 +1,3 @@
-.hidden {
-  display: none;
-}
-
-.button {
-  padding: 3px;
-  background-color: #f46036;
-  color: white;
-  border-radius: 7px;
-  margin: 10px;
-}
-
 .btn:hover,
 .btn:focus {
   color: #000;
@@ -28,11 +16,23 @@
   box-shadow: 0 0 10px 0 #f46036 inset, 0 0 10px 4px #f46036;
 }
 
-.gameCard {
-  border-radius: 20px !important;
-  box-shadow: 0px 0px 20px black !important;
+.profileImg {
+  margin: 5px;
 }
 
-.gameImg {
-  border-radius: 20px;
+.reviewTxt {
+  font-size: 15px;
+  text-align: start;
+  align-self: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: white;
+  margin: 3px;
+  padding: 5px;
+}
+
+.reviewBox {
+  margin: 5px;
+  border-radius: 10px;
+  padding: 10px;
 }

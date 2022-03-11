@@ -11,7 +11,7 @@ export function GameGuide({ handlePageChange }) {
           <p>stuff about how to play the game</p>
         </div>
         <button
-          className="button"
+          className="btn third button"
           onClick={() => handlePageChange("CardMatch")}
         >
           Play Game
@@ -22,7 +22,7 @@ export function GameGuide({ handlePageChange }) {
         <div className="body">
           <p>stuff about how to play the game</p>
         </div>
-        <button className="button" onClick={() => handlePageChange("Wordle")}>
+        <button className="btn third button" onClick={() => handlePageChange("Wordle")}>
           Play Game
         </button>
       </div>
