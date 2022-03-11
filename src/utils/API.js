@@ -47,6 +47,28 @@ export const getScores = async (gamevalue) => {
     }
     return null;
   };
+export const getWordleScores = async (gamevalue) => {
+    try {
+      const response = await fetch(
+        'https://powerful-badlands-74006.herokuapp.com/api/scores/wordle',
+        {
+          mode: "cors",
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            gamevalue: gamevalue,
+          }),
+        }
+      );
+      const scoreData = await response.json();
+      return scoreData;
+    } catch (e) {
+      console.log(e);
+    }
+    return null;
+  };
 
   export const getReviews = async (gamevalue) => {
     try {
@@ -97,4 +119,4 @@ export const getScores = async (gamevalue) => {
     return null;
   };
 
-export default {isToken, getProfileData, getScores, postReviews, getReviews};
+export default {isToken, getProfileData, getScores, postReviews, getReviews, getWordleScores};

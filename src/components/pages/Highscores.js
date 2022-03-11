@@ -6,7 +6,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { getScores } from "../../utils/API";
+import { getScores , getWordleScores } from "../../utils/API";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const styles = {
@@ -53,7 +53,6 @@ const styles = {
 
 export function Highscores() {
   const [scoreDataCM, setscoreDataCM] = useState([]);
-  console.log(scoreDataCM);
   const [scoreDataWordle, setscoreDataWordle] = useState([]);
   const rows = [];
   // const [gameValue, setgameValue] = useState()
@@ -61,15 +60,35 @@ export function Highscores() {
   useEffect(() => {
     callGetScores();
   }, []);
+  
+  const groupBy = (arr) => {
+    const numberofEntries= {}
+    for (let i = 0; i < arr.length; i++) {
+      const element = arr[i];
+      if (numberofEntries[element.username] == undefined){
+        numberofEntries[element.username] = 0
+      }
+      numberofEntries[element.username]+= 1
+    }
+    return numberofEntries
+  }
+
+
 
   const callGetScores = async () => {
     let sdCM = await getScores(1);
-    let sdW = await getScores(2);
+    let sdW = await getWordleScores(2);
     setscoreDataCM(sdCM);
-    setscoreDataWordle(sdW);
+    const wordleScores = groupBy(sdW)
+    const sortable = Object.fromEntries(
+      Object.entries(wordleScores).sort(([,a],[,b]) => b-a)
+  );
+    console.log(sortable)
+    setscoreDataWordle(sortable);
   };
+  
 
-  // console.log({scoreDataCM});
+
   return (
     <div>
       <div className="d-flex justify-content-center">
@@ -113,20 +132,20 @@ export function Highscores() {
                   <strong>Username</strong>
                 </TableCell>
                 <TableCell align="center" style={styles.tableHeader}>
-                  <strong>High Score</strong>
+                  <strong>Number of Wins</strong>
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {scoreDataWordle.map((row) => (
+              {Object.entries(scoreDataWordle).map((row) => (
                 <TableRow
-                  key={row.username}
+                  key={row[0]}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {row.username}
+                    {row[0]}
                   </TableCell>
-                  <TableCell align="center">{row.score}</TableCell>
+                  <TableCell align="center">{row[1]}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
