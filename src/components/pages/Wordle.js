@@ -193,10 +193,15 @@ const Wordle = ({ handlePageChange }) => {
 
   return (
     <div className="container col-8">
+      <div className="row justify-content-start col-12">
+        <div className="col-1">
+          <button className="x-button" onClick={() => handlePageChange("Home")}>
+            <CloseIcon />
+          </button>
+        </div>
+      </div>
+
       <div className="top">
-        <button onClick={() => handlePageChange("Home")}>
-          <CloseIcon />
-        </button>
         <div className="title">Wordle</div>
         <button className="reset-board letter-button" onClick={resetBoard}>
           {"\u27f3"}

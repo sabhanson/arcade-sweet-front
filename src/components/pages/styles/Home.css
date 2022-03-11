@@ -1,3 +1,11 @@
 .hidden {
-    display: none;
+  display: none;
+}
+
+.button {
+  padding: 3px;
+  background-color: #f46036;
+  color: white;
+  border-radius: 7px;
+  margin: 10px;
 }

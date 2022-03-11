@@ -47,8 +47,8 @@ const styles = {
   avatarStyle: {
     borderRadius: "50%",
     height: "100px",
-    width: "100px"
-  }
+    width: "100px",
+  },
 };
 
 export function Profile() {
@@ -60,45 +60,45 @@ export function Profile() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleProfileChange = () => {
-    const token = localStorage.getItem("token")
-    const newUsername = document.getElementById("newUsername").value
-    const newEmail = document.getElementById("newEmail").value
-    const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
-    const found = newEmail.match(regex)
-    console.log(newEmail)
-    if (newUsername === ""){
-      alert("You must enter something for your username")
-      return
-    } else if (newEmail === ""){
-      alert("you must enter something for your email")
-      return
-    } else if (!found){
-      alert("you must use valid email formatting")
-      return
+    const token = localStorage.getItem("token");
+    const newUsername = document.getElementById("newUsername").value;
+    const newEmail = document.getElementById("newEmail").value;
+    const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    const found = newEmail.match(regex);
+    console.log(newEmail);
+    if (newUsername === "") {
+      alert("You must enter something for your username");
+      return;
+    } else if (newEmail === "") {
+      alert("you must enter something for your email");
+      return;
+    } else if (!found) {
+      alert("you must use valid email formatting");
+      return;
     } else {
-      fetch("http://localhost:3001/api/userProfile" , {
+      fetch("http://localhost:3001/api/userProfile", {
         mode: "cors",
         method: "PUT",
         body: JSON.stringify({
           username: newUsername,
-          email: newEmail
+          email: newEmail,
         }),
         headers: {
           "Content-Type": "application/json",
           authorization: token,
-        }
-      })
+        },
+      });
     }
     handleClose();
-  }
+  };
 
   async function getData() {
     let pd = await getProfileData();
     setUsername(pd.username);
     setEmail(pd.email);
-    setAvatar(pd.file_name)
+    setAvatar(pd.file_name);
     return pd;
-  } 
+  }
   getData();
 
   return (
@@ -120,20 +120,15 @@ export function Profile() {
                   style={styles.input}
                   className="col-12"
                   placeholder="new username..."
-                  id = "newUsername"
+                  id="newUsername"
                 ></input>
                 <input
                   style={styles.input}
                   className="col-12"
                   placeholder="new email..."
-                  id = "newEmail"
+                  id="newEmail"
                 ></input>
                 <CloudinaryUploadWidget />
-                {/* <input
-                  style={styles.input}
-                  className="col-12"
-                  type={"file"}
-                ></input> */}
               </form>
             </Modal.Body>
             <Modal.Footer>
@@ -147,17 +142,16 @@ export function Profile() {
       </div>
       <div className="d-flex justify-content-center">
         <div style={styles.div} className="card col-8">
-          <img style={styles.avatarStyle} src = {avatar}/>
+          <img style={styles.avatarStyle} src={avatar} />
           <h1 style={styles.h1}>Profile Info</h1>
-          Username : {username}<br />
+          Username : {username}
+          <br />
           EMAIL : {email}
         </div>
-       
-        
+
         {/* <div style={styles.div} className="card col-8">
           <h1 style={styles.h1}>My Highscores</h1>
         </div> */}
-        
       </div>
     </>
   );
