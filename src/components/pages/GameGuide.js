@@ -30,26 +30,17 @@ const styles = {
   },
 };
 
-export function GameGuide() {
+export function GameGuide({ handlePageChange }) {
   return (
     <div className="row d-flex justify-content-center">
-      <div>
-        <a href="#card">
-          <button style={styles.button}>Card-Matching</button>
-        </a>
-        <a href="#card">
-          <button style={styles.button} href="#wordle">
-            Wordle
-          </button>
-        </a>
-        <a href="#card">
-          <button style={styles.button} href="#snake">
-            Snake
-          </button>
-        </a>
-      </div>
-      <div id="card" className="col-7" style={styles.gameDiv}>
+      <div id="card" className="col-5" style={styles.gameDiv}>
         <h2 style={styles.h2}>Card-Matching</h2>
+        <button
+          style={styles.button}
+          onClick={() => handlePageChange("CardMatch")}
+        >
+          Play Card-Match
+        </button>
         <div>
           <p style={styles.p}>
             how to play card matching... "At vero eos et accusamus et iusto odio
@@ -69,32 +60,17 @@ export function GameGuide() {
           </p>
         </div>
       </div>
-      <div id="wordle" className="col-7" style={styles.gameDiv}>
+      <div id="wordle" className="col-5" style={styles.gameDiv}>
         <h2 style={styles.h2}>Wordle</h2>
+        <button
+          style={styles.button}
+          onClick={() => handlePageChange("Wordle")}
+        >
+          Play Wordle
+        </button>
         <div>
           <p style={styles.p}>
             how to play wordle... "At vero eos et accusamus et iusto odio
-            dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
-            atque corrupti quos dolores et quas molestias excepturi sint
-            occaecati cupiditate non provident, similique sunt in culpa qui
-            officia deserunt mollitia animi, id est laborum et dolorum fuga. Et
-            harum quidem rerum facilis est et expedita distinctio. Nam libero
-            tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-            quo minus id quod maxime placeat facere possimus, omnis voluptas
-            assumenda est, omnis dolor repellendus. Temporibus autem quibusdam
-            et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et
-            voluptates repudiandae sint et molestiae non recusandae. Itaque
-            earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-            voluptatibus maiores alias consequatur aut perferendis doloribus
-            asperiores repellat."
-          </p>
-        </div>
-      </div>
-      <div id="snake" className="col-7" style={styles.gameDiv}>
-        <h2 style={styles.h2}>Snake</h2>
-        <div>
-          <p style={styles.p}>
-            how to play snake... "At vero eos et accusamus et iusto odio
             dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
             atque corrupti quos dolores et quas molestias excepturi sint
             occaecati cupiditate non provident, similique sunt in culpa qui
