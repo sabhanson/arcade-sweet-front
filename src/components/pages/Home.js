@@ -32,7 +32,7 @@ export function Home({ handlePageChange }) {
         </CardContent>
         <CardActions className="d-flex justify-content-center">
           <button
-            className="button"
+            className="btn third"
             size="small"
             onClick={() => {
               handlePageChange("CardMatch");
@@ -42,7 +42,7 @@ export function Home({ handlePageChange }) {
             Play Now!
           </button>
           <button
-            className="button"
+            className="btn third"
             onClick={() => handlePageChange("GameGuide")}
           >
             How to Play
@@ -67,7 +67,7 @@ export function Home({ handlePageChange }) {
         </CardContent>
         <CardActions className="d-flex justify-content-center">
           <button
-            className="button"
+            className="btn third"
             size="small"
             onClick={() => {
               handlePageChange("Wordle");
@@ -77,7 +77,7 @@ export function Home({ handlePageChange }) {
             Play Now!
           </button>
           <button
-            className="button"
+            className="btn third"
             onClick={() => handlePageChange("GameGuide")}
           >
             How to Play

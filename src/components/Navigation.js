@@ -4,7 +4,8 @@ import logo from "../images/logo.png";
 import { fabClasses } from "@mui/material";
 import { isToken } from "../utils/API";
 import { getProfileData } from "../utils/API";
-import { Dropdown, NavItem, NavLink } from "react-bootstrap";
+import { Dropdown, NavItem, NavLink } from 'react-bootstrap';
+import "./pages/styles/Nav.css";
 
 const styles = {
   nav: {
@@ -116,7 +117,7 @@ function Navigation({ currentPage, handlePageChange }) {
             REVIEWS
           </a>
         </li>
-        <li className="nav-item col-sm-12 col-md-2">
+        {/* <li className="nav-item col-sm-12 col-md-2">
           <a
             href="#featured-game"
             onClick={() => handlePageChange("Featured")}
@@ -128,7 +129,7 @@ function Navigation({ currentPage, handlePageChange }) {
           >
             FEATURED
           </a>
-        </li>
+        </li> */}
         <li className="nav-item col-sm-12 col-md-2">
           <a
             href="#game-guides"
