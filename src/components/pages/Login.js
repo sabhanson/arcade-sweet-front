@@ -5,7 +5,7 @@ import Signup from "./Signup";
 // import getToken 
 
 async function loginUser(credentials) {
-    return await fetch('http://localhost:3001/api/users/login', {
+    return await fetch('https://powerful-badlands-74006.herokuapp.com/api/users/login', {
       mode: "cors",
       method: 'POST',
       headers: {

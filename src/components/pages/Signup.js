@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import './Form.css';
 
 async function signUp(credentials) {
-    return await fetch('http://localhost:3001/api/users/signup', {
+    return await fetch('https://powerful-badlands-74006.herokuapp.com/api/users/signup', {
       mode: "cors",
       method: 'POST',
       headers: {
