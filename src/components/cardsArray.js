@@ -28,12 +28,7 @@ const cardsArray = [
     type: "Guava",
     image: require("../images/Guava.jpeg"),
     matched: false,
-  },
-  // {
-  //   type: "Pure",
-  //   image: require("../images/Pure.jpeg"),
-  //   matched: false,
-  // },
+  }
 ];
 
 export default cardsArray;

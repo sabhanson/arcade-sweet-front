@@ -5,38 +5,6 @@ import "./styles/Reviews.css";
 import { Avatar } from "@mui/material";
 import { postReviews, getReviews } from "../../utils/API";
 
-const styles = {
-  div: {
-    marginTop: "30px",
-    background: "#1B998B",
-    border: "5px double white",
-    padding: "10px",
-    boxShadow: "0px 0px 20px black",
-    borderRadius: "15px",
-  },
-  h1: {
-    textAlign: "center",
-    color: "white",
-    textShadow: "2px 2px 3px #f46036",
-    padding: "10px",
-  },
-  img: {
-    borderRadius: "50%",
-    width: "45px",
-  },
-  input: {
-    borderRadius: "7px",
-  },
-  button: {
-    padding: "3px",
-    // fontFamily: "cursive",
-    background: "#F46036",
-    color: "white",
-    borderRadius: "7px",
-    margin: "10px",
-    maxWidth: "fit-content",
-  },
-};
 
 export function Reviews() {
   const [reviewDataCM, setReviewDataCM] = useState([]);
@@ -64,8 +32,8 @@ export function Reviews() {
   return (
     <>
       <div className="d-flex justify-content-center">
-        <div style={styles.div} className="card col-6">
-          <h1 style={styles.h1}>Card Matching</h1>
+        <div className="reviewContainer card col-6">
+          <h1 className="gameTitle">Card Matching</h1>
           {reviewDataCM.map((row) => (
             <div className="row justify-content-center">
               <div className="d-flex justify-content-end col-2">
@@ -88,8 +56,7 @@ export function Reviews() {
               id="card-match"
             ></input>
             <button
-              className="btn third col-2"
-              style={styles.button}
+              className="btn third"
               onClick={() => postReview("card-match")}
             >
               Submit
@@ -98,8 +65,8 @@ export function Reviews() {
         </div>
       </div>
       <div className="d-flex justify-content-center">
-        <div style={styles.div} className="card col-6">
-          <h1 style={styles.h1}>Wordle</h1>
+        <div className="reviewContainer card col-6">
+          <h1 className="gameTitle">Wordle</h1>
           {reviewDataWordle.map((row) => (
             <div className="row justify-content-center">
               <div className="d-flex justify-content-end col-2">
@@ -122,8 +89,7 @@ export function Reviews() {
               id="wordle"
             ></input>
             <button
-              className="btn third col-2"
-              style={styles.button}
+              className="btn third"
               onClick={() => postReview("wordle")}
             >
               Submit

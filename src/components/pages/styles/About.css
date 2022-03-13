@@ -1,0 +1,15 @@
+.title {
+    margin-top: 30px;
+    color: white;
+    text-shadow: 2px 2px 3px #F46036;
+}
+
+.names {
+    color: #F46036;
+    background: white;
+}
+
+.aboutText{
+    color: black;
+    background: white;
+}

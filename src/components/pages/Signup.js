@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Form.css';
+import './styles/Form.css';
+import './styles/Signup.css'
 
 async function signUp(credentials) {
     return await fetch('https://powerful-badlands-74006.herokuapp.com/api/users/signup', {
@@ -49,7 +50,7 @@ export default function Signup({ handlePageChange }) {
                   <label>Password</label>
                   <input type="password" className="form-control" placeholder="Enter password" onChange={e => setPassword(e.target.value)} />
               </div>
-              <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+              <button type="submit" className="btn third">Sign Up</button>
               <p className="forgot-password text-right">
                   Already registered ? <a src="Login"
                 href="#login"

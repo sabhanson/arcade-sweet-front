@@ -4,7 +4,7 @@
 
 .button {
   padding: 3px;
-  background-color: #f46036;
+  background-color: #F46036;
   color: white;
   border-radius: 7px;
   margin: 10px;
@@ -12,20 +12,22 @@
 
 .btn:hover,
 .btn:focus {
-  color: #000;
+  color: white;
   outline: 0;
+  background-color: #F46036;
 }
 
 .third {
-  border-color: #f46036;
+  border-color: #F46036;
   color: #fff;
-  box-shadow: 0 0 40px 40px #f46036 inset, 0 0 0 0 #f46036;
+  box-shadow: 0 0 40px 40px #F46036 inset, 0 0 0 0 #F46036;
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
   margin: 10px;
 }
+
 .third:hover {
-  box-shadow: 0 0 10px 0 #f46036 inset, 0 0 10px 4px #f46036;
+  box-shadow: 0 0 10px 0 #F46036 inset, 0 0 10px 4px #F46036;
 }
 
 .gameCard {

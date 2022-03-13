@@ -1,23 +1,14 @@
 import React from "react";
+import "./styles/Terms.css";
 
-const styles = {
-  h1: {
-    marginTop: "30px",
-    color: "white",
-    textShadow: "2px 2px 3px #f46036",
-  },
-  p: {
-    fontSize: "12px",
-  },
-};
 
 export function Terms() {
   return (
     <div className="d-flex row justify-content-center">
-      <h1 style={styles.h1} className="col-12">
+      <h1 className="title col-12">
         Terms of Use
       </h1>
-      <p style={styles.p} className="col-10">
+      <p className=" text col-10">
         Patents " mean patent claims licensable by a Recipient as defined in the
         software is modified by The Perl Foundation in the LEGAL file described
         in Section 4d, and must make it clear that your Work remains useful to
