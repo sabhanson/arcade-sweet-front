@@ -1,11 +1,16 @@
-/* login button */
-.btn:hover, .btn:focus {
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn:hover,
+.btn:focus {
   color: white;
   outline: 0;
   background-color: #F46036;
 }
 
-/* login button */
 .third {
   border-color: #F46036;
   color: #fff;
@@ -13,10 +18,8 @@
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
   margin: 10px;
- max-height: 40px
 }
 
-/* login button */
 .third:hover {
   box-shadow: 0 0 10px 0 #F46036 inset, 0 0 10px 4px #F46036;
 }

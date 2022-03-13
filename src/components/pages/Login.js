@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // import { useNavigate } from "react-router-dom";
-import './Form.css';
+import './styles/Form.css';
+import './styles/Login.css'
 import Signup from "./Signup";
 // import getToken 
 
@@ -72,7 +73,7 @@ export default function Login({ handlePageChange }) {
                   <label>Password</label>
                   <input type="password" className="form-control" placeholder="Enter password" onChange={e => setPassword(e.target.value)} />
               </div>
-              <button type="submit" className="btn btn-primary btn-block">Log In</button>
+              <button type="submit" className="btn third">Log In</button>
               <p className="forgot-password text-right">
                 Not Registered? <a src="Signup"
                 href="#signup"

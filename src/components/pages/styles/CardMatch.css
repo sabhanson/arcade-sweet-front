@@ -18,20 +18,20 @@
 
 .button {
   padding: 3px;
-  background-color: #f46036;
+  background-color: #F46036;
   color: white;
   border-radius: 7px;
 }
 
 .x-button {
-  background-color: #f46036;
+  background-color: #F46036;
   color: white;
   margin: 7px 0px;
   border-radius: 8px;
 }
 
 .game-card {
-  background: #1b998b;
+  background: #1B998B;
   border: 5px double white;
   margin: 50px;
   border-radius: 15px;
@@ -40,7 +40,7 @@
 
 .game-title {
   color: white;
-  text-shadow: 2px 2px 3px #f46036;
+  text-shadow: 2px 2px 3px #F46036;
   padding: 10px;
   font-size: 3rem;
 }

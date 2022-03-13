@@ -1,4 +1,4 @@
-import "./App.css";
+import "./components/pages/styles/App.css";
 import React, { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -7,7 +7,6 @@ import Terms from "./components/pages/Terms";
 import Contact from "./components/pages/Contact";
 import Home from "./components/pages/Home";
 import Reviews from "./components/pages/Reviews";
-import FeaturedGame from "./components/pages/FeaturedGame";
 import GameGuide from "./components/pages/GameGuide";
 import Highscores from "./components/pages/Highscores";
 import Profile from "./components/pages/Profile";
@@ -34,9 +33,6 @@ function App() {
     }
     if (currentPage === "Reviews") {
       return <Reviews />;
-    }
-    if (currentPage === "Featured") {
-      return <FeaturedGame />;
     }
     if (currentPage === "GameGuide") {
       return <GameGuide handlePageChange={handlePageChange} />;

@@ -119,25 +119,12 @@ function Navigation({ currentPage, handlePageChange }) {
             REVIEWS
           </a>
         </li>
-        {/* <li className="nav-item col-sm-12 col-md-2">
-          <a
-            href="#featured-game"
-            onClick={() => handlePageChange("Featured")}
-            className={
-              currentPage === "Featured"
-                ? "nav-link disabled"
-                : "nav-link disabled"
-            }
-          >
-            FEATURED
-          </a>
-        </li> */}
         <li className="nav-item col-sm-12 col-md-2">
           <a
             href="#game-guides"
             onClick={() => handlePageChange("GameGuide")}
             className={
-              currentPage === "Game Guides" ? "nav-link active" : "nav-link"
+              currentPage === "GameGuide" ? "nav-link active" : "nav-link"
             }
           >
             GAME GUIDES
