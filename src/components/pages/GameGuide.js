@@ -1,11 +1,10 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/GameGuide.css";
-import Ending from "../../images/cardEnd.png"
-import Score from "../../images/cardScore.png"
-import Wordle from "../../images/wordleRules.png"
-import Win from "../../images/wordleWin.png"
-
+import Ending from "../../images/cardEnd.png";
+import Score from "../../images/cardScore.png";
+import Wordle from "../../images/wordleRules.png";
+import Win from "../../images/wordleWin.png";
 
 export function GameGuide({ handlePageChange }) {
   return (
@@ -14,14 +13,19 @@ export function GameGuide({ handlePageChange }) {
         <h1 className="guide-title">Card-Matching</h1>
         <div className="body">
           <p>
-            Each time two cards are selected, a move will be added to the score count regardless if it is a match or not. Your number of moves are displayed at the bottom of the game board.
-           </p>
-            <img src={Score} className="guideImg"/>
-            <p><br></br>
-            A match is made if the two cards turned over are identical. Once a match is made, the cards will remain flipped over. If the cards do not match, they will turn back over.
-            The game ends once all cards have been matched. Your score is the total number of moves it takes you to find all matches so the lower the score, the better!
-            </p>
-            <img src={Ending} className="guideImg"/>
+            Each time two cards are selected, a move will be added to the score
+            count regardless if it is a match or not. Your number of moves are
+            displayed at the bottom of the game board.
+          </p>
+          <img src={Score} className="img-fluid guideImg" />
+          <p>
+            <br></br>A match is made if the two cards turned over are identical.
+            Once a match is made, the cards will remain flipped over. If the
+            cards do not match, they will turn back over. The game ends once all
+            cards have been matched. Your score is the total number of moves it
+            takes you to find all matches so the lower the score, the better!
+          </p>
+          <img src={Ending} className="img-fluid guideImg" />
         </div>
         <button
           className="btn third button"
@@ -33,14 +37,27 @@ export function GameGuide({ handlePageChange }) {
       <div id="wordle" className="col-10 col-md-7 col-lg-4 guide-card">
         <h1 className="guide-title">Wordle</h1>
         <div className="body">
-          <p>You have 6 chances to guess a randomly selected five-letter word. After each guess, you get feedback for letters that are in the word and/or in the word and in the right space:</p>
-          <img src={Wordle}/>
-          <p><br></br>
-            As shown above, if you have the right letter in the right spot, it shows up green. A correct letter in the wrong spot shows up yellow. A letter that isn't in the word in any spot shows up gray.
-            There are no letter repeats in any of the words. Once you've guessed the correct word, all the letters will be green. If you can guess the word in 6 or less tries, you win!</p>
-            <img src={Win} className="guideImg2"/>
+          <p>
+            You have 6 chances to guess a randomly selected five-letter word.
+            After each guess, you get feedback for letters that are in the word
+            and/or in the word and in the right space:
+          </p>
+          <img className="img-fluid" src={Wordle} />
+          <p>
+            <br></br>
+            As shown above, if you have the right letter in the right spot, it
+            shows up green. A correct letter in the wrong spot shows up yellow.
+            A letter that isn't in the word in any spot shows up gray. There are
+            no letter repeats in any of the words. Once you've guessed the
+            correct word, all the letters will be green. If you can guess the
+            word in 6 or less tries, you win!
+          </p>
+          <img src={Win} className="img-fluid guideImg2" />
         </div>
-        <button className="btn third button" onClick={() => handlePageChange("Wordle")}>
+        <button
+          className="btn third button"
+          onClick={() => handlePageChange("Wordle")}
+        >
           Play Game
         </button>
       </div>

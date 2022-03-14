@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import "./styles/Profile.css";
 import CloudinaryUploadWidget from "../../utils/CloudinaryUploadWidget";
 import { getProfileData } from "../../utils/API";
-
+import { Avatar } from "@mui/material";
 
 export function Profile() {
   const [show, setShow] = useState(false);
@@ -61,7 +61,6 @@ export function Profile() {
   return (
     <>
       <div className="d-flex justify-content-end">
-
         <Modal show={show} onHide={handleClose}>
           <div className="modalContainer">
             <Modal.Header closeButton>
@@ -94,15 +93,19 @@ export function Profile() {
         </Modal>
       </div>
       <div className="d-flex justify-content-center">
-        <div className="profileDetails card col-8">
-          <img className='avatarStyle' src={avatar} />
+        <div className="profileDetails card col-6">
           <button onClick={handleShow} className="settingsBtn">
-          <SettingsIcon className="icon" />
-        </button>
-          <h1 className="title">Profile Info</h1>
-          Username : {username}
-          <br />
-          EMAIL : {email}
+            <SettingsIcon className="icon" />
+          </button>
+          <div className="row d-flex justify-content-center">
+            <h1 className="title col-12">Profile Info</h1>
+            <img className="avatarStyle" src={avatar} />
+            <p className="col-12">
+              Username : {username}
+              <br />
+              EMAIL : {email}
+            </p>
+          </div>
         </div>
 
         {/* <div style={styles.div} className="card col-8">
