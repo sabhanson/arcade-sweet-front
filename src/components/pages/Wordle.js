@@ -192,7 +192,7 @@ const Wordle = ({ handlePageChange }) => {
   };
 
   return (
-    <div className="container col-8">
+    <div className="container col-11 col-md-8 col-lg-6">
       <div className="row justify-content-start col-12">
         <div className="col-1">
           <button className="x-button" onClick={() => handlePageChange("Home")}>
@@ -208,30 +208,32 @@ const Wordle = ({ handlePageChange }) => {
         </button>
       </div>
       {message && <div className="message">{message}</div>}
-      <div className="cube">
-        {[0, 1, 2, 3, 4, 5].map((row, rowIndex) => (
-          <div
-            className={`cube-row ${
-              boardData && row === boardData.rowIndex && error && "error"
-            }`}
-            key={rowIndex}
-          >
-            {[0, 1, 2, 3, 4].map((column, letterIndex) => (
-              <div
-                key={letterIndex}
-                className={`letter ${
-                  boardData && boardData.boardRowStatus[row]
-                    ? boardData.boardRowStatus[row][column]
-                    : ""
-                }`}
-              >
-                {boardData &&
-                  boardData.boardWords[row] &&
-                  boardData.boardWords[row][column]}
-              </div>
-            ))}
-          </div>
-        ))}
+      <div className="d-flex justify-content-center">
+        <div className="cube col-10 col-md-12">
+          {[0, 1, 2, 3, 4, 5].map((row, rowIndex) => (
+            <div
+              className={`cube-row ${
+                boardData && row === boardData.rowIndex && error && "error"
+              }`}
+              key={rowIndex}
+            >
+              {[0, 1, 2, 3, 4].map((column, letterIndex) => (
+                <div
+                  key={letterIndex}
+                  className={`letter ${
+                    boardData && boardData.boardRowStatus[row]
+                      ? boardData.boardRowStatus[row][column]
+                      : ""
+                  }`}
+                >
+                  {boardData &&
+                    boardData.boardWords[row] &&
+                    boardData.boardWords[row][column]}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="bottom">
         <Keyboard boardData={boardData} handleKeyPress={handleKeyPress} />

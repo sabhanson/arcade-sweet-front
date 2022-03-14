@@ -51,52 +51,54 @@ export default function Signup({ handlePageChange }) {
   };
 
   return (
-    <div className="auth-wrapper">
-      <div className="auth-inner">
-        <form onSubmit={handleSubmit}>
-          <h3>Sign Up</h3>
-          <div className="form-group">
-            <label>Username</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Username"
-              onChange={(e) => setUserName(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <label>Email address</label>
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Enter email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <button type="submit" className="btn third">
-            Sign Up
-          </button>
-          <p className="forgot-password text-right">
-            Already registered ?{" "}
-            <a
-              src="Login"
-              href="#login"
-              alt="alt tag"
-              onClick={() => handlePageChange("Login")}
-            >
-              Login
-            </a>
-          </p>
-        </form>
+    <div className="row h-75">
+      <div className="auth-wrapper">
+        <div className="auth-inner col-10 col-lg-6">
+          <form onSubmit={handleSubmit}>
+            <h3>Sign Up</h3>
+            <div className="form-group">
+              <label>Username</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Username"
+                onChange={(e) => setUserName(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label>Email address</label>
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Enter email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Enter password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button type="submit" className="btn third">
+              Sign Up
+            </button>
+            <p className="forgot-password text-right">
+              Already registered ?{" "}
+              <a
+                src="Login"
+                href="#login"
+                alt="alt tag"
+                onClick={() => handlePageChange("Login")}
+              >
+                Login
+              </a>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   );

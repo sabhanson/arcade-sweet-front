@@ -9,7 +9,7 @@ import Win from "../../images/wordleWin.png";
 export function GameGuide({ handlePageChange }) {
   return (
     <div className="my-5 row d-flex justify-content-center">
-      <div id="card" className="col-10 col-md-7 col-lg-4 guide-card">
+      <div id="card" className="col-10 col-lg-4 guide-card">
         <h1 className="guide-title">Card-Matching</h1>
         <div className="body">
           <p>
@@ -42,7 +42,7 @@ export function GameGuide({ handlePageChange }) {
           Play Game
         </button>
       </div>
-      <div id="wordle" className="col-10 col-md-7 col-lg-4 guide-card">
+      <div id="wordle" className="col-10 col-lg-4 guide-card">
         <h1 className="guide-title">Wordle</h1>
         <div className="body">
           <p>

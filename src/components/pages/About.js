@@ -8,7 +8,7 @@ import Isaac from "../../images/isaac.png";
 
 export function About() {
   return (
-    <div className="row justify-content-center">
+    <div className="row justify-content-center h-75">
       <h1 className="title">About the Dev Team</h1>
       <div className="col-sm-8 col-md-6 col-lg-4">
         <Carousel>

@@ -10,7 +10,6 @@ import { getScores, getWordleScores } from "../../utils/API";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/Highscores.css";
 
-
 export function Highscores() {
   const [scoreDataCM, setscoreDataCM] = useState([]);
   const [scoreDataWordle, setscoreDataWordle] = useState([]);
@@ -43,9 +42,9 @@ export function Highscores() {
   };
 
   return (
-    <div className="h-100">
+    <div className="min-h-100">
       <div className="d-flex justify-content-center">
-        <TableContainer className="tableContainer col-6">
+        <TableContainer className="tableContainer col-8 col-lg-4">
           <Table aria-label="simple table">
             <TableHead>
               <p className="game-title">Card Matching</p>
@@ -78,7 +77,7 @@ export function Highscores() {
       </div>
 
       <div className="d-flex justify-content-center">
-        <TableContainer className="tableContainer col-6">
+        <TableContainer className="tableContainer col-8 col-lg-4">
           <Table aria-label="simple table">
             <TableHead>
               <p className="game-title">Wordle</p>

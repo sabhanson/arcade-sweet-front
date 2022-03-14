@@ -102,7 +102,7 @@ export function CardMatch({ handlePageChange }) {
 
   return (
     <div className="d-flex justify-content-center">
-      <div className="row d-flex justify-content-center game-card col-9 col-md-7">
+      <div className="row d-flex justify-content-center game-card col-10 col-lg-6">
         <div className="d-flex justify-content-start">
           <button className="x-button" onClick={() => handlePageChange("Home")}>
             <CloseIcon />

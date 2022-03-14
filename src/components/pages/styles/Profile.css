@@ -49,15 +49,15 @@
 }
 
 .medal {
-    height: 100%;
-    width: 15%;
-    object-fit: cover;
+  height: 100%;
+  width: 15%;
+  object-fit: cover;
 }
 
 .shown {
-    display: block;
+  display: block;
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
 }

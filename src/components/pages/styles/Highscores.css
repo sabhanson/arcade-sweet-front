@@ -1,6 +1,5 @@
 .tableContainer {
   background: #1b998b;
-  max-width: 50%;
   border: 5px double white;
   padding: 10px;
   box-shadow: 0px 0px 20px black;
@@ -23,4 +22,10 @@
 
 .score {
   padding-right: 30px !important;
+}
+
+@media only screen and (min-width: 992px) {
+  .tableContainer {
+    max-width: 50%;
+  }
 }

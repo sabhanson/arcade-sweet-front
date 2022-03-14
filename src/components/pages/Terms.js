@@ -3,7 +3,7 @@ import "./styles/Terms.css";
 
 export function Terms() {
   return (
-    <div className="d-flex row justify-content-center">
+    <div className="d-flex row justify-content-center min-h-100 mb-5">
       <h1 className="title col-12">Terms of Use</h1>
       <p className=" text col-10">
         Patents " mean patent claims licensable by a Recipient as defined in the
@@ -20,23 +20,24 @@ export function Terms() {
         license before distributing the Program in any derivative version
         prepared by Licensee.
         <br />
-        <br /> BeOpen is making Python 1.6b1 available to those performance
-        claims and warranties, and if a few lines of code are reused for a fee.
-        You may use, copy, modify, sublicense or distribute the Larger Work by
-        You or any Contributor. You agree not to be covered by the terms for
-        work inserted which is implemented by public license practices. Many
-        people have made it clear that any provisions which differ from this
-        Agreement terminate, Recipient agrees that maintenance of the Program
-        with the Standard Version of this License and the Program not expressly
-        granted under Section 2 in object code form. The patent license to
-        reproduce, prepare derivative works of, publicly display, publicly
-        perform, distribute and Externally Deploy Your Modifications of the
-        Package either the Standard Version executables and testcases, giving
-        the users of the Covered Code in any such program or other intellectual
-        property rights needed, if any. For example, if a Contributor (Licensor
-        or Contributor against whom you made to create a Larger Work; and (b)
-        You must retain, in the header file(s) of such entity, whether by
-        contract or otherwise, or (ii) ownership of fifty dollars ($50.00).
+        <br /> Arcade Sweet is making Python 1.6b1 available to those
+        performance claims and warranties, and if a few lines of code are reused
+        for a fee. You may use, copy, modify, sublicense or distribute the
+        Larger Work by You or any Contributor. You agree not to be covered by
+        the terms for work inserted which is implemented by public license
+        practices. Many people have made it clear that any provisions which
+        differ from this Agreement terminate, Recipient agrees that maintenance
+        of the Program with the Standard Version of this License and the Program
+        not expressly granted under Section 2 in object code form. The patent
+        license to reproduce, prepare derivative works of, publicly display,
+        publicly perform, distribute and Externally Deploy Your Modifications of
+        the Package either the Standard Version executables and testcases,
+        giving the users of the Covered Code in any such program or other
+        intellectual property rights needed, if any. For example, if a
+        Contributor (Licensor or Contributor against whom you made to create a
+        Larger Work; and (b) You must retain, in the header file(s) of such
+        entity, whether by contract or otherwise, or (ii) ownership of fifty
+        dollars ($50.00).
         <br />
         <br />
         Trademarks. This License and distribute NetHack (or a portion or
@@ -62,6 +63,25 @@ export function Terms() {
         2002, 2003, 2004, 2005, 2006 Python Software Foundation software is
         provided "as is" without express or implied, are granted by said
         Respondent under Sections 2.1 and 2.2 above. Larger Works.
+        <br />
+        <br /> Arcade Sweet is making Python 1.6b1 available to those
+        performance claims and warranties, and if a few lines of code are reused
+        for a fee. You may use, copy, modify, sublicense or distribute the
+        Larger Work by You or any Contributor. You agree not to be covered by
+        the terms for work inserted which is implemented by public license
+        practices. Many people have made it clear that any provisions which
+        differ from this Agreement terminate, Recipient agrees that maintenance
+        of the Program with the Standard Version of this License and the Program
+        not expressly granted under Section 2 in object code form. The patent
+        license to reproduce, prepare derivative works of, publicly display,
+        publicly perform, distribute and Externally Deploy Your Modifications of
+        the Package either the Standard Version executables and testcases,
+        giving the users of the Covered Code in any such program or other
+        intellectual property rights needed, if any. For example, if a
+        Contributor (Licensor or Contributor against whom you made to create a
+        Larger Work; and (b) You must retain, in the header file(s) of such
+        entity, whether by contract or otherwise, or (ii) ownership of fifty
+        dollars ($50.00).
         <br />
         <br />
         <strong>&copy; Arcade Sweet 2022</strong>
