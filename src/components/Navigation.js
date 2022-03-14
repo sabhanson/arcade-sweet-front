@@ -1,34 +1,11 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../images/logo.png";
-import { fabClasses } from "@mui/material";
 import { isToken } from "../utils/API";
 import { getProfileData } from "../utils/API";
 import { Dropdown, NavItem, NavLink } from 'react-bootstrap';
 import "./pages/styles/Nav.css";
 
-
-const styles = {
-  nav: {
-    background: "#2E294E",
-  },
-  h1: {
-    color: "white",
-  },
-  imgDiv: {
-    display: "flex",
-    justifyContent: "space-between",
-  },
-  img: {
-    borderRadius: "50%",
-    marginTop: "30px",
-    width: "50px",
-  },
-  logo: {
-    width: "100px",
-    height: "auto",
-  },
-};
 
 function Navigation({ currentPage, handlePageChange }) {
   const [avatar, setAvatar] = useState();
@@ -52,15 +29,15 @@ function Navigation({ currentPage, handlePageChange }) {
   getData();
 
   return (
-    <nav style={styles.nav}>
-      <div style={styles.imgDiv}>
+    <nav className="navbarContainer">
+      <div className="imgDiv">
         <a
           src="#"
           href="#home"
           alt="alt tag"
           onClick={() => handlePageChange("Home")}
         >
-          <img src={logo} style={styles.logo} alt="logo" />
+          <img src={logo} className="logo" alt="logo" />
         </a>
         <a
           className="btn third"
@@ -77,7 +54,7 @@ function Navigation({ currentPage, handlePageChange }) {
           style={{ display: isToken() ? "block" : "none" }}
         >
           <Dropdown.Toggle as={NavLink}>
-            <img style={styles.img} alt="profile pic" src={avatar}></img>
+            <img className="profileImg" alt="profile pic" src={avatar}></img>
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item>
