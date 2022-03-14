@@ -47,3 +47,17 @@
   width: 100px;
   margin-bottom: 15px;
 }
+
+.medal {
+    height: 100%;
+    width: 15%;
+    object-fit: cover;
+}
+
+.shown {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}

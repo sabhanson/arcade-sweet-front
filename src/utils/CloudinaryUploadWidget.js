@@ -46,7 +46,7 @@ class CloudinaryUploadWidget extends Component {
             file_name: result.info.url
           }
           const token = localStorage.getItem("token")
-          fetch('https://powerful-badlands-74006.herokuapp.com/api/userProfile/avatarUpdate', {
+          fetch('http://localhost:3001/api/userProfile/avatarUpdate', {
             method: "PUT",
             body: JSON.stringify(newAvatar),
             headers: {

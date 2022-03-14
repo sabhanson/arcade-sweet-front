@@ -106,7 +106,7 @@ const Wordle = ({ handlePageChange }) => {
       handleMessage("You Won!");
       const token = localStorage.getItem("token");
       const postScore = () => {
-        fetch("https://powerful-badlands-74006.herokuapp.com/api/scores", {
+        fetch("http://localhost:3001/api/scores", {
           mode: "cors",
           method: "POST",
           body: JSON.stringify({
@@ -125,7 +125,7 @@ const Wordle = ({ handlePageChange }) => {
       handleMessage(`You lost, the word was: ${boardData.solution}`);
       const token = localStorage.getItem("token");
       const postScore = () => {
-        fetch("https://powerful-badlands-74006.herokuapp.com/api/scores", {
+        fetch("http://localhost:3001/api/scores", {
           mode: "cors",
           method: "POST",
           body: JSON.stringify({

@@ -55,22 +55,30 @@ export function CardMatch({ handlePageChange }) {
         // function so when match = 6 then capture moves count for score then trigger endgame
         if (match === 5) {
           const token = localStorage.getItem("token");
-          const postScore = () => {
-            fetch("https://powerful-badlands-74006.herokuapp.com/api/scores", {
-              mode: "cors",
-              method: "POST",
-              body: JSON.stringify({
-                score: moves + 1,
-                gamevalue: 1,
-              }),
-              headers: {
-                "Content-Type": "application/json",
-                authorization: token,
-              },
-            });
-          };
-          postScore();
-          handleOpen();
+          if(token) {
+            const postScore = () => {
+              fetch("http://localhost:3001/api/scores", {
+                mode: "cors",
+                method: "POST",
+                body: JSON.stringify({
+                  score: moves + 1,
+                  gamevalue: 1,
+                }),
+                headers: {
+                  "Content-Type": "application/json",
+                  authorization: token,
+                },
+              });
+            };
+            postScore();
+            handleOpen()
+          } else {
+            alert("Please login to save your score");
+            localStorage.setItem("gameScore","1:"+(moves+1));
+            handlePageChange("Login");
+          }
+          ;
+          // this is where we want to hook into high scores!!! -Muhammad
         }
         resetTurn();
       } else {

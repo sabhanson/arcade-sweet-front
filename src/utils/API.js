@@ -8,18 +8,20 @@ export const isToken = () => {
 
 export const getProfileData = async () => {
     const token = localStorage.getItem("token");
-    try {
-        const response = await fetch('https://powerful-badlands-74006.herokuapp.com/api/userProfile/Profile/'+token, {
-            mode: "cors",
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-        });
-        const j = await response.json();
-        return j;
-    } catch (e) {
-        console.log(e);
+    if(token) {
+        try {
+          const response = await fetch('http://localhost:3001/api/userProfile/Profile/'+token, {
+              mode: "cors",
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+          });
+          const j = await response.json();
+          return j;
+      } catch (e) {
+          console.log(e);
+      }
     }
     return null;
    
@@ -28,7 +30,7 @@ export const getProfileData = async () => {
 export const getScores = async (gamevalue) => {
     try {
       const response = await fetch(
-        'https://powerful-badlands-74006.herokuapp.com/api/scores/top/',
+        'http://localhost:3001/api/scores/top/',
         {
           mode: "cors",
           method: "POST",
@@ -46,11 +48,36 @@ export const getScores = async (gamevalue) => {
       console.log(e);
     }
     return null;
-  };
+};
+export const getUserScore = async (gamevalue) => {
+  const token = localStorage.getItem("token");
+  try {
+    const response = await fetch(
+      'http://localhost:3001/api/users/score/',
+      {
+        mode: "cors",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: token,
+        },
+        body: JSON.stringify({
+          gamevalue: gamevalue,
+        }),
+      }
+    );
+    const scoreData = await response.json();
+    return scoreData;
+  } catch (e) {
+    console.log(e);
+  }
+  return null;
+};
+
 export const getWordleScores = async (gamevalue) => {
     try {
       const response = await fetch(
-        'https://powerful-badlands-74006.herokuapp.com/api/scores/wordle',
+        'http://localhost:3001/api/scores/wordle',
         {
           mode: "cors",
           method: "POST",
@@ -73,7 +100,7 @@ export const getWordleScores = async (gamevalue) => {
   export const getReviews = async (gamevalue) => {
     try {
       const response = await fetch(
-        'https://powerful-badlands-74006.herokuapp.com/api/reviews/latest/',
+        'http://localhost:3001/api/reviews/latest/',
         {
           mode: "cors",
           method: "POST",
@@ -94,27 +121,29 @@ export const getWordleScores = async (gamevalue) => {
   };
 
   export const postReviews = async (review, gamevalue) => {
-    try {
-      const token = localStorage.getItem("token");
-      const response = await fetch(
-        'https://powerful-badlands-74006.herokuapp.com/api/reviews/',
-        {
-          mode: "cors",
-          method: "POST",
-          body: JSON.stringify({
-            review: review,
-            gamevalue: gamevalue,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-            authorization: token,
-          },
-        }
-      );
-      const reviewData = await response.json();
-      return reviewData;
-    } catch (e) {
-      console.log(e);
+    const token = localStorage.getItem("token");
+    if(token) {
+      try {
+        const response = await fetch(
+          'http://localhost:3001/api/reviews/',
+          {
+            mode: "cors",
+            method: "POST",
+            body: JSON.stringify({
+              review: review,
+              gamevalue: gamevalue,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+              authorization: token,
+            },
+          }
+        );
+        const reviewData = await response.json();
+        return reviewData;
+      } catch (e) {
+        console.log(e);
+      }
     }
     return null;
   };

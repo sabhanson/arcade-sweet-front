@@ -3,7 +3,7 @@ import './styles/Form.css';
 import './styles/Signup.css'
 
 async function signUp(credentials) {
-    return await fetch('https://powerful-badlands-74006.herokuapp.com/api/users/signup', {
+    return await fetch('http://localhost:3001/api/users/signup', {
       mode: "cors",
       method: 'POST',
       headers: {
@@ -28,6 +28,25 @@ export default function Signup({ handlePageChange }) {
       });
       if(token.token !== undefined) {
         localStorage.setItem("token", token.token);
+        let gameScore = localStorage.getItem("gameScore");
+        if(gameScore) {
+          let gamevalue = gameScore.split(":")[0];
+          let score = gameScore.split(":")[1];
+          fetch("http://localhost:3001/api/scores", {
+              mode: "cors",
+              method: "POST",
+              body: JSON.stringify({
+                score: score,
+                gamevalue: gamevalue,
+              }),
+              headers: {
+                "Content-Type": "application/json",
+                authorization: token.token,
+              },
+          });
+          localStorage.removeItem("gameScore");
+          alert("Your score has been posted");
+        }
         handlePageChange("Home");
       }
       
