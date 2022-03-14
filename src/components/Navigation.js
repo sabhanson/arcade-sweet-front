@@ -60,7 +60,7 @@ function Navigation({ currentPage, handlePageChange }) {
             <Dropdown.Item>
               <a
                 src="#"
-                href="#"
+                href="#profile"
                 alt="alt tag"
                 onClick={() => handlePageChange("Profile")}
               >
@@ -68,7 +68,7 @@ function Navigation({ currentPage, handlePageChange }) {
               </a>
             </Dropdown.Item>
             <Dropdown.Item>
-              <a src="#" href="#" alt="alt tag" onClick={() => logMeOut()}>
+              <a src="#logout" href="#" alt="alt tag" onClick={() => logMeOut()}>
                 Logout
               </a>
             </Dropdown.Item>

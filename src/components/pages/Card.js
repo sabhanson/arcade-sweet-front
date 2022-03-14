@@ -2,7 +2,6 @@ import React from "react";
 import logo from "../../images/logo-card.png";
 import "./styles/Card.css";
 
-
 export function Card({ eachCard, handleChoice, flipped, disabled }) {
   const handleClick = () => {
     if (!disabled) {

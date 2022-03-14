@@ -5,7 +5,6 @@ import "./styles/Reviews.css";
 import { Avatar } from "@mui/material";
 import { postReviews, getReviews } from "../../utils/API";
 
-
 export function Reviews() {
   const [reviewDataCM, setReviewDataCM] = useState([]);
   const [reviewDataWordle, setReviewDataWordle] = useState([]);
@@ -21,7 +20,6 @@ export function Reviews() {
   };
 
   const postReview = async (inputId) => {
-    console.log(inputId);
     let review = document.getElementById(inputId).value;
     document.getElementById(inputId).value = "";
     if (inputId === "card-match") await postReviews(review, 1);
@@ -88,10 +86,7 @@ export function Reviews() {
               className="reviewBox col-8"
               id="wordle"
             ></input>
-            <button
-              className="btn third"
-              onClick={() => postReview("wordle")}
-            >
+            <button className="btn third" onClick={() => postReview("wordle")}>
               Submit
             </button>
           </div>

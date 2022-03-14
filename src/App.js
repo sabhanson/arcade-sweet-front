@@ -49,9 +49,6 @@ function App() {
     if (currentPage === "Login") {
       return <Login handlePageChange={handlePageChange} />;
     }
-    // if (currentPage === "Logout") {
-    //   return <Logout />;
-    // }
     if (currentPage === "CardMatch") {
       return <CardMatch handlePageChange={handlePageChange} />;
     }
