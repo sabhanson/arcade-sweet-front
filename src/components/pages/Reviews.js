@@ -28,7 +28,7 @@ export function Reviews() {
   };
 
   return (
-    <>
+    <div className="h-100">
       <div className="d-flex justify-content-center">
         <div className="reviewContainer card col-6">
           <h1 className="gameTitle">Card Matching</h1>
@@ -92,7 +92,7 @@ export function Reviews() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -13,6 +13,10 @@ import TableRow from "@mui/material/TableRow";
 import "./styles/Profile.css";
 import CloudinaryUploadWidget from "../../utils/CloudinaryUploadWidget";
 import { getProfileData } from "../../utils/API";
+<<<<<<< HEAD
+import { Avatar } from "@mui/material";
+=======
+>>>>>>> dev
 import { getUserScore, getWordleScores } from "../../utils/API";
 import gold from "../../images/gold.png";
 import silver from "../../images/silver.png";
@@ -62,6 +66,10 @@ export function Profile() {
     const sortable = Object.fromEntries(
       Object.entries(wordleScores).sort(([, a], [, b]) => b - a)
     );
+<<<<<<< HEAD
+    console.log(sortable);
+=======
+>>>>>>> dev
     setscoreDataWordle(sortable);
   };
 
@@ -117,6 +125,11 @@ export function Profile() {
     setEmail(pd.email);
     setAvatar(pd.file_name);
     let gamesPlayed = pd.scores.length;
+<<<<<<< HEAD
+    console.log("pd = " + JSON.stringify(pd));
+    console.log("gamesPlayed = " + gamesPlayed);
+=======
+>>>>>>> dev
 
     if (gamesPlayed >= 5) {
       setBronzeClass("shown");
@@ -253,9 +266,9 @@ export function Profile() {
               <br />
               <br />
             </div>
-          </div>
-        </Carousel.Item>
-      </Carousel>
+          </Carousel.Item>
+        </Carousel>
+      </div>
     </>
   );
 }

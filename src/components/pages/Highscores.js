@@ -43,7 +43,7 @@ export function Highscores() {
   };
 
   return (
-    <div>
+    <div className="h-100">
       <div className="d-flex justify-content-center">
         <TableContainer className="tableContainer col-6">
           <Table aria-label="simple table">
