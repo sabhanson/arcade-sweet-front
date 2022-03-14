@@ -1,6 +1,6 @@
-/* /* .btn:hover, */
+.btn:hover,
 .btn:focus {
-  color: #000;
+  color: white;
   outline: 0;
   background-color: #f46036;
 }

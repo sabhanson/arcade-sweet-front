@@ -6,7 +6,7 @@ import "./styles/Contact.css";
 export function Contact() {
   return (
     <div className="row justify-content-center">
-      <h1 className="title">Contact Us</h1>
+      <h1 className="title">Feedback Form</h1>
       <Form className="mainForm col-sm-8 col-lg-6">
         <Form.Group
           className="formGroup row"
@@ -15,7 +15,7 @@ export function Contact() {
           <Form.Control
             className="formInput col-12"
             type="text"
-            placeholder="Enter your name..."
+            placeholder="Name"
           />
         </Form.Group>
         <Form.Group
@@ -25,7 +25,7 @@ export function Contact() {
           <Form.Control
             className="formInput col-12"
             type="email"
-            placeholder="Enter email"
+            placeholder="Email"
           />
         </Form.Group>
         <Form.Group
@@ -35,7 +35,7 @@ export function Contact() {
           <Form.Control
             className="formInput"
             type="test"
-            placeholder="Your message here..."
+            placeholder="Share your thoughts..."
           />
         </Form.Group>
         <Button className="btn third" type="submit">

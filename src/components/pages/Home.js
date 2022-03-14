@@ -10,6 +10,7 @@ import "./styles/Home.css";
 import MatchGame from "../../images/matchgame.png";
 import WordleGame from "../../images/wordlegame.png";
 
+
 export function Home({ handlePageChange }) {
   const [display, setDisplay] = useState(true);
 

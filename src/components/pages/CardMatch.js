@@ -6,20 +6,6 @@ import "./styles/CardMatch.css";
 import { Box, Typography, Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-const styles = {
-  modal: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 200,
-    bgcolor: "background.black",
-    contrast: "0%",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-  },
-};
 
 export function CardMatch({ handlePageChange }) {
   const [cards, setCards] = useState([]);
@@ -44,8 +30,6 @@ export function CardMatch({ handlePageChange }) {
     setCards(shuffledCards);
     // resetGame();
   };
-
-  // BUG: user can double click on one card and flip the other paired card :)
 
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
@@ -87,7 +71,6 @@ export function CardMatch({ handlePageChange }) {
           };
           postScore();
           handleOpen();
-          // this is where we want to hook into high scores!!! -Muhammad
         }
         resetTurn();
       } else {
@@ -134,10 +117,10 @@ export function CardMatch({ handlePageChange }) {
           aria-labelledby="unstyled-modal-title"
           aria-describedby="unstyled-modal-description"
         >
-          <Box style={styles.modal}>
+          <Box className="winModal">
             <Typography id="unstyled-modal-title" variant="h6" component="h2">
               You won in {moves} moves!
-              <button className="button" onClick={resetGame}>
+              <button className="btn third" onClick={resetGame}>
                 Play Again
               </button>
             </Typography>

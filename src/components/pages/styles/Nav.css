@@ -20,3 +20,23 @@
 .third:hover {
   box-shadow: 0 0 10px 0 #F46036 inset, 0 0 10px 4px #F46036;
 }
+
+.navbarContainer {
+  background: #2E294E;
+}
+
+.imgDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.profileImg {
+  border-radius: 50%;
+  margin-top: 30px;
+  width: 50px;
+}

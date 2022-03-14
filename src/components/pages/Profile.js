@@ -61,9 +61,7 @@ export function Profile() {
   return (
     <>
       <div className="d-flex justify-content-end">
-        <button onClick={handleShow} className="btn">
-          <SettingsIcon className="icon" />
-        </button>
+
         <Modal show={show} onHide={handleClose}>
           <div className="modalContainer">
             <Modal.Header closeButton>
@@ -98,6 +96,9 @@ export function Profile() {
       <div className="d-flex justify-content-center">
         <div className="profileDetails card col-8">
           <img className='avatarStyle' src={avatar} />
+          <button onClick={handleShow} className="settingsBtn">
+          <SettingsIcon className="icon" />
+        </button>
           <h1 className="title">Profile Info</h1>
           Username : {username}
           <br />

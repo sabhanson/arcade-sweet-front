@@ -1,25 +1,12 @@
 import React from "react";
+import "../components/pages/styles/Footer.css";
 
-const styles = {
-  footer: {},
-  div: {
-    marginTop: "2rem",
-    display: "flex",
-    background: "white",
-    flexDirection: "column",
-    border: "4px solid #2E294E",
-  },
-  ul: {
-    display: "flex",
-    justifyContent: "center",
-  },
-};
 
 function Footer({ currentPage, handlePageChange }) {
   return (
-    <div style={styles.div}>
-      <footer style={styles.footer}>
-        <ul style={styles.ul} className="navbar nav">
+    <div className="footerContainer">
+      <footer>
+        <ul className="footerItems navbar nav">
           <li className="nav-item col-4">
             <a
               href="#about"
