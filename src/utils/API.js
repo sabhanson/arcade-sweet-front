@@ -10,7 +10,7 @@ export const getProfileData = async () => {
     const token = localStorage.getItem("token");
     if(token) {
         try {
-          const response = await fetch('http://localhost:3001/api/userProfile/Profile/'+token, {
+          const response = await fetch('https://powerful-badlands-74006.herokuapp.com/api/userProfile/Profile/'+token, {
               mode: "cors",
               method: 'GET',
               headers: {
@@ -30,7 +30,7 @@ export const getProfileData = async () => {
 export const getScores = async (gamevalue) => {
     try {
       const response = await fetch(
-        'http://localhost:3001/api/scores/top/',
+        'https://powerful-badlands-74006.herokuapp.com/api/scores/top/',
         {
           mode: "cors",
           method: "POST",
@@ -53,7 +53,7 @@ export const getUserScore = async (gamevalue) => {
   const token = localStorage.getItem("token");
   try {
     const response = await fetch(
-      'http://localhost:3001/api/users/score/',
+      'https://powerful-badlands-74006.herokuapp.com/api/users/score/',
       {
         mode: "cors",
         method: "POST",
@@ -77,7 +77,7 @@ export const getUserScore = async (gamevalue) => {
 export const getWordleScores = async (gamevalue) => {
     try {
       const response = await fetch(
-        'http://localhost:3001/api/scores/wordle',
+        'https://powerful-badlands-74006.herokuapp.com/api/scores/wordle',
         {
           mode: "cors",
           method: "POST",
@@ -100,7 +100,7 @@ export const getWordleScores = async (gamevalue) => {
   export const getReviews = async (gamevalue) => {
     try {
       const response = await fetch(
-        'http://localhost:3001/api/reviews/latest/',
+        'https://powerful-badlands-74006.herokuapp.com/api/reviews/latest/',
         {
           mode: "cors",
           method: "POST",
@@ -125,7 +125,7 @@ export const getWordleScores = async (gamevalue) => {
     if(token) {
       try {
         const response = await fetch(
-          'http://localhost:3001/api/reviews/',
+          'https://powerful-badlands-74006.herokuapp.com/api/reviews/',
           {
             mode: "cors",
             method: "POST",

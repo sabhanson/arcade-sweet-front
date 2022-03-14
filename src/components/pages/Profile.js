@@ -96,7 +96,7 @@ export function Profile() {
       alert("you must use valid email formatting");
       return;
     } else {
-      fetch("http://localhost:3001/api/userProfile/", {
+      fetch("https://powerful-badlands-74006.herokuapp.com/api/userProfile/", {
         mode: "cors",
         method: "PUT",
         body: JSON.stringify({
