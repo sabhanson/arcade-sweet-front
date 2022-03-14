@@ -1,5 +1,5 @@
 .guide-card {
-  background: #1B998B;
+  background: #1b998b;
   border: 5px double white;
   margin: 50px;
   border-radius: 15px;
@@ -11,43 +11,40 @@
   border-radius: 15px;
   padding: 20px 30px;
   margin: 20px;
-  border: 2px solid #2E294E;
+  border: 2px solid #2e294e;
 }
 
 .guide-title {
   color: white;
-  text-shadow: 2px 2px 3px #F46036;
+  text-shadow: 2px 2px 3px #f46036;
   padding: 10px;
   font-size: 3rem;
 }
 
-.btn:hover, .btn:focus {
+.btn:hover,
+.btn:focus {
   color: white;
   outline: 0;
-  background-color: #F46036;
+  background-color: #f46036;
 }
 
 .third {
-  border-color: #F46036;
+  border-color: #f46036;
   color: #fff;
-  box-shadow: 0 0 40px 40px #F46036 inset, 0 0 0 0 #F46036;
+  box-shadow: 0 0 40px 40px #f46036 inset, 0 0 0 0 #f46036;
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
   margin: 10px;
 }
 
 .third:hover {
-  box-shadow: 0 0 10px 0 #F46036 inset, 0 0 10px 4px #F46036;
+  box-shadow: 0 0 10px 0 #f46036 inset, 0 0 10px 4px #f46036;
 }
 
 .guideImg {
-  height: 500px;
-  width: 475px;
-  border: 3px solid #2E294E;
+  border: 3px solid #2e294e;
 }
 
 .guideImg2 {
-  height: 500px;
-  width: 400px;
-  border: 3px solid #2E294E;
+  border: 3px solid #2e294e;
 }
