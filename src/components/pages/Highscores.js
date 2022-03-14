@@ -10,32 +10,10 @@ import { getScores, getWordleScores } from "../../utils/API";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/Highscores.css";
 
-// const [value, setValue] = React.useState('one');
-
-// const handleChange = (event, newValue) => {
-//   setValue(newValue);
-// };
-
-// return (
-//   <Box sx={{ width: '100%' }}>
-//     <Tabs
-//       value={value}
-//       onChange={handleChange}
-//       textColor="secondary"
-//       indicatorColor="secondary"
-//       aria-label="secondary tabs example"
-//     >
-//       <Tab value="one" label="Card Matching" />
-//       <Tab value="two" label="Wordle" />
-//     </Tabs>
-//   </Box>
-// );
 
 export function Highscores() {
   const [scoreDataCM, setscoreDataCM] = useState([]);
   const [scoreDataWordle, setscoreDataWordle] = useState([]);
-  const rows = [];
-  // const [gameValue, setgameValue] = useState()
 
   useEffect(() => {
     callGetScores();
@@ -61,7 +39,6 @@ export function Highscores() {
     const sortable = Object.fromEntries(
       Object.entries(wordleScores).sort(([, a], [, b]) => b - a)
     );
-    console.log(sortable);
     setscoreDataWordle(sortable);
   };
 

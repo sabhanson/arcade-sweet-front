@@ -148,4 +148,4 @@ export const getWordleScores = async (gamevalue) => {
     return null;
   };
 
-export default {isToken, getProfileData, getScores, postReviews, getReviews, getWordleScores};
+export default {isToken, getProfileData, getScores, postReviews, getReviews, getWordleScores, getUserScore};

@@ -20,7 +20,6 @@ export function Reviews() {
   };
 
   const postReview = async (inputId) => {
-    console.log(inputId);
     let review = document.getElementById(inputId).value;
     document.getElementById(inputId).value = "";
     if (inputId === "card-match") await postReviews(review, 1);
