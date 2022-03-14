@@ -5,7 +5,8 @@ import "./styles/Reviews.css";
 import { Avatar } from "@mui/material";
 import { postReviews, getReviews } from "../../utils/API";
 
-export function Reviews() {
+
+export function Reviews({handlePageChange}) {
   const [reviewDataCM, setReviewDataCM] = useState([]);
   const [reviewDataWordle, setReviewDataWordle] = useState([]);
   useEffect(() => {
@@ -20,11 +21,19 @@ export function Reviews() {
   };
 
   const postReview = async (inputId) => {
-    let review = document.getElementById(inputId).value;
-    document.getElementById(inputId).value = "";
-    if (inputId === "card-match") await postReviews(review, 1);
-    else if (inputId === "wordle") await postReviews(review, 2);
-    callGetReviews();
+    console.log(inputId);
+    const token = localStorage.getItem("token");
+    if(token){
+      let review = document.getElementById(inputId).value;
+      document.getElementById(inputId).value = "";
+      if (inputId === "card-match") await postReviews(review, 1);
+      else if (inputId === "wordle") await postReviews(review, 2);
+      callGetReviews();
+    } else {
+      alert("Please login to post a review");
+      handlePageChange("Login");
+    }
+   
   };
 
   return (

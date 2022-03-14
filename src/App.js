@@ -32,7 +32,7 @@ function App() {
       return <Home handlePageChange={handlePageChange} />;
     }
     if (currentPage === "Reviews") {
-      return <Reviews />;
+      return <Reviews handlePageChange={handlePageChange}/>;
     }
     if (currentPage === "GameGuide") {
       return <GameGuide handlePageChange={handlePageChange} />;
