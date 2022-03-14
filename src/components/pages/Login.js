@@ -3,7 +3,7 @@ import "./styles/Form.css";
 import "./styles/Login.css";
 
 async function loginUser(credentials) {
-  return await fetch("http://localhost:3001/api/users/login", {
+  return await fetch("https://powerful-badlands-74006.herokuapp.com/api/users/login", {
     mode: "cors",
     method: "POST",
     headers: {
@@ -29,7 +29,7 @@ export default function Login({ handlePageChange }) {
       if (gameScore) {
         let gamevalue = gameScore.split(":")[0];
         let score = gameScore.split(":")[1];
-        fetch("http://localhost:3001/api/scores", {
+        fetch("https://powerful-badlands-74006.herokuapp.com/api/scores", {
           mode: "cors",
           method: "POST",
           body: JSON.stringify({

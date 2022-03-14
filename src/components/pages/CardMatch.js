@@ -55,7 +55,7 @@ export function CardMatch({ handlePageChange }) {
           const token = localStorage.getItem("token");
           if (token) {
             const postScore = () => {
-              fetch("http://localhost:3001/api/scores", {
+              fetch("https://powerful-badlands-74006.herokuapp.com/api/scores", {
                 mode: "cors",
                 method: "POST",
                 body: JSON.stringify({
