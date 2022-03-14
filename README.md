@@ -1,5 +1,5 @@
 # Arcade-Sweet a react app for simple games [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
-[Deployed Application]()
+[Deployed Application](https://arcade-sweet.herokuapp.com/)
 
 ## Description
 Arcade-Sweet is a react app for simple games that is community powered.
@@ -31,7 +31,7 @@ Interested in a template for your own simple game application built in react? â¬
 Now you are all done with front-end installation, to install the local server visit [the back end reopsoitory](https://github.com/sabhanson/arcade-sweet-back).âœ…
 ## Usage
 
-Visit the [deployed site]().  
+Visit the [deployed site](https://arcade-sweet.herokuapp.com/).  
 - Click the `Login` button to login or create a new account to be able to post reviews and have highscore tracking.
 - Click the `Sign-Up` button to create a new account.
 - Once logged in, go to the home tab and click `Play now!` on either Match That LaCroix or Wordle to start a new game.
