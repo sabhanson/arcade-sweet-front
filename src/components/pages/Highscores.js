@@ -6,29 +6,9 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { getScores , getWordleScores } from "../../utils/API";
+import { getScores, getWordleScores } from "../../utils/API";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-const styles = {
-  tableContainer: {
-    background: "#1B998B",
-    maxWidth: "80vw",
-    border: "5px double white",
-    padding: "10px",
-    boxShadow: "0px 0px 20px black",
-    borderRadius: "15px",
-    color: "white",
-    marginTop: "50px",
-  },
-  title: {
-    fontSize: "50px",
-    textAlign: "left",
-    color: "white",
-    textShadow: "2px 2px 3px #f46036",
-    padding: "10px",
-  },
-  tableHeader: { color: "#F46036", fontSize: "20px" },
-};
+import "./styles/Highscores.css";
 
 // const [value, setValue] = React.useState('one');
 
@@ -60,48 +40,44 @@ export function Highscores() {
   useEffect(() => {
     callGetScores();
   }, []);
-  
+
   const groupBy = (arr) => {
-    const numberofEntries= {}
+    const numberofEntries = {};
     for (let i = 0; i < arr.length; i++) {
       const element = arr[i];
-      if (numberofEntries[element.username] == undefined){
-        numberofEntries[element.username] = 0
+      if (numberofEntries[element.username] == undefined) {
+        numberofEntries[element.username] = 0;
       }
-      numberofEntries[element.username]+= 1
+      numberofEntries[element.username] += 1;
     }
-    return numberofEntries
-  }
-
-
+    return numberofEntries;
+  };
 
   const callGetScores = async () => {
     let sdCM = await getScores(1);
     let sdW = await getWordleScores(2);
     setscoreDataCM(sdCM);
-    const wordleScores = groupBy(sdW)
+    const wordleScores = groupBy(sdW);
     const sortable = Object.fromEntries(
-      Object.entries(wordleScores).sort(([,a],[,b]) => b-a)
-  );
-    console.log(sortable)
+      Object.entries(wordleScores).sort(([, a], [, b]) => b - a)
+    );
+    console.log(sortable);
     setscoreDataWordle(sortable);
   };
-  
-
 
   return (
     <div>
       <div className="d-flex justify-content-center">
-        <TableContainer className="col-6" style={styles.tableContainer}>
+        <TableContainer className="tableContainer col-6">
           <Table aria-label="simple table">
             <TableHead>
-              <p style={styles.title}>Card Matching</p>
+              <p className="game-title">Card Matching</p>
               <TableRow>
-                <TableCell style={styles.tableHeader}>
+                <TableCell className="tableHeader">
                   <strong>Username</strong>
                 </TableCell>
-                <TableCell align="center" style={styles.tableHeader}>
-                  <strong>High Score</strong>
+                <TableCell align="right" className="tableHeader">
+                  <strong>Number of Moves</strong>
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -114,7 +90,9 @@ export function Highscores() {
                   <TableCell component="th" scope="row">
                     {row.username}
                   </TableCell>
-                  <TableCell align="center">{row.score}</TableCell>
+                  <TableCell className="score" align="right">
+                    {row.score}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -123,15 +101,15 @@ export function Highscores() {
       </div>
 
       <div className="d-flex justify-content-center">
-        <TableContainer style={styles.tableContainer}>
+        <TableContainer className="tableContainer col-6">
           <Table aria-label="simple table">
             <TableHead>
-              <p style={styles.title}>Wordle</p>
+              <p className="game-title">Wordle</p>
               <TableRow>
-                <TableCell style={styles.tableHeader}>
+                <TableCell className="tableHeader">
                   <strong>Username</strong>
                 </TableCell>
-                <TableCell align="center" style={styles.tableHeader}>
+                <TableCell align="right" className="tableHeader">
                   <strong>Number of Wins</strong>
                 </TableCell>
               </TableRow>
@@ -145,7 +123,9 @@ export function Highscores() {
                   <TableCell component="th" scope="row">
                     {row[0]}
                   </TableCell>
-                  <TableCell align="center">{row[1]}</TableCell>
+                  <TableCell className="score" align="right">
+                    {row[1]}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

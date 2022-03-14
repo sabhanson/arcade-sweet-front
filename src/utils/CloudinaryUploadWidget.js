@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-
-const styles = {
-  button: {
-    background: "#F46036",
-    width: "fit-content",
-    borderRadius: "15px",
-  },
-};
+import "../components/pages/styles/Cloudinary.css"
 
 class CloudinaryUploadWidget extends Component {
   componentDidMount() {
@@ -53,7 +46,7 @@ class CloudinaryUploadWidget extends Component {
             file_name: result.info.url
           }
           const token = localStorage.getItem("token")
-          fetch('https://powerful-badlands-74006.herokuapp.com/api/userProfile/avatarUpdate', {
+          fetch('http://localhost:3001/api/userProfile/avatarUpdate', {
             method: "PUT",
             body: JSON.stringify(newAvatar),
             headers: {
@@ -76,9 +69,8 @@ class CloudinaryUploadWidget extends Component {
   render() {
     return (
       <button
-        style={styles.button}
         id="upload_widget"
-        className="cloudinary-button"
+        className="btn third cloudinary-button"
       >
         Upload
       </button>

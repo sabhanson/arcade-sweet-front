@@ -6,20 +6,6 @@ import "./styles/CardMatch.css";
 import { Box, Typography, Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-const styles = {
-  modal: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 200,
-    bgcolor: "background.black",
-    contrast: "0%",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-  },
-};
 
 export function CardMatch({ handlePageChange }) {
   const [cards, setCards] = useState([]);
@@ -45,8 +31,6 @@ export function CardMatch({ handlePageChange }) {
     // resetGame();
   };
 
-  // BUG: user can double click on one card and flip the other paired card :)
-
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   };
@@ -71,22 +55,29 @@ export function CardMatch({ handlePageChange }) {
         // function so when match = 6 then capture moves count for score then trigger endgame
         if (match === 5) {
           const token = localStorage.getItem("token");
-          const postScore = () => {
-            fetch("https://powerful-badlands-74006.herokuapp.com/api/scores", {
-              mode: "cors",
-              method: "POST",
-              body: JSON.stringify({
-                score: moves + 1,
-                gamevalue: 1,
-              }),
-              headers: {
-                "Content-Type": "application/json",
-                authorization: token,
-              },
-            });
-          };
-          postScore();
-          handleOpen();
+          if(token) {
+            const postScore = () => {
+              fetch("http://localhost:3001/api/scores", {
+                mode: "cors",
+                method: "POST",
+                body: JSON.stringify({
+                  score: moves + 1,
+                  gamevalue: 1,
+                }),
+                headers: {
+                  "Content-Type": "application/json",
+                  authorization: token,
+                },
+              });
+            };
+            postScore();
+            handleOpen()
+          } else {
+            alert("Please login to save your score");
+            localStorage.setItem("gameScore","1:"+(moves+1));
+            handlePageChange("Login");
+          }
+          ;
           // this is where we want to hook into high scores!!! -Muhammad
         }
         resetTurn();
@@ -134,10 +125,10 @@ export function CardMatch({ handlePageChange }) {
           aria-labelledby="unstyled-modal-title"
           aria-describedby="unstyled-modal-description"
         >
-          <Box style={styles.modal}>
+          <Box className="winModal">
             <Typography id="unstyled-modal-title" variant="h6" component="h2">
               You won in {moves} moves!
-              <button className="button" onClick={resetGame}>
+              <button className="btn third" onClick={resetGame}>
                 Play Again
               </button>
             </Typography>

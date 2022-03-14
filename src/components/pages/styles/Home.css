@@ -2,14 +2,6 @@
   display: none;
 }
 
-.button {
-  padding: 3px;
-  background-color: #F46036;
-  color: white;
-  border-radius: 7px;
-  margin: 10px;
-}
-
 .btn:hover,
 .btn:focus {
   color: white;

@@ -1,22 +1,43 @@
 /* login button */
-.btn:hover, .btn:focus {
+.btn:hover,
+.btn:focus {
   color: white;
   outline: 0;
-  background-color: #F46036;
+  background-color: #f46036;
 }
 
 /* login button */
 .third {
-  border-color: #F46036;
+  border-color: #f46036;
   color: #fff;
-  box-shadow: 0 0 40px 40px #F46036 inset, 0 0 0 0 #F46036;
+  box-shadow: 0 0 40px 40px #f46036 inset, 0 0 0 0 #f46036;
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
   margin: 10px;
- max-height: 40px
+  max-height: 40px;
 }
 
 /* login button */
 .third:hover {
-  box-shadow: 0 0 10px 0 #F46036 inset, 0 0 10px 4px #F46036;
+  box-shadow: 0 0 10px 0 #f46036 inset, 0 0 10px 4px #f46036;
+}
+
+.navbarContainer {
+  background: #2e294e;
+}
+
+.imgDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.profileImg {
+  border-radius: 50%;
+  margin-top: 30px;
+  width: 50px;
 }
