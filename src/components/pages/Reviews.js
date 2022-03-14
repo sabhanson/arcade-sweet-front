@@ -5,8 +5,7 @@ import "./styles/Reviews.css";
 import { Avatar } from "@mui/material";
 import { postReviews, getReviews } from "../../utils/API";
 
-
-export function Reviews({handlePageChange}) {
+export function Reviews({ handlePageChange }) {
   const [reviewDataCM, setReviewDataCM] = useState([]);
   const [reviewDataWordle, setReviewDataWordle] = useState([]);
   useEffect(() => {
@@ -23,7 +22,7 @@ export function Reviews({handlePageChange}) {
   const postReview = async (inputId) => {
     console.log(inputId);
     const token = localStorage.getItem("token");
-    if(token){
+    if (token) {
       let review = document.getElementById(inputId).value;
       document.getElementById(inputId).value = "";
       if (inputId === "card-match") await postReviews(review, 1);
@@ -33,17 +32,16 @@ export function Reviews({handlePageChange}) {
       alert("Please login to post a review");
       handlePageChange("Login");
     }
-   
   };
 
   return (
     <div className="h-100">
       <div className="d-flex justify-content-center">
-        <div className="reviewContainer card col-6">
+        <div className="reviewContainer card col-10 col-lg-6">
           <h1 className="gameTitle">Card Matching</h1>
           {reviewDataCM.map((row) => (
             <div className="row justify-content-center">
-              <div className="d-flex justify-content-end col-2">
+              <div className="d-flex justify-content-end col-3 col-md-2">
                 <Avatar
                   sx={{ width: 56, height: 56 }}
                   className="profileImg"
@@ -59,7 +57,7 @@ export function Reviews({handlePageChange}) {
           <div className="d-flex justify-content-center">
             <input
               placeholder="add a review..."
-              className="reviewBox col-8"
+              className="reviewBox col-8 my-2"
               id="card-match"
             ></input>
             <button
@@ -72,11 +70,11 @@ export function Reviews({handlePageChange}) {
         </div>
       </div>
       <div className="d-flex justify-content-center">
-        <div className="reviewContainer card col-6">
+        <div className="reviewContainer card col-10 col-lg-6">
           <h1 className="gameTitle">Wordle</h1>
           {reviewDataWordle.map((row) => (
             <div className="row justify-content-center">
-              <div className="d-flex justify-content-end col-2">
+              <div className="d-flex justify-content-end col-3 col-md-2">
                 <Avatar
                   sx={{ width: 56, height: 56 }}
                   className="profileImg"
@@ -92,7 +90,7 @@ export function Reviews({handlePageChange}) {
           <div className="d-flex justify-content-center">
             <input
               placeholder="add a review..."
-              className="reviewBox col-8"
+              className="reviewBox col-8 my-2"
               id="wordle"
             ></input>
             <button className="btn third" onClick={() => postReview("wordle")}>

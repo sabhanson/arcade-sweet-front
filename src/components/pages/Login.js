@@ -50,43 +50,45 @@ export default function Login({ handlePageChange }) {
     }
   };
   return (
-    <div className="auth-wrapper">
-      <div className="auth-inner">
-        <form onSubmit={handleSubmit}>
-          <h3>Log In</h3>
-          <div className="form-group">
-            <label>Username</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Username"
-              onChange={(e) => setUserName(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <button type="submit" className="btn third">
-            Log In
-          </button>
-          <p className="forgot-password text-right">
-            Not Registered?{" "}
-            <a
-              src="Signup"
-              href="#signup"
-              alt="alt tag"
-              onClick={() => handlePageChange("Signup")}
-            >
-              Signup
-            </a>
-          </p>
-        </form>
+    <div className="row h-75">
+      <div className="auth-wrapper">
+        <div className="auth-inner col-10 col-lg-6">
+          <form onSubmit={handleSubmit}>
+            <h3>Log In</h3>
+            <div className="form-group">
+              <label>Username</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Username"
+                onChange={(e) => setUserName(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Enter password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button type="submit" className="btn third">
+              Log In
+            </button>
+            <p className="forgot-password text-right">
+              Not Registered?{" "}
+              <a
+                src="Signup"
+                href="#signup"
+                alt="alt tag"
+                onClick={() => handlePageChange("Signup")}
+              >
+                Signup
+              </a>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -17,30 +17,32 @@ const Keyboard = ({ boardData, handleKeyPress }) => {
     };
   }, [handleKeyPress]);
   return (
-    <div className="keyboard-rows">
-      {keys.map((item, index) => (
-        <div className="key-row" key={index}>
-          {item.map((key, keyIndex) => (
-            <button
-              key={keyIndex}
-              className={`${
-                boardData && boardData.correctCharArray.includes(key)
-                  ? "key-correct"
-                  : boardData && boardData.presentCharArray.includes(key)
-                  ? "key-present"
-                  : boardData && boardData.absentCharArray.includes(key)
-                  ? "key-absent"
-                  : ""
-              } letter-button` }
-              onClick={() => {
-                handleKeyPress(key);
-              }}
-            >
-              {key}
-            </button>
-          ))}
-        </div>
-      ))}
+    <div className="row justify-content-center">
+      <div className="keyboard-rows">
+        {keys.map((item, index) => (
+          <div className="key-row" key={index}>
+            {item.map((key, keyIndex) => (
+              <button
+                key={keyIndex}
+                className={`${
+                  boardData && boardData.correctCharArray.includes(key)
+                    ? "key-correct"
+                    : boardData && boardData.presentCharArray.includes(key)
+                    ? "key-present"
+                    : boardData && boardData.absentCharArray.includes(key)
+                    ? "key-absent"
+                    : ""
+                } letter-button`}
+                onClick={() => {
+                  handleKeyPress(key);
+                }}
+              >
+                {key}
+              </button>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

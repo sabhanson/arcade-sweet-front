@@ -133,7 +133,7 @@ export function Profile() {
   getData();
 
   return (
-    <>
+    <div className="h-75">
       <div className="d-flex justify-content-end">
         <Modal show={show} onHide={handleClose}>
           <div className="modalContainer">
@@ -168,7 +168,7 @@ export function Profile() {
       <Carousel interval={null}>
         <Carousel.Item>
           <div className="d-flex justify-content-center">
-            <div className="profileDetails card col-6">
+            <div className="profileDetails card col-10 col-lg-6">
               <button onClick={handleShow} className="settingsBtn">
                 <SettingsIcon className="icon" />
               </button>
@@ -179,7 +179,7 @@ export function Profile() {
                   src={avatar}
                   alt="image of the user's avatar"
                 />
-                <p className="col-12">
+                <p className="col-12 pb-4">
                   Username : {username}
                   <br />
                   EMAIL : {email}
@@ -190,74 +190,82 @@ export function Profile() {
         </Carousel.Item>
         <Carousel.Item>
           <div className="d-flex justify-content-center">
-            <TableContainer className="col-6" style={styles.tableContainer}>
-              <Table aria-label="simple table">
-                <TableHead>
-                  <p style={styles.title}>Your High Scores</p>
-                  <TableRow>
-                    <TableCell style={styles.tableHeader}>
-                      <strong>Game Name</strong>
-                    </TableCell>
-                    <TableCell align="center" style={styles.tableHeader}>
-                      <strong>High Score</strong>
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {scoreDataCM.map((row) => (
-                    <TableRow
-                      key="CardMatch"
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        Card Match
+            <div className="col-10 col-lg-6">
+              <TableContainer style={styles.tableContainer}>
+                <Table aria-label="simple table">
+                  <TableHead>
+                    <p style={styles.title}>Your High Scores</p>
+                    <TableRow>
+                      <TableCell style={styles.tableHeader}>
+                        <strong>Game Name</strong>
                       </TableCell>
-                      <TableCell align="center">{row.score}</TableCell>
-                    </TableRow>
-                  ))}
-                  {Object.entries(scoreDataWordle).map((row) => (
-                    <TableRow
-                      key="Wordle"
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        Wordle
+                      <TableCell align="center" style={styles.tableHeader}>
+                        <strong>High Score</strong>
                       </TableCell>
-                      <TableCell align="center">{row[1]}</TableCell>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
+                  </TableHead>
+                  <TableBody>
+                    {scoreDataCM.map((row) => (
+                      <TableRow
+                        key="CardMatch"
+                        sx={{
+                          "&:last-child td, &:last-child th": { border: 0 },
+                        }}
+                      >
+                        <TableCell component="th" scope="row">
+                          Card Match
+                        </TableCell>
+                        <TableCell align="center">{row.score}</TableCell>
+                      </TableRow>
+                    ))}
+                    {Object.entries(scoreDataWordle).map((row) => (
+                      <TableRow
+                        key="Wordle"
+                        sx={{
+                          "&:last-child td, &:last-child th": { border: 0 },
+                        }}
+                      >
+                        <TableCell component="th" scope="row">
+                          Wordle
+                        </TableCell>
+                        <TableCell align="center">{row[1]}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </div>
           </div>
         </Carousel.Item>
         <Carousel.Item>
           <div className="d-flex justify-content-center">
-            <div className="profileDetails card col-8">
+            <div className="profileDetails card col-10 col-lg-6">
               <h1 className="title">Your Awards</h1>
-              <img
-                src={gold}
-                className={`medal ${goldClass}`}
-                alt="gold medal"
-              />
-              <img
-                src={silver}
-                className={`medal ${silverClass}`}
-                alt="silver medal"
-              />
-              <img
-                src={bronze}
-                className={`medal ${bronzeClass}`}
-                alt="bronze medal"
-              />
-              <br />
-              <br />
-              <br />
+              <div className="row justify-content-center pb-5">
+                <img
+                  src={bronze}
+                  className={`medal ${bronzeClass}`}
+                  alt="bronze medal"
+                />
+                <img
+                  src={silver}
+                  className={`medal ${silverClass}`}
+                  alt="silver medal"
+                />
+                <img
+                  src={gold}
+                  className={`medal ${goldClass}`}
+                  alt="gold medal"
+                />
+                <br />
+                <br />
+                <br />
+              </div>
             </div>
-            </div>
-          </Carousel.Item>
-        </Carousel>
-    </>
+          </div>
+        </Carousel.Item>
+      </Carousel>
+    </div>
   );
 }
 

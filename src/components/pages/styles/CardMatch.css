@@ -17,14 +17,14 @@
 }
 
 .x-button {
-  background-color: #F46036;
+  background-color: #f46036;
   color: white;
   margin: 7px 0px;
   border-radius: 8px;
 }
 
 .game-card {
-  background: #1B998B;
+  background: #1b998b;
   border: 5px double white;
   margin: 50px;
   border-radius: 15px;
@@ -33,7 +33,7 @@
 
 .game-title {
   color: white;
-  text-shadow: 2px 2px 3px #F46036;
+  text-shadow: 2px 2px 3px #f46036;
   padding: 10px;
   font-size: 3rem;
 }
@@ -47,4 +47,10 @@
   background-color: black;
   border: 2px solid #000;
   box-shadow: 24;
+}
+
+@media only screen and (max-width: 576px) {
+  .third {
+    font-size: 10px;
+  }
 }
