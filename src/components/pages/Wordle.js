@@ -105,8 +105,8 @@ const Wordle = ({ handlePageChange }) => {
       status = "WIN";
       handleMessage("You Won!");
       const token = localStorage.getItem("token");
-      const postScore = () => {
-        fetch("http://localhost:3001/api/scores", {
+      if(token){ const postScore = () => {
+        fetch("https://powerful-badlands-74006.herokuapp.com/api/scores", {
           mode: "cors",
           method: "POST",
           body: JSON.stringify({
@@ -120,12 +120,18 @@ const Wordle = ({ handlePageChange }) => {
         });
       };
       postScore();
+    }else{
+      alert("Please login to save your score");
+      localStorage.setItem("gameScore", "2:1");
+      handlePageChange("Login");
+    }
+     
     } else if (rowIndex + 1 === 6) {
       status = "LOST";
       handleMessage(`You lost, the word was: ${boardData.solution}`);
       const token = localStorage.getItem("token");
-      const postScore = () => {
-        fetch("http://localhost:3001/api/scores", {
+      if(token){const postScore = () => {
+        fetch("https://powerful-badlands-74006.herokuapp.com/api/scores", {
           mode: "cors",
           method: "POST",
           body: JSON.stringify({
@@ -139,6 +145,12 @@ const Wordle = ({ handlePageChange }) => {
         });
       };
       postScore();
+    } else{
+      alert("Please login to save your score");
+      localStorage.setItem("gameScore", "2:0");
+      handlePageChange("Login");
+    }
+      
     }
     boardRowStatus.push(rowStatus);
     boardWords[rowIndex] = word;
