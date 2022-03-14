@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Carousel from 'react-bootstrap/Carousel';
+import Carousel from "react-bootstrap/Carousel";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -14,10 +14,10 @@ import "./styles/Profile.css";
 import CloudinaryUploadWidget from "../../utils/CloudinaryUploadWidget";
 import { getProfileData } from "../../utils/API";
 import { Avatar } from "@mui/material";
-import { getUserScore , getWordleScores } from "../../utils/API";
-import gold from '../../images/gold.png';
-import silver from '../../images/silver.png';
-import bronze from '../../images/bronze.png';
+import { getUserScore, getWordleScores } from "../../utils/API";
+import gold from "../../images/gold.png";
+import silver from "../../images/silver.png";
+import bronze from "../../images/bronze.png";
 
 const styles = {
   tableContainer: {
@@ -59,25 +59,25 @@ export function Profile() {
     let sdCM = await getUserScore(1);
     let sdW = await getUserScore(2);
     setscoreDataCM(sdCM);
-    const wordleScores = groupBy(sdW)
+    const wordleScores = groupBy(sdW);
     const sortable = Object.fromEntries(
-      Object.entries(wordleScores).sort(([,a],[,b]) => b-a)
-  );
-    console.log(sortable)
+      Object.entries(wordleScores).sort(([, a], [, b]) => b - a)
+    );
+    console.log(sortable);
     setscoreDataWordle(sortable);
   };
 
   const groupBy = (arr) => {
-    const numberofEntries= {}
+    const numberofEntries = {};
     for (let i = 0; i < arr.length; i++) {
       const element = arr[i];
-      if (numberofEntries[element.username] == undefined){
-        numberofEntries[element.username] = 0
+      if (numberofEntries[element.username] == undefined) {
+        numberofEntries[element.username] = 0;
       }
-      numberofEntries[element.username]+= 1
+      numberofEntries[element.username] += 1;
     }
-    return numberofEntries
-  }
+    return numberofEntries;
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -120,22 +120,21 @@ export function Profile() {
     setEmail(pd.email);
     setAvatar(pd.file_name);
     let gamesPlayed = pd.scores.length;
-    console.log("pd = "+JSON.stringify(pd));
-    console.log("gamesPlayed = "+gamesPlayed);
+    console.log("pd = " + JSON.stringify(pd));
+    console.log("gamesPlayed = " + gamesPlayed);
 
-    if(gamesPlayed >= 5) {
+    if (gamesPlayed >= 5) {
       setBronzeClass("shown");
     }
-    if(gamesPlayed >= 10) {
+    if (gamesPlayed >= 10) {
       setSilverClass("shown");
     }
-    if(gamesPlayed >= 15) {
+    if (gamesPlayed >= 15) {
       setGoldClass("shown");
     }
     return pd;
   }
   getData();
-
 
   return (
     <>
@@ -187,84 +186,94 @@ export function Profile() {
           </div>
         </div> */}
 
-        {/* <div style={styles.div} className="card col-8">
+      {/* <div style={styles.div} className="card col-8">
           <h1 style={styles.h1}>My Highscores</h1>
         </div> */}
       {/* </div> */}
-      <Carousel interval={null}>
-        <Carousel.Item>
-          <div className="d-flex justify-content-center">
-            <div className="profileDetails card col-6">
-              <button onClick={handleShow} className="settingsBtn">
-                <SettingsIcon className="icon" />
-              </button>
-              <div className="row d-flex justify-content-center">
-                <h1 className="title col-12">Profile Info</h1>
-                <img className="avatarStyle" src={avatar} />
-                <p className="col-12">
-                  Username : {username}
-                  <br />
-                  EMAIL : {email}
-                </p>
+      <div className="h-100">
+        <Carousel interval={null} className="my-4">
+          <Carousel.Item>
+            <div className="d-flex justify-content-center">
+              <div className="profileDetails card col-6">
+                <button onClick={handleShow} className="settingsBtn">
+                  <SettingsIcon className="icon" />
+                </button>
+                <div className="row d-flex justify-content-center">
+                  <h1 className="title col-12">Profile Info</h1>
+                  <img className="avatarStyle" src={avatar} />
+                  <p className="col-12">
+                    Username : {username}
+                    <br />
+                    EMAIL : {email}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className="d-flex justify-content-center">
-            <TableContainer className="col-6" style={styles.tableContainer}>
-              <Table aria-label="simple table">
-                <TableHead>
-                  <p style={styles.title}>Your High Scores</p>
-                  <TableRow>
-                    <TableCell style={styles.tableHeader}>
-                      <strong>Game Name</strong>
-                    </TableCell>
-                    <TableCell align="center" style={styles.tableHeader}>
-                      <strong>High Score</strong>
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {scoreDataCM.map((row) => (
-                    <TableRow
-                      key="CardMatch"
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        Card Match
-                      </TableCell>
-                      <TableCell align="center">{row.score}</TableCell>
-                    </TableRow>
-                  ))}
-                  {Object.entries(scoreDataWordle).map((row) => (
-                    <TableRow
-                      key="Wordle"
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        Wordle
-                      </TableCell>
-                      <TableCell align="center">{row[1]}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className="d-flex justify-content-center">
-            <div className="profileDetails card col-8">
+          </Carousel.Item>
+          <Carousel.Item>
+            <div className="d-flex justify-content-center">
+              <div className="col-6">
+                <TableContainer className="col-6" style={styles.tableContainer}>
+                  <TableContainer aria-label="simple table">
+                    <TableHead>
+                      <p style={styles.title}>Your High Scores</p>
+                      <TableRow>
+                        <TableCell style={styles.tableHeader}>
+                          <strong>Game Name</strong>
+                        </TableCell>
+                        <TableCell align="center" style={styles.tableHeader}>
+                          <strong>High Score</strong>
+                        </TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {scoreDataCM.map((row) => (
+                        <TableRow
+                          key="CardMatch"
+                          sx={{
+                            "&:last-child td, &:last-child th": { border: 0 },
+                          }}
+                        >
+                          <TableCell component="th" scope="row">
+                            Card Match
+                          </TableCell>
+                          <TableCell align="center">{row.score}</TableCell>
+                        </TableRow>
+                      ))}
+                      {Object.entries(scoreDataWordle).map((row) => (
+                        <TableRow
+                          key="Wordle"
+                          sx={{
+                            "&:last-child td, &:last-child th": { border: 0 },
+                          }}
+                        >
+                          <TableCell component="th" scope="row">
+                            Wordle
+                          </TableCell>
+                          <TableCell align="center">{row[1]}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </TableContainer>
+                </TableContainer>
+              </div>
+            </div>
+          </Carousel.Item>
+          <Carousel.Item>
+            <div className="d-flex justify-content-center">
+              <div className="profileDetails card col-6">
                 <h1 className="title">Your Awards</h1>
                 <img src={gold} className={`medal ${goldClass}`} />
                 <img src={silver} className={`medal ${silverClass}`} />
                 <img src={bronze} className={`medal ${bronzeClass}`} />
-                <br/><br/><br/>
+                <br />
+                <br />
+                <br />
+              </div>
             </div>
-          </div>
-        </Carousel.Item>
-      </Carousel>
+          </Carousel.Item>
+        </Carousel>
+      </div>
     </>
   );
 }

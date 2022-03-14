@@ -1,7 +1,6 @@
 import React from "react";
 import "../components/pages/styles/Footer.css";
 
-
 function Footer({ currentPage, handlePageChange }) {
   return (
     <div className="footerContainer">

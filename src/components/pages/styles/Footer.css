@@ -1,12 +1,12 @@
 .footerContainer {
-    margin-top: 2rem;
-    display: flex;
-    background: white;
-    flex-direction: column;
-    border: 4px solid #2E294E;
+  margin-top: 2rem;
+  display: flex;
+  background: white;
+  flex-direction: column;
+  border: 4px solid #2e294e;
 }
-  
+
 .footerItems {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }

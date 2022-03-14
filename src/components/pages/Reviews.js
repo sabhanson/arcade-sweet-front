@@ -5,7 +5,6 @@ import "./styles/Reviews.css";
 import { Avatar } from "@mui/material";
 import { postReviews, getReviews } from "../../utils/API";
 
-
 export function Reviews() {
   const [reviewDataCM, setReviewDataCM] = useState([]);
   const [reviewDataWordle, setReviewDataWordle] = useState([]);
@@ -30,7 +29,7 @@ export function Reviews() {
   };
 
   return (
-    <>
+    <div className="h-100">
       <div className="d-flex justify-content-center">
         <div className="reviewContainer card col-6">
           <h1 className="gameTitle">Card Matching</h1>
@@ -88,16 +87,13 @@ export function Reviews() {
               className="reviewBox col-8"
               id="wordle"
             ></input>
-            <button
-              className="btn third"
-              onClick={() => postReview("wordle")}
-            >
+            <button className="btn third" onClick={() => postReview("wordle")}>
               Submit
             </button>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
