@@ -1,0 +1,122 @@
+.container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  align-items: center;
+  border: 5px double white;
+  box-shadow: 0px 0px 20px black;
+  border-radius: 15px;
+  background-color: #1b998b;
+  padding-bottom: 30px;
+}
+
+.x-button {
+  margin: 10px 0px 0px 0px;
+}
+
+.message {
+  position: absolute;
+  top: 10%;
+  padding: 10px 20px;
+  margin-top: 400px;
+  border-radius: 10px;
+  color: #fff;
+  background: #787c7e;
+  font-size: 16px;
+}
+
+.title {
+  letter-spacing: 0.2rem;
+  font-size: 50px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 2px 2px 3px #f46036;
+}
+
+.cube-row {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.cube {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.letter {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #d3d6da;
+}
+
+.reset-board {
+  padding: 5px 5px 5px 20px;
+  background: none;
+  /* color: #f46036; */
+  color: white;
+  text-shadow: 2px 2px 2px #f46036;
+  font-size: 38px;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 20px;
+  border-bottom: 1px solid grey;
+}
+
+.cube-row.error {
+  -webkit-animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.correct {
+  background: #6aaa64;
+  color: #fff;
+}
+
+.present {
+  background: #c9b458;
+  color: #fff;
+}
+
+.absent {
+  background: #787c7e;
+  color: #fff;
+}

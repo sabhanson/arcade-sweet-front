@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Arcade-Sweet a react app for simple games [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+[Deployed Application]()
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+Arcade-Sweet is a react app for simple games that is community powered.
+Users can play a "sweet" of games that are tracked by highscores and earn badges for overall wins!
+They can also post reviews of the games to give feedback for other players to read and make desicions on what games to play.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Table of Contents 
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Tests](#tests)
+- [Technology](#technology)
+- [Questions](#questions)
 
-### `npm start`
+## Installation  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### For Gamers
+Visit the [deployed webiste]() and sign up to create your account.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### For Developers
+Interested in a template for your own simple game application built in react? ⬇️
 
-### `npm test`
+- Clone this repo to your local machine
+- Open VSCode and run the command `npm install` in the built-in terminal to install the necessary node packages
+- Since this application uses react, to start up run the command `npm start` and a browser window will open automatically
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Now you are all done with front-end installation, to install the local server visit [the back end reopsoitory](https://github.com/sabhanson/arcade-sweet-back).✅
+## Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Visit the [deployed site]().  
+- Click the `Login` button to login or create a new account to be able to post reviews and have highscore tracking.
+- Click the `Sign-Up` button to create a new account.
+- Once logged in, go to the home tab and click `Play now!` on either Match That LaCroix or Wordle to start a new game.
+- The `Reviews` tab will navigate you to the reviews section. Post a new review for either game.
+- The `Game Guides` tab will navigate to the game guides. Here you will learn about how to play each game.
+- The `Highscores` tab will navigate to the highscores. The highest scoring users will be displayed here!
+- To access your `Profile`, click on the profile picture located in the top right-hand corner.
+- Here you will be able to see your highcores, any medals earned and be able to change your profile information.
+- Click on the ⚙️ to update your account settings. To change your profile picture, click on the `upload` button to upload a new picture or enter a new username and email. Click on the `Save Changes` button to save the changes.
+- Win in any game more than 5 times and you will be awarded with a bronze metal!
+- Click on the `contact us` link in the footer on the right hand side to send feed-back to the development team!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![GIF of deployed site usage](./src/images/arcade-sweet.gif)  
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## License
+<p>
+MIT License
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  Copyright &copy; 2022 
+  
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+  
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  </p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Tests
+All tests were performed and passed by the developer team.
 
-## Learn More
+## Technology
+* [Cloudinary](https://cloudinary.com/) Image API
+* [Bootstrap](https://getbootstrap.com/) CSS Framework
+* [React-Bootstrap](https://react-bootstrap.github.io/) react npm package
+* [React](https://reactjs.org/) template engine
+* [Material UI](https://mui.com/) react npm package
+* [Heroku](https://www.heroku.com/home) cloud application platform
+* [Toastify](https://aleab.github.io/toastify/) user confirmation on email submission
+* [emailjs](https://www.emailjs.com/) front-end email service
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Questions
+Contact the developers ⬇️
+* Isaac Petersen [Github](http://www.github.com/idpetersen) | [Email](mailto:isaac.petersen5@gmail.com)
+* Sabrina Hanson [Github](http://www.github.com/sabhanson) | [Email](mailto:sabhanson7@gmail.com)
+* Parul Raj [Github](https://github.com/sinka27) | [Email](mailto:parulraj27392@gmail.com)
+* Megan McLean [Github](http://www.github.com/425megs) | [Email](mailto:425megs@gmail.com)

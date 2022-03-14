@@ -1,0 +1,63 @@
+.modalContainer {
+  background: #1b998b;
+  text-shadow: 2px 2px 3px #f46036;
+}
+
+.input {
+  border-radius: 8px;
+}
+
+.title {
+  color: white;
+  text-align: center;
+}
+
+.settingsBtn {
+  background: white;
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.icon {
+  color: #f46036;
+  width: 30px;
+  height: 30px;
+}
+
+.profileDetails {
+  margin-top: 30px;
+  background: #1b998b;
+  border: 5px double white !important;
+  padding: 10px;
+  box-shadow: 0px 0px 20px black;
+  border-radius: 15px;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 3px #f46036;
+  padding: 10px;
+}
+
+.avatarStyle {
+  border-radius: 50%;
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+.medal {
+  height: 100%;
+  width: 15%;
+  object-fit: cover;
+}
+
+.shown {
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}

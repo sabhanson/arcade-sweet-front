@@ -1,0 +1,19 @@
+.btn:hover,
+.btn:focus {
+  color: white;
+  outline: 0;
+  background-color: #F46036;
+}
+
+.third {
+  border-color: #F46036;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #F46036 inset, 0 0 0 0 #F46036;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  margin: 10px;
+}
+
+.third:hover {
+  box-shadow: 0 0 10px 0 #F46036 inset, 0 0 10px 4px #F46036;
+}

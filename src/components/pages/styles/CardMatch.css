@@ -1,0 +1,56 @@
+.hidden {
+  display: none;
+}
+
+.moves {
+  margin: 6px;
+  padding: 2px 0px;
+  background-color: white;
+  color: black;
+  border-radius: 7px;
+}
+
+#unstyled-modal-title {
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.x-button {
+  background-color: #f46036;
+  color: white;
+  margin: 7px 0px;
+  border-radius: 8px;
+}
+
+.game-card {
+  background: #1b998b;
+  border: 5px double white;
+  margin: 50px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px black;
+}
+
+.game-title {
+  color: white;
+  text-shadow: 2px 2px 3px #f46036;
+  padding: 10px;
+  font-size: 3rem;
+}
+
+.winModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200;
+  background-color: black;
+  border: 2px solid #000;
+  box-shadow: 24;
+}
+
+@media only screen and (max-width: 576px) {
+  .third {
+    font-size: 10px;
+  }
+}

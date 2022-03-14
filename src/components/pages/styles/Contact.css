@@ -1,0 +1,43 @@
+.title {
+  margin-top: 30px;
+  color: white;
+  text-shadow: 2px 2px 3px #f46036;
+}
+
+.mainForm {
+  background: #1b998b;
+  border: 5px double white;
+  margin: 10px;
+  box-shadow: 0px 0px 20px black;
+  border-radius: 15px;
+}
+
+.formGroup {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px 10px 0px;
+}
+
+.formInput {
+  width: 100%;
+}
+
+.btn:hover,
+.btn:focus {
+  color: white;
+  outline: 0;
+  background-color: #f46036;
+}
+
+.third {
+  border-color: #f46036;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #f46036 inset, 0 0 0 0 #f46036;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  margin: 10px;
+}
+
+.third:hover {
+  box-shadow: 0 0 10px 0 #f46036 inset, 0 0 10px 4px #f46036;
+}
