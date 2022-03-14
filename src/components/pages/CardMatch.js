@@ -6,7 +6,6 @@ import "./styles/CardMatch.css";
 import { Box, Typography, Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-
 export function CardMatch({ handlePageChange }) {
   const [cards, setCards] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
@@ -28,7 +27,6 @@ export function CardMatch({ handlePageChange }) {
     setChoiceOne(null);
     setChoiceTwo(null);
     setCards(shuffledCards);
-    // resetGame();
   };
 
   const handleChoice = (card) => {
@@ -55,7 +53,7 @@ export function CardMatch({ handlePageChange }) {
         // function so when match = 6 then capture moves count for score then trigger endgame
         if (match === 5) {
           const token = localStorage.getItem("token");
-          if(token) {
+          if (token) {
             const postScore = () => {
               fetch("http://localhost:3001/api/scores", {
                 mode: "cors",
@@ -71,13 +69,12 @@ export function CardMatch({ handlePageChange }) {
               });
             };
             postScore();
-            handleOpen()
+            handleOpen();
           } else {
             alert("Please login to save your score");
-            localStorage.setItem("gameScore","1:"+(moves+1));
+            localStorage.setItem("gameScore", "1:" + (moves + 1));
             handlePageChange("Login");
           }
-          ;
           // this is where we want to hook into high scores!!! -Muhammad
         }
         resetTurn();

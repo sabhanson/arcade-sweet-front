@@ -1,13 +1,10 @@
 import React from "react";
 import "./styles/Terms.css";
 
-
 export function Terms() {
   return (
     <div className="d-flex row justify-content-center">
-      <h1 className="title col-12">
-        Terms of Use
-      </h1>
+      <h1 className="title col-12">Terms of Use</h1>
       <p className=" text col-10">
         Patents " mean patent claims licensable by a Recipient as defined in the
         software is modified by The Perl Foundation in the LEGAL file described

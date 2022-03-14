@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Carousel from 'react-bootstrap/Carousel';
+import Carousel from "react-bootstrap/Carousel";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -13,11 +13,10 @@ import TableRow from "@mui/material/TableRow";
 import "./styles/Profile.css";
 import CloudinaryUploadWidget from "../../utils/CloudinaryUploadWidget";
 import { getProfileData } from "../../utils/API";
-import { Avatar } from "@mui/material";
-import { getUserScore , getWordleScores } from "../../utils/API";
-import gold from '../../images/gold.png';
-import silver from '../../images/silver.png';
-import bronze from '../../images/bronze.png';
+import { getUserScore, getWordleScores } from "../../utils/API";
+import gold from "../../images/gold.png";
+import silver from "../../images/silver.png";
+import bronze from "../../images/bronze.png";
 
 const styles = {
   tableContainer: {
@@ -59,25 +58,24 @@ export function Profile() {
     let sdCM = await getUserScore(1);
     let sdW = await getUserScore(2);
     setscoreDataCM(sdCM);
-    const wordleScores = groupBy(sdW)
+    const wordleScores = groupBy(sdW);
     const sortable = Object.fromEntries(
-      Object.entries(wordleScores).sort(([,a],[,b]) => b-a)
-  );
-    console.log(sortable)
+      Object.entries(wordleScores).sort(([, a], [, b]) => b - a)
+    );
     setscoreDataWordle(sortable);
   };
 
   const groupBy = (arr) => {
-    const numberofEntries= {}
+    const numberofEntries = {};
     for (let i = 0; i < arr.length; i++) {
       const element = arr[i];
-      if (numberofEntries[element.username] == undefined){
-        numberofEntries[element.username] = 0
+      if (numberofEntries[element.username] == undefined) {
+        numberofEntries[element.username] = 0;
       }
-      numberofEntries[element.username]+= 1
+      numberofEntries[element.username] += 1;
     }
-    return numberofEntries
-  }
+    return numberofEntries;
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -87,7 +85,6 @@ export function Profile() {
     const newEmail = document.getElementById("newEmail").value;
     const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     const found = newEmail.match(regex);
-    console.log(newEmail);
     if (newUsername === "") {
       alert("You must enter something for your username");
       return;
@@ -120,22 +117,19 @@ export function Profile() {
     setEmail(pd.email);
     setAvatar(pd.file_name);
     let gamesPlayed = pd.scores.length;
-    console.log("pd = "+JSON.stringify(pd));
-    console.log("gamesPlayed = "+gamesPlayed);
 
-    if(gamesPlayed >= 5) {
+    if (gamesPlayed >= 5) {
       setBronzeClass("shown");
     }
-    if(gamesPlayed >= 10) {
+    if (gamesPlayed >= 10) {
       setSilverClass("shown");
     }
-    if(gamesPlayed >= 15) {
+    if (gamesPlayed >= 15) {
       setGoldClass("shown");
     }
     return pd;
   }
   getData();
-
 
   return (
     <>
@@ -163,7 +157,6 @@ export function Profile() {
               </form>
             </Modal.Body>
             <Modal.Footer>
-              {/* need to add an onclick for the save changes button that submits a put request to change the user data */}
               <Button variant="primary" onClick={handleProfileChange}>
                 Save Changes
               </Button>
@@ -171,26 +164,6 @@ export function Profile() {
           </div>
         </Modal>
       </div>
-      {/* <div className="d-flex justify-content-center">
-        <div className="profileDetails card col-6">
-          <button onClick={handleShow} className="settingsBtn">
-            <SettingsIcon className="icon" />
-          </button>
-          <div className="row d-flex justify-content-center">
-            <h1 className="title col-12">Profile Info</h1>
-            <img className="avatarStyle" src={avatar} />
-            <p className="col-12">
-              Username : {username}
-              <br />
-              EMAIL : {email}
-            </p>
-          </div>
-        </div> */}
-
-        {/* <div style={styles.div} className="card col-8">
-          <h1 style={styles.h1}>My Highscores</h1>
-        </div> */}
-      {/* </div> */}
       <Carousel interval={null}>
         <Carousel.Item>
           <div className="d-flex justify-content-center">
@@ -200,7 +173,11 @@ export function Profile() {
               </button>
               <div className="row d-flex justify-content-center">
                 <h1 className="title col-12">Profile Info</h1>
-                <img className="avatarStyle" src={avatar} />
+                <img
+                  className="avatarStyle"
+                  src={avatar}
+                  alt="image of the user's avatar"
+                />
                 <p className="col-12">
                   Username : {username}
                   <br />
@@ -256,11 +233,25 @@ export function Profile() {
         <Carousel.Item>
           <div className="d-flex justify-content-center">
             <div className="profileDetails card col-8">
-                <h1 className="title">Your Awards</h1>
-                <img src={gold} className={`medal ${goldClass}`} />
-                <img src={silver} className={`medal ${silverClass}`} />
-                <img src={bronze} className={`medal ${bronzeClass}`} />
-                <br/><br/><br/>
+              <h1 className="title">Your Awards</h1>
+              <img
+                src={gold}
+                className={`medal ${goldClass}`}
+                alt="gold medal"
+              />
+              <img
+                src={silver}
+                className={`medal ${silverClass}`}
+                alt="silver medal"
+              />
+              <img
+                src={bronze}
+                className={`medal ${bronzeClass}`}
+                alt="bronze medal"
+              />
+              <br />
+              <br />
+              <br />
             </div>
           </div>
         </Carousel.Item>
