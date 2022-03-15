@@ -42,9 +42,9 @@ const styles = {
 
 export function Profile() {
   const [show, setShow] = useState(false);
-  const [username, setUsername] = useState();
-  const [email, setEmail] = useState();
-  const [avatar, setAvatar] = useState();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [avatar, setAvatar] = useState("");
   const [scoreDataCM, setscoreDataCM] = useState([]);
   const [scoreDataWordle, setscoreDataWordle] = useState([]);
   const [goldClass, setGoldClass] = useState("hidden");

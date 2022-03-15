@@ -53,7 +53,8 @@ class CloudinaryUploadWidget extends Component {
               "Content-Type": "application/json",
               authorization: token,
             }
-          })
+          });
+          window.location.reload(false);
         }
       }
     );
